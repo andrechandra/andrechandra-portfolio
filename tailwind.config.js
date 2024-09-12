@@ -15,6 +15,13 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      transitionProperty: {
+        'background-color': 'background-color',
+        color: 'color',
+      },
+      transitionDuration: {
+        600: '600ms',
+      },
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
@@ -25,8 +32,11 @@ module.exports = {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.cyan,
+        secondary: colors.sky,
         gray: colors.gray,
+        sun: colors.amber,
+        moon: colors.yellow,
       },
       zIndex: {
         60: '60',

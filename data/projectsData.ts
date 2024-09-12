@@ -1,27 +1,53 @@
 interface Project {
-  title: string,
-  description: string,
-  href?: string,
-  imgSrc?: string,
+  title: string
+  description: string
+  href?: string
+  imgSrc?: string
 }
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
+    title: 'Math Fantasy',
+    description: `Math Fantasy, is a statistics mathematic learning game with a 2D Top Down Syle.`,
+    imgSrc: '/static/images/projects/MathFantasy.png',
     href: 'https://www.google.com',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
+    title: 'Sei You',
+    description: `Application for people that like voice acting. People can upload their voice acting and search other people's voice acting.`,
+    imgSrc: '/static/images/projects/SeiYou.png',
+    href: 'https://sei-you.vercel.app/',
+  },
+  {
+    title: 'Travelokie',
+    description: `Hotel booking system built with Laravel, which focuses on registration functionality of a hotel booking.`,
+    imgSrc: '/static/images/projects/Travelokie.png',
     href: '/blog/the-time-machine',
   },
+  {
+    title: 'Anugerah Teknik Mandiri',
+    description: `Company website for Anugerah Teknik Mandiri, made for commercial purposes.`,
+    imgSrc: '/static/images/projects/ATM.png',
+    href: 'https://cv-atm.com',
+  },
+  {
+    title: 'Orange Burger',
+    description: `A restaurant website, where users can make food orders. Also includes admin dashboard, where admin can manage transactions.`,
+    imgSrc: '/static/images/projects/OrangeBurger.png',
+    href: 'https://cv-atm.com',
+  },
+  {
+    title: 'Genshin Tinder',
+    description: `Dating-like application made using Ionic React.`,
+    imgSrc: '/static/images/projects/GenshinTinder.png',
+    href: 'https://cv-atm.com',
+  },
+  // {
+  //   title: 'Travelokie',
+  //   description: `Hotel booking system built with Laravel, which focuses on registration functionality of a hotel booking.`,
+  //   imgSrc: '/static/images/time-machine.jpg',
+  //   href: '/blog/the-time-machine',
+  // },
 ]
 
 export default projectsData
