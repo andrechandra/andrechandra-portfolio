@@ -33,11 +33,6 @@
 ## Quick Start Guide
 
 1. Clone the repo
-
-```bash
-npx degit 'timlrx/tailwind-nextjs-starter-blog'
-```
-
 2. Personalize `siteMetadata.js` (site related information)
 3. Modify the content security policy in `next.config.js` if you want to use
    other analytics provider or a commenting solution other than giscus.
