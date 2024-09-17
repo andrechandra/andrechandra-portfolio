@@ -7,6 +7,12 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: 'Old Portfolio Website',
+    description: `My old portfolio website that I built using React, Tailwind, and Threejs.`,
+    imgSrc: '/static/images/projects/Portfolio.png',
+    href: 'https://andrechips-old.vercel.app',
+  },
+  {
     title: 'Math Fantasy',
     description: `Math Fantasy, is a statistics mathematic learning game with a 2D Top Down Syle.`,
     imgSrc: '/static/images/projects/MathFantasy.png',
