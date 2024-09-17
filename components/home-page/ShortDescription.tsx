@@ -6,7 +6,7 @@ const ShortDescription = () => {
       <p>I have a passion for JS/TS and website development.</p>
       <p>I started this blog to practice my skill and share my knowledge.</p>
     </div>
-  );
-};
+  )
+}
 
-export default ShortDescription;
+export default ShortDescription

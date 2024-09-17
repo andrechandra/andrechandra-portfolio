@@ -16,11 +16,19 @@ export default function Page() {
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             My professional career, experiences, and skills.
           </p>
-          <nav className="space-x-4 mb-6">
-            <a href="#working-experience" className="text-primary-500 hover:underline">Working Experience</a>
-            <a href="#voluntary-experience" className="text-primary-500 hover:underline">Voluntary Experience</a>
-            <a href="#education" className="text-primary-500 hover:underline">Education</a>
-            <a href="#additional-skills" className="text-primary-500 hover:underline">Additional Skills</a>
+          <nav className="mb-6 space-x-4">
+            <a href="#working-experience" className="text-primary-500 hover:underline">
+              Working Experience
+            </a>
+            <a href="#voluntary-experience" className="text-primary-500 hover:underline">
+              Voluntary Experience
+            </a>
+            <a href="#education" className="text-primary-500 hover:underline">
+              Education
+            </a>
+            <a href="#additional-skills" className="text-primary-500 hover:underline">
+              Additional Skills
+            </a>
           </nav>
         </div>
         <div className="container py-12">

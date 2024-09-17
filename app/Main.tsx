@@ -9,7 +9,6 @@ import Heading from '@/components/home-page/Headings'
 import ShortDescription from '@/components/home-page/ShortDescription'
 import BlogLinks from '@/components/home-page/BlogLinks'
 
-
 const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
@@ -18,7 +17,7 @@ export default function Home({ posts }) {
       <div className="mt-8 dark:divide-gray-700 md:mt-8">
         <Greeting />
         <div className="flex flex-col justify-between md:my-4 md:pb-8 xl:flex-row xl:space-x-8">
-          <div className="hidden sm:flex justify-center max-h-[430px] overflow-hidden rounded-lg">
+          <div className="hidden max-h-[430px] justify-center overflow-hidden rounded-lg sm:flex">
             <Image src={'/static/images/profile.png'} alt="avatar" width={430} height={350} />
           </div>
           <div className="my-auto flex flex-col text-lg leading-8 text-gray-600 dark:text-gray-400">
