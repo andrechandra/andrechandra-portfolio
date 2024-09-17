@@ -16,11 +16,17 @@ export default function Page() {
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             My professional career, experiences, and skills.
           </p>
+          <nav className="space-x-4 mb-6">
+            <a href="#working-experience" className="text-primary-500 hover:underline">Working Experience</a>
+            <a href="#voluntary-experience" className="text-primary-500 hover:underline">Voluntary Experience</a>
+            <a href="#education" className="text-primary-500 hover:underline">Education</a>
+            <a href="#additional-skills" className="text-primary-500 hover:underline">Additional Skills</a>
+          </nav>
         </div>
         <div className="container py-12">
           <section className="space-y-8">
             {/* Working Experience */}
-            <div>
+            <div id="working-experience" className="scroll-mt-scroll-offset">
               <h2 className="pb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
                 WORKING EXPERIENCE
               </h2>
@@ -44,7 +50,7 @@ export default function Page() {
               </div>
             </div>
             {/* Voluntary Experience */}
-            <div>
+            <div id="voluntary-experience" className="scroll-mt-scroll-offset">
               <h2 className="pb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
                 VOLUNTARY EXPERIENCE
               </h2>
@@ -66,7 +72,7 @@ export default function Page() {
               ))}
             </div>
             {/* Education */}
-            <div>
+            <div id="education" className="scroll-mt-scroll-offset">
               <h2 className="pb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
                 EDUCATION
               </h2>
@@ -86,7 +92,7 @@ export default function Page() {
               ))}
             </div>
             {/* Additional Skills */}
-            <div>
+            <div id="additional-skills" className="scroll-mt-scroll-offset">
               <h2 className="pb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
                 ADDITIONAL SKILLS
               </h2>
@@ -118,6 +124,9 @@ export default function Page() {
             </div>
           </section>
         </div>
+        <footer className="py-4 text-center text-gray-500 dark:text-gray-400">
+          <p>Last updated: September 2024</p>
+        </footer>
       </div>
     </>
   )

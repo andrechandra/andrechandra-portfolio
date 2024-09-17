@@ -3,16 +3,35 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
+import Image from 'next/image' // Import if you're using Next.js
+import Greeting from '@/components/home-page/Greetings'
+import Heading from '@/components/home-page/Headings'
+import ShortDescription from '@/components/home-page/ShortDescription'
+import BlogLinks from '@/components/home-page/BlogLinks'
+
 
 const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
   return (
     <>
+      <div className="mt-8 dark:divide-gray-700 md:mt-8">
+        <Greeting />
+        <div className="flex flex-col justify-between md:my-4 md:pb-8 xl:flex-row xl:space-x-8">
+          <div className="hidden sm:flex justify-center max-h-[430px] overflow-hidden rounded-lg">
+            <Image src={'/static/images/profile.png'} alt="avatar" width={430} height={350} />
+          </div>
+          <div className="my-auto flex flex-col text-lg leading-8 text-gray-600 dark:text-gray-400">
+            <Heading />
+            <ShortDescription />
+            <BlogLinks />
+          </div>
+        </div>
+      </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-10 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
+            Recent Posts
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}

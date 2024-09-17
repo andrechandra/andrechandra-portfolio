@@ -8,7 +8,7 @@ import SearchButton from './SearchButton'
 
 const Header = () => {
   let headerClass =
-    'top-5 flex items-center max-w-6xl mx-auto bg-white bg-opacity-90 dark:bg-gray-950 dark:bg-opacity-90 justify-between py-2 px-4 border border-gray-200 dark:border-gray-800 rounded-xl'
+    'top-5 flex mb-10 items-center max-w-6xl mx-auto bg-white bg-opacity-90 dark:bg-gray-950 dark:bg-opacity-90 justify-between py-2 px-4 border border-gray-200 dark:border-gray-800 rounded-xl'
 
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
@@ -18,16 +18,13 @@ const Header = () => {
     <header className={headerClass}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
-          <div className="mr-3">
+          <div className="mr-3 animate-wave">
             <Logo />
           </div>
-          {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="hidden h-6 text-xl font-semibold sm:block">
-              {siteMetadata.headerTitle}
-            </div>
-          ) : (
-            siteMetadata.headerTitle
-          )}
+          <div className="group ml-2 text-xl font-semibold">
+            AndreChips
+            <span className="block h-0.5 max-w-0 bg-black transition-all duration-600 group-hover:max-w-[100%] dark:bg-white"></span>
+          </div>
         </div>
       </Link>
       <div className="flex items-center space-x-4 leading-5 sm:space-x-6">

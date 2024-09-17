@@ -15,6 +15,28 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      keyframes: {
+        'wave-animation': {
+          '0%': { transform: 'rotate(0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(-8deg)' },
+          '30%': { transform: 'rotate(14deg)' },
+          '40%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(10deg)' },
+          '60%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+      },
+      animation: {
+        wave: 'wave-animation 2.5s linear infinite',
+        'music-bar-1': 'music-bar-1 .8s linear infinite',
+        'music-bar-2': 'music-bar-2 .8s linear infinite',
+        'music-bar-3': 'music-bar-3 .8s linear infinite',
+        'music-bar-4': 'music-bar-4 .8s linear infinite',
+      },
+      spacing: {
+        'scroll-offset': '100px',
+      },
       transitionProperty: {
         'background-color': 'background-color',
         color: 'color',

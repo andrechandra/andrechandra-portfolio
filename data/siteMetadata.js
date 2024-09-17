@@ -1,12 +1,12 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'AndreChips',
+  title: 'Andre Chandra',
   author: 'Andre Chandra Putra',
   headerTitle: 'AndreChips',
   description: 'A blog created with Next.js and Tailwind.css',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://andrechips.vercel.app',
+  siteUrl: 'https://andrechandra.vercel.app',
   siteRepo: 'https://github.com/AndreChips/andrechips-portfolio',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,

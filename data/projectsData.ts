@@ -22,7 +22,7 @@ const projectsData: Project[] = [
     title: 'Travelokie',
     description: `Hotel booking system built with Laravel, which focuses on registration functionality of a hotel booking.`,
     imgSrc: '/static/images/projects/Travelokie.png',
-    href: '/blog/the-time-machine',
+    href: '',
   },
   {
     title: 'Anugerah Teknik Mandiri',
@@ -34,13 +34,13 @@ const projectsData: Project[] = [
     title: 'Orange Burger',
     description: `A restaurant website, where users can make food orders. Also includes admin dashboard, where admin can manage transactions.`,
     imgSrc: '/static/images/projects/OrangeBurger.png',
-    href: 'https://cv-atm.com',
+    href: '',
   },
   {
     title: 'Genshin Tinder',
     description: `Dating-like application made using Ionic React.`,
     imgSrc: '/static/images/projects/GenshinTinder.png',
-    href: 'https://cv-atm.com',
+    href: '',
   },
   // {
   //   title: 'Travelokie',
