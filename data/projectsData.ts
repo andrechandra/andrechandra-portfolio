@@ -16,7 +16,7 @@ const projectsData: Project[] = [
     title: 'Math Fantasy',
     description: `Math Fantasy, is a statistics mathematic learning game with a 2D Top Down Syle.`,
     imgSrc: '/static/images/projects/MathFantasy.png',
-    href: 'https://www.google.com',
+    href: 'https://github.com/AndreChops/MathFantasy',
   },
   {
     title: 'Sei You',
@@ -28,7 +28,7 @@ const projectsData: Project[] = [
     title: 'Travelokie',
     description: `Hotel booking system built with Laravel, which focuses on registration functionality of a hotel booking.`,
     imgSrc: '/static/images/projects/Travelokie.png',
-    href: '',
+    href: 'https://github.com/AndreChops/Travelokie',
   },
   {
     title: 'Anugerah Teknik Mandiri',
@@ -40,13 +40,13 @@ const projectsData: Project[] = [
     title: 'Orange Burger',
     description: `A restaurant website, where users can make food orders. Also includes admin dashboard, where admin can manage transactions.`,
     imgSrc: '/static/images/projects/OrangeBurger.png',
-    href: '',
+    href: 'https://github.com/AndreChops/OrangeBurger',
   },
   {
     title: 'Genshin Tinder',
     description: `Dating-like application made using Ionic React.`,
     imgSrc: '/static/images/projects/GenshinTinder.png',
-    href: '',
+    href: 'https://github.com/AndreChops/GenshinTinder',
   },
   // {
   //   title: 'Travelokie',
