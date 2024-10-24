@@ -1,12 +1,13 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Andre Chandra',
+  title: 'Andre Chandra Putra - Frontend Developer & Software Engineer',
   author: 'Andre Chandra Putra',
-  headerTitle: 'AndreChips',
-  description: 'A blog created with Next.js and Tailwind.css',
+  headerTitle: 'Andre Chandra',
+  description:
+    'Frontend Developer specializing in JavaScript, TypeScript, and Next.js. Sharing projects, tutorials, and insights into web development.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://andrechandra.vercel.app',
+  siteUrl: 'https://andrechips.vercel.app',
   siteRepo: 'https://github.com/AndreChips/andrechips-portfolio',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
