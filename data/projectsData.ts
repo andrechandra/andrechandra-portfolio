@@ -7,6 +7,12 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: 'Calendar Landing Page',
+    description: `My first webflow landing website.`,
+    imgSrc: '/static/images/projects/Calendar.png',
+    href: 'https://calendar-site-5279d7.webflow.io/',
+  },
+  {
     title: 'Old Portfolio Website',
     description: `My old portfolio website that I built using React, Tailwind, and Threejs.`,
     imgSrc: '/static/images/projects/Portfolio.png',
