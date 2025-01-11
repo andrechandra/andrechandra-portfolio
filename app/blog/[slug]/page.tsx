@@ -7,11 +7,13 @@ import { CustomMDX } from '@/components/mdx'
 import { BlogNavigation } from '@/components/blog-navigation'
 import Image from 'next/image'
 
-export default async function BlogPage({
-  params,
-}: {
-  params: { slug: string }
-}) {
+interface BlogPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default async function BlogPage({ params }: BlogPageProps) {
   const blog = await getBlogData(params.slug)
 
   const formatDate = (dateStr: string) => {
@@ -43,6 +45,8 @@ export default async function BlogPage({
               <Image
                 src={`/profile/avatar.jpeg`}
                 alt={`Andre Chandra Putra`}
+                width={40}
+                height={40}
                 className="h-10 w-10 rounded-full object-cover"
               />
               <div>
