@@ -1,35 +1,28 @@
-import projectsData from '@/data/projectsData'
-import Card from '@/components/Card'
-import { genPageMetadata } from 'app/seo'
+import Header from '@/components/header'
+import ProjectCard from '@/components/project-card'
+import { Metadata } from 'next'
 
-export const metadata = genPageMetadata({ title: 'Projects' })
+export const metadata: Metadata = {
+  title: 'Projects | Andre Chandra Putra',
+  description: 'Andre Chandra Putra&apos; personal website',
+}
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
-    <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-10 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Projects
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Here are all of the projects that I've made throughout my college year or my life.
-          </p>
-        </div>
-        <div className="container py-12">
-          <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-              />
-            ))}
+    <main className="min-h-screen bg-background">
+      <Header
+        title="Showcase"
+        title2="Projects"
+        description="Showcase of my projects that I've worked on."
+        backgroundVariant="projects"
+      />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
+        <div className="space-y-8 sm:space-y-12">
+          <div className="flex flex-col gap-4">
+            <ProjectCard />
           </div>
         </div>
       </div>
-    </>
+    </main>
   )
 }

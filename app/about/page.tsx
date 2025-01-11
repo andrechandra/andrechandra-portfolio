@@ -1,20 +1,26 @@
-import { Authors, allAuthors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import AuthorLayout from '@/layouts/AuthorLayout'
-import { coreContent } from 'pliny/utils/contentlayer'
-import { genPageMetadata } from 'app/seo'
+import Header from '@/components/header'
+import { Metadata } from 'next'
+import AboutCard from '@/components/about-card'
 
-export const metadata = genPageMetadata({ title: 'About' })
+export const metadata: Metadata = {
+  title: 'About | Andre Chandra Putra',
+  description: "Andre Chandra Putra's personal website",
+}
 
-export default function Page() {
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
-  const mainContent = coreContent(author)
-
+export default function AboutPage() {
   return (
-    <>
-      <AuthorLayout content={mainContent}>
-        <MDXLayoutRenderer code={author.body.code} />
-      </AuthorLayout>
-    </>
+    <main className="min-h-screen bg-background">
+      <Header
+        title="About"
+        title2="Me"
+        description="A brief description of me."
+        backgroundVariant="about"
+      />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
+        <div className="space-y-8 sm:space-y-12">
+          <AboutCard />
+        </div>
+      </div>
+    </main>
   )
 }

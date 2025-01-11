@@ -1,0 +1,72 @@
+---
+title: Creating Your First React Project
+date: '2024-10-16'
+tags: ['guides', 'react', 'javascript']
+draft: false
+summary: 'In this short post, I`m going to explain what react is and how to create your first project.'
+thumbnail: '/blogs/thumbnail-3.jpg'
+---
+
+## Introduction
+
+React ( also known as React.js or ReactJS ) is a free and open-source front-end JavaScript library developed by Meta and a community of developers.
+
+React has become one of the most popular JavaScript framework for building user interfaces. React can be used to build interactive and responsive single-page applications and mobile, or server-rendered applications with frameworks like Next.js.
+
+## NPM vs NPX
+
+The <b>NPM</b> ( Node Package Manager ) is the default package manager for Node.js. NPM is a package installation tool.
+
+The <b>NPX</b> ( Node Package Execute ) is a tool for executing packages. It is an npm package runner that can execute any package from the npm reigstry without even installing that package.
+
+If you use npm, you have to first install the <b>create-react-app</b> tool locally before you use <b>create-react-app</b> to create the app. Packages used by npm are installed globally.
+
+```
+npm install -g create-react-app
+create-react-app my-react-app-name
+cd my-react-app-name
+npm start
+```
+
+If you use npx, you are able to run the <b>create-react-app</b> code without first downloading the project. A package can be executed without installing the package.
+
+```
+npx create-react-app my-react-app-name
+cd my-react-app-name
+npm start
+```
+
+## Setting Up a New Project using Create React App
+
+The <b>create-react-app</b> tool is ajn officially supported way to create React applications. <b>create-react-app</b> will set up everything you need to run a React application. To use <b>create-react-app</b>, you need to have Node.js installed first. If it`s not installed on your computer, you have to install it first otherwise you wont be able to run your project.
+
+- Run this command to create a React Application
+
+```
+npx create-react-app my-react-app-name
+```
+
+- Run this command to move to the directory
+
+```
+cd my-react-app-name
+```
+
+- Run this command to run the React application
+
+```
+npm start
+```
+
+Inside the app directory, you can run several commands :
+
+- npm start : to start the development server
+- npm run build : bundles the app into static files for production
+- npm test : start the test runner
+- npm run eject : removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can`t go back so becareful.
+
+After running these commands, you should see this result.
+
+![first-react-app](/blogs/first-react-app.png)
+
+There you go, you`ve succesfully created your first react project.

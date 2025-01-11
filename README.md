@@ -1,65 +1,147 @@
-# AndreChips Nextjs Portfolio Blog
+# Next.js + Tailwind CSS + TypeScript Starter Template
 
-## Features
+A modern, feature-rich starter template built with Next.js, Tailwind CSS, TypeScript, and shadcn/ui. Perfect for building scalable web applications with best practices and developer experience in mind.
 
-- Next.js with Typescript
-- [Contentlayer](https://www.contentlayer.dev/) to manage content logic
-- Easy styling customization with [Tailwind 3.0](https://tailwindcss.com/blog/tailwindcss-v3) and primary color attribute
-- [MDX - write JSX in markdown documents!](https://mdxjs.com/)
-- Near perfect lighthouse score - [Lighthouse report](https://www.webpagetest.org/result/230805_BiDcBQ_4H7)
-- Lightweight, 85kB first load JS
-- Mobile-friendly view
-- Light and dark theme
-- Font optimization with [next/font](https://nextjs.org/docs/app/api-reference/components/font)
-- Integration with [pliny](https://github.com/timlrx/pliny) that provides:
-  - Multiple analytics options including [Umami](https://umami.is/), [Plausible](https://plausible.io/), [Simple Analytics](https://simpleanalytics.com/), Posthog and Google Analytics
-  - Comments via [Giscus](https://github.com/laymonage/giscus), [Utterances](https://github.com/utterance/utterances) or Disqus
-  - Newsletter API and component with support for Mailchimp, Buttondown, Convertkit, Klaviyo, Revue, Emailoctopus and Beehiiv
-  - Command palette search with [Kbar](https://github.com/timc1/kbar) or Algolia
-- Server-side syntax highlighting with line numbers and line highlighting via [rehype-prism-plus](https://github.com/timlrx/rehype-prism-plus)
-- Math display supported via [KaTeX](https://katex.org/)
-- Citation and bibliography support via [rehype-citation](https://github.com/timlrx/rehype-citation)
-- [Github alerts](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts) via [remark-github-blockquote-alert](https://github.com/jaywcjlove/remark-github-blockquote-alert)
-- Automatic image optimization via [next/image](https://nextjs.org/docs/basic-features/image-optimization)
-- Support for tags - each unique tag will be its own page
-- Support for multiple authors
-- 3 different blog layouts
-- 2 different blog listing layouts
-- Support for nested routing of blog posts
-- Projects page
-- Preconfigured security headers
-- SEO friendly with RSS feed, sitemaps and more!
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## Quick Start Guide
+## 🚀 Features
 
-1. Clone the repo
-2. Personalize `siteMetadata.js` (site related information)
-3. Modify the content security policy in `next.config.js` if you want to use
-   other analytics provider or a commenting solution other than giscus.
-4. Personalize `authors/default.md` (main author)
-5. Modify `projectsData.ts`
-6. Modify `headerNavLinks.ts` to customize navigation links
-7. Add blog posts
-8. Deploy on Vercel
+- ⚡️ **Next.js 14** with App Router and Server Components
+- 💎 **Tailwind CSS** for utility-first styling
+- 🔍 **TypeScript** for type safety
+- 🎨 **shadcn/ui** for beautiful, accessible components
+- 🧪 **Jest** and **React Testing Library** for testing
+- 📝 **ESLint** and **Prettier** for code quality
+- 📱 Fully responsive design
+- 🌙 Dark mode support
+- 🔧 Absolute imports
+- 📄 SEO optimization ready
+- 🚦 Pre-configured with best practices
 
-## Installation
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn or pnpm
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-yarn
+git clone https://github.com/AndreChips/next-tailwind-starter.git
+cd next-tailwind-starter
 ```
 
-Please note, that if you are using Windows, you may need to run:
+2. Install dependencies:
 
 ```bash
-$env:PWD = $(Get-Location).Path
+npm install
+# or
+yarn install
+# or
+pnpm install
 ```
 
-## Development
-
-First, run the development server:
+3. Run the development server:
 
 ```bash
+npm run dev
+# or
 yarn dev
+# or
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 🏗 Project Structure
+
+```
+.
+├── __tests__/          # Test files
+├── public/            # Static files
+├── app/          # App router pages
+├── components/   # React components
+│   ├── ui/      # shadcn/ui components
+│   └── ...      # Custom components
+├── lib/         # Utility functions
+├── .eslintrc.json  # ESLint configuration
+├── .prettierrc     # Prettier configuration
+├── jest.config.js  # Jest configuration
+└── tailwind.config.js # Tailwind configuration
+```
+
+## 🧪 Testing
+
+Run tests with:
+
+```bash
+npm run test
+# or
+yarn test
+```
+
+## 🎨 Customization
+
+### Tailwind CSS
+
+Customize your theme in `tailwind.config.js`:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        // Add your colors
+      },
+    },
+  },
+}
+```
+
+### shadcn/ui Components
+
+Add new components using the CLI:
+
+```bash
+npx shadcn-ui@latest add [component-name]
+```
+
+## 📝 Scripts
+
+- `dev` - Start development server
+- `build` - Build for production
+- `start` - Start production server
+- `test` - Run tests
+- `lint` - Run ESLint
+- `format` - Format code with Prettier
+
+## 🚀 Deployment
+
+This template is ready to be deployed to Vercel. Click the button below to deploy:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AndreChips/next-tailwind-starter)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👏 Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [shadcn/ui](https://ui.shadcn.com/)

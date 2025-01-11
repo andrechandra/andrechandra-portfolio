@@ -1,30 +1,25 @@
-import Link from './Link'
-import siteMetadata from '@/data/siteMetadata'
-import SocialIcon from '@/components/social-icons'
-
 export default function Footer() {
   return (
-    <footer>
-      <div className="mt-16 flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
-          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
-          <SocialIcon kind="github" href={siteMetadata.github} size={6} />
-          {/* <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} /> */}
-          <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} />
-          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
-          {/* <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} /> */}
-          {/* <SocialIcon kind="x" href={siteMetadata.x} size={6} /> */}
-          <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
-          <SocialIcon kind="threads" href={siteMetadata.threads} size={6} />
-        </div>
-        <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{siteMetadata.author}</div>
-          <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
-        </div>
-      </div>
+    <footer className="py-6 text-center text-xs sm:text-sm text-muted-foreground">
+      © {new Date().getFullYear()}{' '}
+      <a
+        href="https://github.com/AndreChips"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative w-fit text-white after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
+      >
+        Andre Chandra
+      </a>
+      . All rights reserved. <br />
+      Inspired by{' '}
+      <a
+        href="https://theodorusclarence.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="relative w-fit text-white after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
+      >
+        Theodorus Clarence
+      </a>
     </footer>
   )
 }

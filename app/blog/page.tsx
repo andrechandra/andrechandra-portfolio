@@ -1,30 +1,28 @@
-import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
-import { genPageMetadata } from 'app/seo'
+import BlogCard from '@/components/blog-card'
+import Header from '@/components/header'
+import { Metadata } from 'next'
 
-const POSTS_PER_PAGE = 10
+export const metadata: Metadata = {
+  title: 'Blog | Andre Chandra Putra',
+  description: "Andre Chandra Putra's personal website",
+}
 
-export const metadata = genPageMetadata({ title: 'Blog' })
-
-export default function BlogPage() {
-  const posts = allCoreContent(sortPosts(allBlogs))
-  const pageNumber = 1
-  const initialDisplayPosts = posts.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber
-  )
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-  }
-
+export default function BlogsPage() {
   return (
-    <ListLayout
-      posts={posts}
-      initialDisplayPosts={initialDisplayPosts}
-      pagination={pagination}
-      title="All Posts"
-    />
+    <main className="min-h-screen bg-background">
+      <Header
+        title="The"
+        title2="Blog"
+        description="A blog about my journey as a developer."
+        backgroundVariant="about"
+      />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
+        <div className="space-y-8 sm:space-y-12">
+          <div className="flex flex-col gap-4">
+            <BlogCard />
+          </div>
+        </div>
+      </div>
+    </main>
   )
 }

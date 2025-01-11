@@ -1,52 +1,98 @@
-import siteMetadata from '@/data/siteMetadata'
-import headerNavLinks from '@/data/headerNavLinks'
-import Logo from '@/data/logo.svg'
-import Link from './Link'
-import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
-import SearchButton from './SearchButton'
+'use client'
 
-const Header = () => {
-  let headerClass =
-    'top-5 flex mb-10 items-center max-w-6xl mx-auto bg-white bg-opacity-90 dark:bg-gray-950 dark:bg-opacity-90 justify-between py-2 px-4 border border-gray-200 dark:border-gray-800 rounded-xl'
+import { motion } from 'framer-motion'
+import React from 'react'
 
-  if (siteMetadata.stickyNav) {
-    headerClass += ' sticky top-0 z-50'
+export default function Header({
+  title,
+  title2,
+  description,
+  backgroundVariant,
+}: {
+  title: string
+  title2: string
+  description: string
+  backgroundVariant:
+    | 'home'
+    | 'about'
+    | 'contact'
+    | 'projects'
+    | 'article'
+    | 'resume'
+    | 'services'
+    | 'blog'
+    | 'portfolio'
+}): React.ReactElement {
+  const backgroundStyles: Record<string, React.CSSProperties> = {
+    home: {
+      backgroundImage: `
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px)
+      `,
+      backgroundSize: '20px 20px',
+    },
+    about: {
+      backgroundImage: `
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px)
+      `,
+      backgroundSize: '20px 20px',
+    },
+    projects: {
+      backgroundImage: `
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px)
+      `,
+      backgroundSize: '20px 20px',
+    },
+    article: {
+      backgroundImage: `
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px)
+      `,
+      backgroundSize: '20px 20px',
+    },
+    resume: {
+      backgroundImage: `
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px)
+      `,
+      backgroundSize: '20px 20px',
+    },
   }
 
   return (
-    <header className={headerClass}>
-      <Link href="/" aria-label={siteMetadata.headerTitle}>
-        <div className="flex items-center justify-between">
-          <div className="mr-3 animate-wave">
-            <Logo />
-          </div>
-          <div className="group ml-2 text-xl font-semibold">
-            AndreChips
-            <span className="block h-0.5 max-w-0 bg-black transition-all duration-600 group-hover:max-w-[100%] dark:bg-white"></span>
-          </div>
-        </div>
-      </Link>
-      <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
-        <div className="no-scrollbar hidden items-center space-x-4 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
-          {headerNavLinks
-            .filter((link) => link.href !== '/')
-            .map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className="block font-medium text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
-              >
-                {link.title}
-              </Link>
-            ))}
-        </div>
-        <SearchButton />
-        <ThemeSwitch />
-        <MobileNav />
+    <div className="relative w-full bg-background min-h-[25vh] sm:min-h-[30vh] lg:min-h-[40vh] flex items-center justify-center">
+      {/* Background grid pattern */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className="absolute inset-0 opacity-60"
+        style={backgroundStyles[backgroundVariant]}
+      />
+      {/* Content */}
+      <div className="relative z-10 text-center space-y-4 px-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, delay: 0.2, ease: 'easeOut' }}
+          className="text-4xl md:text-6xl font-bold tracking-tight mt-20"
+        >
+          <span className="text-white">{title}</span>{' '}
+          <span className="bg-gradient-to-r from-yellow-400 via-pink-200 to-yellow-400 bg-clip-text text-transparent animate-shiny">
+            {title2}
+          </span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, delay: 0.4, ease: 'easeOut' }}
+          className="bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 bg-clip-text text-transparent animate-shiny text-sm"
+        >
+          {description}
+        </motion.p>
       </div>
-    </header>
+    </div>
   )
 }
-
-export default Header
