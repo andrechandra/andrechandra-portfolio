@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import '@/app/globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import React from 'react'
-import Footer from '@/components/footer'
+import Footer from '@/components/Footer'
 import Navbar from '@/components/nav-bar'
 import { Poppins, Roboto } from 'next/font/google'
 
