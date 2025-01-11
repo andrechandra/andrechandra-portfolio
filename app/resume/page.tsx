@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Header from '@/components/Header'
+import Header from '@/components/header-component'
 import { resumes } from '@/constants/resumes'
 import { motion } from 'framer-motion'
 

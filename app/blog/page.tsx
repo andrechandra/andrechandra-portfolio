@@ -1,5 +1,5 @@
 import BlogCard from '@/components/blog-card'
-import Header from '@/components/Header'
+import Header from '@/components/header-component'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
