@@ -1,4 +1,4 @@
-import Header from '@/components/header'
+import Header from '@/components/Header'
 import ProjectCard from '@/components/project-card'
 import { Metadata } from 'next'
 
