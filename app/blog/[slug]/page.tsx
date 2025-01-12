@@ -6,15 +6,50 @@ import { Button } from '@/components/ui/button'
 import { CustomMDX } from '@/components/mdx'
 import { BlogNavigation } from '@/components/blog-navigation'
 import Image from 'next/image'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
-interface BlogPageProps {
-  params: {
-    slug: string
+interface BlogData {
+  title: string
+  summary: string
+  date: string
+  tags: string[]
+  content: string
+  headings?: {
+    text: string
+    level: number
+  }[]
+}
+
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const resolvedParams = await params
+  if (!resolvedParams.slug) {
+    notFound()
+  }
+
+  const blog = await getBlogData(resolvedParams.slug)
+
+  return {
+    title: blog.title,
+    description: blog.summary,
   }
 }
 
-export default async function BlogPage({ params }: BlogPageProps) {
-  const blog = await getBlogData(params.slug)
+export default async function BlogPage({ params }: Props) {
+  const resolvedParams = await params
+  if (!resolvedParams.slug) {
+    notFound()
+  }
+
+  const blog: BlogData = await getBlogData(resolvedParams.slug)
+
+  if (!blog) {
+    notFound()
+  }
 
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr)
@@ -26,7 +61,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground pt-20">
+    <main className="min-h-screen bg-background text-foreground pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
         <div className="mb-8">
           <div className="flex flex-wrap gap-2 mb-4">
@@ -43,11 +78,12 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <Image
-                src={`/profile/avatar.jpeg`}
-                alt={`Andre Chandra Putra`}
+                src="/profile/avatar.jpeg"
+                alt="Andre Chandra Putra"
                 width={40}
                 height={40}
                 className="h-10 w-10 rounded-full object-cover"
+                priority
               />
               <div>
                 <div className="font-medium">Andre Chandra Putra</div>
@@ -63,8 +99,14 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <article className="prose prose-invert max-w-none flex-1">
             <CustomMDX source={blog.content} />
           </article>
-
-          <BlogNavigation headings={blog.headings || []} />
+          {blog.headings && blog.headings.length > 0 && (
+            <BlogNavigation
+              headings={blog.headings.map((heading) => ({
+                ...heading,
+                id: heading.text.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+              }))}
+            />
+          )}
         </div>
 
         <div className="mt-10">
@@ -74,12 +116,12 @@ export default async function BlogPage({ params }: BlogPageProps) {
             className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mb-4 sm:mb-6"
           >
             <Link href="/blog">
-              <ArrowLeft className="mr-2 h-4 w-4" />
+              <ArrowLeft className="mr-4 h-4 w-4" />
               Back to Blogs
             </Link>
           </Button>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
