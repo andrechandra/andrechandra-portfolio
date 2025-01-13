@@ -176,7 +176,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.2, delay: 0.2, ease: 'easeInOut' }}
           >
-            <ProjectCard limit={2} />
+            <ProjectCard limit={2} initialCategory="all" showTabs={false} />
           </motion.div>
         </div>
       </div>

@@ -30,13 +30,13 @@ export default function Navbar() {
       href: '/',
       label: 'Home',
       icon: Home,
-      description: 'Welcome to my forever work-in-progress!',
+      description: 'Explore my digital space!',
     },
     {
       href: '/blog',
       label: 'Blog',
       icon: Book,
-      description: 'Thoughts, mental models, and tutorials',
+      description: 'Insights and guides',
     },
     {
       href: '/projects',
@@ -48,7 +48,7 @@ export default function Navbar() {
       href: '/about',
       label: 'About',
       icon: User,
-      description: 'Learn more about me!',
+      description: 'Get to know me better!',
     },
     {
       href: '/resume',
@@ -204,7 +204,9 @@ export default function Navbar() {
                     className="flex items-start space-x-3 text-gray-300 bg-black hover:text-white p-2 rounded-lg hover:bg-black"
                     whileHover={{ x: 4 }}
                   >
-                    <link.icon className="w-5 h-5 mt-0.5" />
+                    <div className="flex items-center p-2 bg-white/10 rounded-md">
+                      <link.icon className="w-5 h-5 mt-0.5" />
+                    </div>
                     <div>
                       <div className="text-sm font-medium">{link.label}</div>
                       <div className="text-xs text-gray-500 font-poppins">

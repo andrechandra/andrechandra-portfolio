@@ -4,25 +4,25 @@ import thumbnail_3 from '@/public/blogs/thumbnail-3.jpg'
 
 export const featuredBlogs = [
   {
-    date: 'December 31, 2024',
-    title: 'The 2024 Retrospective',
+    date: 'October 16, 2024',
+    title: 'Creating Your First React Project',
     description:
-      'First Full-Time Year, Solo Travel while Working, Socializing, and more!',
+      'In this short post, I`m going to explain what react is and how to create your first project.',
     readTime: '10 min read',
     views: '575 views',
-    tags: ['retro'],
-    slug: '/blog/2021-retrospective',
-    thumbnail: thumbnail_1,
+    tags: ['guides', 'react', 'javascript'],
+    slug: '/blog/first-react-project',
+    thumbnail: thumbnail_3,
   },
   {
-    date: 'December 17, 2024',
-    title: 'List Animation using Motion for React',
+    date: 'October 16, 2024',
+    title: 'The Holy Trinity of Programming',
     description:
-      'An in-depth guide on how to animate enter and exit animation for list using Motion for React (previously Framer Motion).',
+      'This post breaks down the three essential skills every aspiring programmer needs: problem solving, syntax, and debugging. Mastering these core concepts will set you up for success in any programming language. Learn how to approach coding challenges, understand the basic structure of code, and efficiently troubleshoot your own errors.',
     readTime: '6 min read',
     views: '1,115 views',
-    tags: ['react', 'animation'],
-    slug: '/blog/list-animation-using-motion-for-react',
+    tags: ['guides'],
+    slug: '/blog/holy-trinity-of-programming',
     thumbnail: thumbnail_2,
   },
 ]

@@ -35,6 +35,7 @@ export const projects: Project[] = [
     href: 'https://next-shadcn-starter-template.vercel.app/',
     repo: 'https://github.com/aceternity/next-shadcn-starter-template',
     title: 'Next + Tailwind + Shadcn Starter Template',
+    category: 'short-projects',
     description:
       'A starter template for building modern web applications with Next.js, Tailwind CSS, and shadcn/ui components. Pre-configured with TypeScript and ESLint.',
     thumbnail: tailwindStarter,
@@ -47,7 +48,6 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <h1 id="description">Description</h1>
         <p className="font-roboto text-gray-400">
           Creating a starter template for Next.js is a valuable endeavor as it
           streamlines the development process by providing a solid foundation
@@ -56,8 +56,6 @@ export const projects: Project[] = [
           components for accessible and customizable UI elements, and TypeScript
           for type safety, ensuring a scalable and maintainable codebase.
         </p>
-        <code>hellp world</code>
-        <h1 id="why-i-made-this">Why I Made This</h1>
         <p className="font-roboto text-gray-400">
           By using this template, developers can save significant time setting
           up repetitive configurations and jump straight into building features.
@@ -73,6 +71,7 @@ export const projects: Project[] = [
     href: '',
     repo: 'https://github.com/AndreChops/MathFantasy',
     title: 'Math Fantasy',
+    category: 'university',
     description:
       'Math Fantasy, is a statistics mathematic learning game with a 2D Top Down Syle.',
     thumbnail: mathFantasyThumbnail,
@@ -96,7 +95,6 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <h1 id="description">Description</h1>
         <p className="font-roboto text-gray-400">
           Math Fantasy is my final project at Universitas Multimedia Nusantara,
           where I developed a top-down 2D RPG-style game designed to make
@@ -109,7 +107,6 @@ export const projects: Project[] = [
           incorporating educational elements into an interactive, fun gameplay
           experience.
         </p>
-        <h1 id="why-i-made-this">Why I Made This</h1>
         <p className="font-roboto text-gray-400">
           The game was created using Unity Engine version 2021.3.16f1, and I
           used 2D assets obtained from itch.io to bring the game to life. The
@@ -127,6 +124,7 @@ export const projects: Project[] = [
     href: '',
     repo: 'https://github.com/AndreChops/OrangeBurger',
     title: 'Orange Burger',
+    category: 'university',
     description:
       'A restaurant website, where users can make food orders. Also includes admin dashboard, where admin can manage transactions.',
     thumbnail: orangeBurgerThumbnail,
@@ -169,6 +167,7 @@ export const projects: Project[] = [
     href: 'https://cv-atm.com/',
     repo: '',
     title: 'Anugerah Teknik Mandiri',
+    category: 'freelance',
     description:
       'Company website for Anugerah Teknik Mandiri, made for commercial purposes.',
     thumbnail: cvAtmThumbnail,

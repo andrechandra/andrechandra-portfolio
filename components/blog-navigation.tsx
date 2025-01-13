@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 export function BlogNavigation({
@@ -36,7 +37,12 @@ export function BlogNavigation({
   }, [headings])
 
   return (
-    <nav className="hidden lg:block w-64 shrink-0">
+    <motion.nav
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="hidden lg:block w-64 shrink-0"
+    >
       <div className="sticky top-24 space-y-4">
         <div className="space-y-2 text-gray-400 font-roboto">
           {headings.map((heading, index) => {
@@ -56,6 +62,6 @@ export function BlogNavigation({
           })}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   )
 }

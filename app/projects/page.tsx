@@ -11,8 +11,8 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header
-        title="Showcase"
-        title2="Projects"
+        title="Projects"
+        title2="Showcase"
         description="Showcase of my projects that I've worked on."
         backgroundVariant="projects"
       />

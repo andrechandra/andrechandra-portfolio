@@ -8,7 +8,8 @@ import { Poppins, Roboto } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'Andre Chandra Putra',
-  description: 'Andre Chandra Putra&apos;s personal website',
+  description:
+    'Andre Chandra Putra&apos;s personal website - A software engineer passionate about building innovative solutions. Explore my projects, blog posts, and journey in tech.',
   icons: {
     icon: '/images/logo.svg',
   },

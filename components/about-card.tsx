@@ -102,17 +102,32 @@ export default function AboutCard() {
         transition={{ duration: 0.2, delay: 0.6, ease: 'easeOut' }}
         className="space-y-8"
       >
-        <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-gray-800 to-gray-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
-          <div className="relative aspect-square w-full max-w-md mx-auto">
-            <Image
-              src="/profile/avatar.jpeg"
-              alt="Andre Chandra Putra"
-              fill
-              className="object-cover rounded-lg"
-            />
-            <div className="absolute -bottom-4 right-4 bg-black/80 backdrop-blur-sm px-6 py-2 rounded-full">
-              <span className="font-signature text-2xl text-white">Acepe</span>
+        <div className="relative w-full max-w-md mx-auto">
+          <div className="group">
+            <div className="absolute -inset-0 bg-gradient-to-r from-yellow-400 to-pink-200 blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+            <div className="relative p-2">
+              <div className="bg-black shadow-xl overflow-hidden">
+                <div className="relative aspect-square">
+                  <div className="absolute inset-0 border-8 border-black z-10 transition-colors duration-300 ">
+                    <Image
+                      src="/profile/avatar.jpeg"
+                      alt="Andre Chandra Putra"
+                      fill
+                      className="object-cover transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-2"
+                    />
+                  </div>
+                </div>
+                <div className="p-4 flex justify-end items-center">
+                  <div className="w-24 h-12 relative">
+                    <Image
+                      src="/profile/signature.png"
+                      alt="Andre Chandra Putra's signature"
+                      fill
+                      className="object-contain transition-all duration-300 opacity-75 group-hover:opacity-100 group-hover:scale-110 invert"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -37,6 +37,7 @@ import {
   SiPhp as PhpIcon,
 } from 'react-icons/si'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const BlogContent = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -73,34 +74,6 @@ const BlogContent = ({ children }: { children: React.ReactNode }) => {
       `}</style>
       {children}
     </article>
-  )
-}
-
-const ArticleNavigation = () => {
-  return (
-    <nav className="fixed right-8 top-32 hidden w-44 lg:block">
-      <div className="rounded-lg border border-border bg-card p-4 shadow-sm">
-        <h2 className="mb-2 text-sm font-semibold">On this page</h2>
-        <ul className="space-y-2 text-sm">
-          <li>
-            <a
-              href="#description"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Description
-            </a>
-          </li>
-          <li>
-            <a
-              href="#why-i-made-this"
-              className="text-muted-foreground hover:text-foreground"
-            >
-              Why I Made This
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
   )
 }
 
@@ -149,7 +122,6 @@ export default function ProjectPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground pt-20">
-      <ArticleNavigation />
       <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
         <Button
           asChild
@@ -164,33 +136,48 @@ export default function ProjectPage() {
 
         <div className="space-y-6 sm:space-y-8">
           {project.images.length > 0 && (
-            <Carousel plugins={[plugin.current] as any} className="w-full">
-              <CarouselContent>
-                {project.images.map((image, index) => (
-                  <CarouselItem key={index} className="basis-full sm:basis-1/2">
-                    <div className="relative aspect-video overflow-hidden rounded-lg">
-                      <Image
-                        src={image}
-                        alt={`${project.title} screenshot ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              {project.images.length > 1 && (
-                <>
-                  <CarouselPrevious className="hidden sm:flex" />
-                  <CarouselNext className="hidden sm:flex" />
-                </>
-              )}
-            </Carousel>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="w-full"
+            >
+              <Carousel plugins={[plugin.current] as any} className="w-full">
+                <CarouselContent>
+                  {project.images.map((image, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="basis-full sm:basis-1/2"
+                    >
+                      <div className="relative aspect-video overflow-hidden rounded-lg">
+                        <Image
+                          src={image}
+                          alt={`${project.title} screenshot ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                {project.images.length > 2 && (
+                  <>
+                    <CarouselPrevious className="hidden sm:flex" />
+                    <CarouselNext className="hidden sm:flex" />
+                  </>
+                )}
+              </Carousel>
+            </motion.div>
           )}
 
-          <h1 className="text-xl font-bold text-black dark:text-white">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-xl font-bold text-black dark:text-white"
+          >
             {project.title}
-          </h1>
+          </motion.h1>
 
           <BlogContent>{project.content} </BlogContent>
 

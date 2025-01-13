@@ -82,12 +82,24 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+			tilt: {
+			'0%, 50%, 100%': {
+				transform: 'rotate(0deg)',
+			},
+			'25%': {
+				transform: 'rotate(0.5deg)',
+			},
+			'75%': {
+				transform: 'rotate(-0.5deg)',
+			},
+			},
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-			'pulse-slow': 'pulse 3s linear infinite'
+			'pulse-slow': 'pulse 3s linear infinite',
+			'tilt': 'tilt 10s infinite linear',
   		},
   		fontFamily: {
   			poppins: [
@@ -95,7 +107,8 @@ export default {
   			],
   			roboto: [
   				'var(--font-roboto)'
-  			]
+  			],
+			signature: ['var(--font-signature)'],
   		}
   	}
   },

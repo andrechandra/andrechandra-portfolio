@@ -22,7 +22,6 @@ export default function BlogCard({ limit, tags }: BlogCardProps) {
   }
 
   const displayedBlogs = getSortedBlogs()
-  console.log(displayedBlogs)
 
   return (
     <div className="w-full bg-background text-foreground min-h-screen py-4">
