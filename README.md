@@ -1,38 +1,41 @@
-# Next.js + Tailwind CSS + TypeScript Starter Template
+# Andre Chandra Putra - Portfolio Blog
 
-A modern, feature-rich starter template built with Next.js, Tailwind CSS, TypeScript, and shadcn/ui. Perfect for building scalable web applications with best practices and developer experience in mind.
+Welcome to my personal portfolio blog! This site serves as a central hub to showcase my journey as a developer, share insightful tutorials, and highlight my projects.
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+## 🌐 Live Site
 
-## 🚀 Features
+Check out my portfolio blog at: [andrechandra.vercel.app](https://andrechandra.vercel.app)
 
-- ⚡️ **Next.js 14** with App Router and Server Components
-- 💎 **Tailwind CSS** for utility-first styling
-- 🔍 **TypeScript** for type safety
-- 🎨 **shadcn/ui** for beautiful, accessible components
-- 🧪 **Jest** and **React Testing Library** for testing
-- 📝 **ESLint** and **Prettier** for code quality
-- 📱 Fully responsive design
-- 🌙 Dark mode support
-- 🔧 Absolute imports
-- 📄 SEO optimization ready
-- 🚦 Pre-configured with best practices
+## 🚀 Technologies Used
 
-## 📦 Getting Started
+- **Next.js**: Modern React framework for fast and SEO-friendly web applications.
+- **Tailwind CSS**: Utility-first CSS framework for rapid styling.
+- **TypeScript**: Enhancing code quality and maintainability.
+- **MDX**: Writing blog posts with Markdown and JSX for dynamic content.
+- **Vercel**: Hosting platform for smooth deployment and scalability.
+
+## ✨ Features
+
+- **Developer Blog**: Tutorials, tips, and insights on React, Next.js, and other web development topics.
+- **Portfolio Showcase**: A dedicated section highlighting my projects, experiences, and achievements.
+- **Responsive Design**: Optimized for all devices, from desktops to smartphones.
+- **Dark Mode Support**: A user-friendly light and dark mode toggle.
+- **SEO Optimized**: Configured with meta tags and Open Graph for better discoverability.
+
+## 🛠 Development
 
 ### Prerequisites
 
 - Node.js 18+
-- npm or yarn or pnpm
+- npm, yarn, or pnpm
 
-### Installation
+<!-- ### Getting Started
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/AndreChips/next-tailwind-starter.git
-cd next-tailwind-starter
+git clone https://github.com/andrechandra/portfolio-blog.git
+cd portfolio-blog
 ```
 
 2. Install dependencies:
@@ -55,93 +58,36 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site in your browser. -->
 
-## 🏗 Project Structure
+## 📝 Content Creation
 
+Blog posts are written in MDX format, blending Markdown with React components. Add new posts under the `content/blog` directory.
+
+### Example Blog Post
+
+```mdx
+---
+title: 'Understanding React Context'
+date: '2025-01-15'
+summary: 'A deep dive into React Context for state management.'
+---
+
+React Context simplifies state management...
 ```
-.
-├── __tests__/          # Test files
-├── public/            # Static files
-├── app/          # App router pages
-├── components/   # React components
-│   ├── ui/      # shadcn/ui components
-│   └── ...      # Custom components
-├── lib/         # Utility functions
-├── .eslintrc.json  # ESLint configuration
-├── .prettierrc     # Prettier configuration
-├── jest.config.js  # Jest configuration
-└── tailwind.config.js # Tailwind configuration
-```
-
-## 🧪 Testing
-
-Run tests with:
-
-```bash
-npm run test
-# or
-yarn test
-```
-
-## 🎨 Customization
-
-### Tailwind CSS
-
-Customize your theme in `tailwind.config.js`:
-
-```js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        // Add your colors
-      },
-    },
-  },
-}
-```
-
-### shadcn/ui Components
-
-Add new components using the CLI:
-
-```bash
-npx shadcn-ui@latest add [component-name]
-```
-
-## 📝 Scripts
-
-- `dev` - Start development server
-- `build` - Build for production
-- `start` - Start production server
-- `test` - Run tests
-- `lint` - Run ESLint
-- `format` - Format code with Prettier
-
-## 🚀 Deployment
-
-This template is ready to be deployed to Vercel. Click the button below to deploy:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/AndreChips/next-tailwind-starter)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 👏 Acknowledgments
+## 📬 Get in Touch
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [shadcn/ui](https://ui.shadcn.com/)
+Feel free to connect with me:
+
+- [LinkedIn](https://linkedin.com/in/andrechandraputra)
+- [Instagram](https://instagram.com/andrechandraap)
+- [GitHub](https://github.com/andrechandra)
+
+---
+
+Thank you for visiting my portfolio blog. I hope you find something valuable here!

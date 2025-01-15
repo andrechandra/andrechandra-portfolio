@@ -20,6 +20,7 @@ const SocialLink = ({
 }) => (
   <Link
     href={href}
+    target="_blank"
     className={`block mb-4 text-gray-400 hover:text-yellow-400 hover:scale-110 transition-colors ${className}`}
   >
     {children}

@@ -15,7 +15,7 @@ export const socialLinks = [
   {
     name: 'GitHub',
     icon: FaGithub,
-    href: 'https://github.com/AndreChips',
+    href: 'https://github.com/andrechandra',
   },
   {
     name: 'Instagram',
@@ -30,6 +30,6 @@ export const socialLinks = [
   {
     name: 'CodePen',
     icon: FaCodepen,
-    href: 'https://codepen.io/andrechips',
+    href: 'https://codepen.io/andrechandra',
   },
 ]

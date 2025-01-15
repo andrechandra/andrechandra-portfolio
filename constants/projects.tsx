@@ -33,7 +33,7 @@ import { motion } from 'framer-motion'
 export const projects: Project[] = [
   {
     href: 'https://next-shadcn-starter-template.vercel.app/',
-    repo: 'https://github.com/aceternity/next-shadcn-starter-template',
+    repo: 'https://github.com/andrechandra/next-tailwind-starter',
     title: 'Next + Tailwind + Shadcn Starter Template',
     category: 'short-projects',
     description:
