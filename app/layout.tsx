@@ -5,6 +5,7 @@ import React from 'react'
 import Footer from '@/components/footer-component'
 import Navbar from '@/components/nav-bar'
 import { Poppins, Roboto } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   title: 'Andre Chandra Putra',
@@ -50,6 +51,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
