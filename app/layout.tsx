@@ -6,6 +6,7 @@ import Footer from '@/components/footer-component'
 import Navbar from '@/components/nav-bar'
 import { Poppins, Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: 'Andre Chandra Putra',
@@ -52,6 +53,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
