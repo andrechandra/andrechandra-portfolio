@@ -233,7 +233,7 @@ export default function ProjectCard({
                   </div>
                 </div>
 
-                <div className="relative aspect-[5/3] w-full mx-auto overflow-hidden rounded-lg">
+                <div className="relative aspect-[4/3] w-full mx-auto overflow-hidden rounded-lg">
                   <Image
                     src={project.thumbnail}
                     alt={project.title}

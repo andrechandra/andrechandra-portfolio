@@ -1,5 +1,6 @@
 // Tailwind Starter
-import tailwindStarter from '@/public/projects/next-starter/tailwind-starter.png'
+import nextStarterThumbnail from '@/public/projects/next-starter/next-thumbnail.png'
+import nextStarter from '@/public/projects/next-starter/tailwind-starter.png'
 
 // Math Fantasy
 import mathFantasyThumbnail from '@/public/projects/math-fantasy/thumbnail.png'
@@ -27,10 +28,58 @@ import orangeBurger2 from '@/public/projects/orange-burger/orange-burger2.png'
 // Sei-You
 import seiYouThumbnail from '@/public/projects/sei-you/sei-you-thumbnail.png'
 
+// BCS-Serpong
+import bcsThumbnail from '@/public/projects/bcs-serpong/bcs-thumbnail.png'
+import bcs1 from '@/public/projects/bcs-serpong/bcs-1.png'
+import bcs2 from '@/public/projects/bcs-serpong/bcs-2.png'
+import bcs3 from '@/public/projects/bcs-serpong/bcs-3.png'
+import bcs4 from '@/public/projects/bcs-serpong/bcs-4.png'
+import bcs5 from '@/public/projects/bcs-serpong/bcs-5.png'
+import bcs6 from '@/public/projects/bcs-serpong/bcs-6.png'
+import bcs7 from '@/public/projects/bcs-serpong/bcs-7.png'
+import bcs8 from '@/public/projects/bcs-serpong/bcs-8.png'
+
 import { Project } from '@/types/project'
 import { motion } from 'framer-motion'
 
 export const projects: Project[] = [
+  {
+    href: 'https://bcs-serpong.org',
+    repo: '',
+    title: 'GKKK BCS Serpong | Website',
+    category: 'freelance',
+    description:
+      'A dedicated website for GKKK BCS Serpong, showcasing our church&apos;s mission, values, and community activities. Explore our profile, learn about our purpose, and discover meaningful ways to support and engage with our church.',
+    thumbnail: bcsThumbnail,
+    images: [bcs1, bcs2, bcs3, bcs4, bcs5, bcs6, bcs7, bcs8],
+    stack: ['Nextjs', 'Tailwindcss', 'Shadcn'],
+    slug: 'bcs-serpong',
+    content: (
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <p className="font-roboto text-gray-400">
+          I created a website for my church, GKKK BCS Serpong, to provide a
+          comprehensive online platform that represents our community, mission,
+          and values. The website serves as a central hub for sharing our
+          church&apos;s vision of spreading God&apos;s love and building a
+          strong community grounded in faith. It also provides visitors with
+          information about our church activities, worship schedules, and
+          opportunities to get involved.
+        </p>
+        <p className="font-roboto text-gray-400">
+          My motivation for building this website was to make it easier for
+          people to connect with our church, learn about who we are, and
+          understand how they can support our ministry. It&apos;s a tool to
+          share updates, encourage participation, and reflect the welcoming
+          spirit of GKKK BCS Serpong, extending our reach to those who might be
+          seeking a place to grow in their faith.
+        </p>
+      </motion.div>
+    ),
+  },
   {
     href: 'https://next-shadcn-starter-template.vercel.app/',
     repo: 'https://github.com/andrechandra/next-tailwind-starter',
@@ -38,8 +87,8 @@ export const projects: Project[] = [
     category: 'short-projects',
     description:
       'A starter template for building modern web applications with Next.js, Tailwind CSS, and shadcn/ui components. Pre-configured with TypeScript and ESLint.',
-    thumbnail: tailwindStarter,
-    images: [tailwindStarter],
+    thumbnail: nextStarterThumbnail,
+    images: [nextStarter],
     stack: ['Nextjs', 'Tailwindcss', 'Shadcn'],
     slug: 'starter',
     content: (
