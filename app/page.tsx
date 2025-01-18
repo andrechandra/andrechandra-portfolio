@@ -119,7 +119,7 @@ export default function Home() {
 
       <div
         className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"
-        id="project"
+        id="posts"
       >
         <div className="flex flex-col gap-4">
           <motion.div
