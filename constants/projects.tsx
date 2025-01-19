@@ -48,8 +48,7 @@ export const projects: Project[] = [
     repo: '',
     title: 'GKKK BCS Serpong | Website',
     category: 'freelance',
-    description:
-      'A dedicated website for GKKK BCS Serpong, showcasing our church&apos;s mission, values, and community activities. Explore our profile, learn about our purpose, and discover meaningful ways to support and engage with our church.',
+    description: `A dedicated website for GKKK BCS Serpong, showcasing our church's mission, values, and community activities. Explore our profile, learn about our purpose, and discover meaningful ways to support and engage with our church.`,
     thumbnail: bcsThumbnail,
     images: [bcs1, bcs2, bcs3, bcs4, bcs5, bcs6, bcs7, bcs8],
     stack: ['Nextjs', 'Tailwindcss', 'Shadcn'],
