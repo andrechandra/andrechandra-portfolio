@@ -110,8 +110,8 @@ export default function AboutCard() {
                 <div className="relative aspect-square">
                   <div className="absolute inset-0 border-8 border-black z-10 transition-colors duration-300 ">
                     <Image
-                      src="/profile/avatar.jpeg"
-                      alt="Andre Chandra Putra"
+                      src="/profile/avatar.jpg"
+                      alt="Andre Chandra Putra's Profile Picture"
                       fill
                       className="object-cover transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-2"
                     />
