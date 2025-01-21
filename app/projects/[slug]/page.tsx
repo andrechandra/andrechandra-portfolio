@@ -4,11 +4,10 @@ import { projects } from '@/constants/projects'
 import { notFound } from 'next/navigation'
 
 type Props = {
-  params: Promise<{ slug: string }> | { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  // Await the params
   const resolvedParams = await params
   const project = projects.find((p) => p.slug === resolvedParams.slug)
 
@@ -17,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${project.title}`,
+    title: project.title,
     description: project.description || 'Project by Andre Chandra Putra',
     openGraph: {
       title: project.title,
@@ -59,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ProjectPage() {
+export default async function ProjectPage() {
   return (
     <main className="min-h-screen bg-background text-foreground pt-20">
       <div className="space-y-8 sm:space-y-12">
