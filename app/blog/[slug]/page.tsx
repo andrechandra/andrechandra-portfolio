@@ -8,7 +8,6 @@ import { BlogNavigation } from '@/components/blog-navigation'
 import Image from 'next/image'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { motion } from 'framer-motion'
 
 interface BlogData {
   title: string

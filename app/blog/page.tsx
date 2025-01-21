@@ -3,8 +3,26 @@ import Header from '@/components/header-component'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog | Andre Chandra Putra',
-  description: "Andre Chandra Putra's personal website",
+  title: 'Blog',
+  description: 'A blog about my journey as a developer.',
+  openGraph: {
+    title: 'Blog',
+    description: 'A blog about my journey as a developer.',
+    images: [
+      {
+        url: '/open-graph/resume-og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Andre Chandra Putra - Blog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Andre Chandra Putra's Blog",
+    description: 'A blog about my journey as a developer.',
+    images: ['/open-graph/resume-og.png'],
+  },
 }
 
 export default function BlogsPage() {

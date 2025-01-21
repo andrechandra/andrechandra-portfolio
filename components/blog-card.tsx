@@ -6,12 +6,7 @@ import { Button } from '@/components/ui/button'
 import { getSortedBlogs } from '@/lib/blog'
 import MotionWrapper from '@/components/motion-wrapper'
 
-interface BlogCardProps {
-  limit?: number
-  tags?: string[]
-}
-
-export default function BlogCard({ limit, tags }: BlogCardProps) {
+export default function BlogCard() {
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr)
     return date.toLocaleDateString('en-US', {

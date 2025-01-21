@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState, useEffect } from 'react'
 import { Menu, X, Home, Book, FolderGit2, User } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
