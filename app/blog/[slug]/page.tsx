@@ -78,7 +78,7 @@ export default async function BlogPage({ params }: Props) {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <Image
-                src="/profile/avatar.jpeg"
+                src="/profile/profile-picture.jpg"
                 alt="Andre Chandra Putra"
                 width={40}
                 height={40}
