@@ -66,7 +66,7 @@ export default function ProjectSection() {
               <CarouselContent>
                 {project.images.map((image, index) => (
                   <CarouselItem key={index} className="basis-full sm:basis-1/2">
-                    <div className="relative aspect-video overflow-hidden rounded-lg">
+                    <div className="relative aspect-video overflow-hidden rounded-lg border-2">
                       <Image
                         src={image}
                         alt={`${project.title} screenshot ${index + 1}`}

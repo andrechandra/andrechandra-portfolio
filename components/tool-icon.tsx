@@ -11,8 +11,10 @@ import {
   SiFigma as FigmaIcon,
   SiUnity as UnityIcon,
   SiPhp as PhpIcon,
+  SiClerk,
+  SiPrisma,
+  SiPostgresql,
 } from 'react-icons/si'
-
 export const ToolIcon = ({ tool }: { tool: string }) => {
   switch (tool.toLowerCase()) {
     case 'nextjs':
@@ -39,6 +41,12 @@ export const ToolIcon = ({ tool }: { tool: string }) => {
       return <UnityIcon className="h-5 w-5" />
     case 'php':
       return <PhpIcon className="h-5 w-5" />
+    case 'clerk':
+      return <SiClerk className="h-5 w-5" />
+    case 'prisma':
+      return <SiPrisma className="h-5 w-5" />
+    case 'postgres':
+      return <SiPostgresql className="h-5 w-5" />
     default:
       return null
   }

@@ -85,12 +85,7 @@ export default function Navbar() {
         }}
         transition={{ duration: 0.2 }}
       >
-        <motion.nav
-          initial={!hasAnimated ? { opacity: 0, y: -20 } : false}
-          animate={!hasAnimated ? { opacity: 1, y: 0 } : false}
-          transition={{ duration: 0.5 }}
-          className="max-w-[fit-content] mx-auto bg-white/5 backdrop-blur-sm px-5 py-3 rounded-lg"
-        >
+        <nav className="max-w-[fit-content] mx-auto bg-white/5 backdrop-blur-sm px-5 py-3 rounded-lg">
           <div className="flex items-center justify-between mx-auto">
             <div className="hidden md:flex items-center space-x-8">
               {mainLinks.map((link) => (
@@ -166,7 +161,7 @@ export default function Navbar() {
               )}
             </motion.button>
           </div>
-        </motion.nav>
+        </nav>
       </motion.div>
 
       <AnimatePresence>

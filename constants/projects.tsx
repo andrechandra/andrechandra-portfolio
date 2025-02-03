@@ -3,7 +3,7 @@ import nextStarterThumbnail from '@/public/projects/next-starter/next-thumbnail.
 import nextStarter from '@/public/projects/next-starter/tailwind-starter.png'
 
 // Math Fantasy
-import mathFantasyThumbnail from '@/public/projects/math-fantasy/thumbnail.png'
+import mathFantasyThumbnail from '@/public/projects/math-fantasy/math-fantasy-thumbnail.png'
 import mathFantasyCaveLevel from '@/public/projects/math-fantasy/math-fantasy-cavelevel.png'
 import mathFantasySwampLevel from '@/public/projects/math-fantasy/math-fantasy-swamplevel.png'
 import mathFantasyTaigaLevel from '@/public/projects/math-fantasy/math-fantasy-taigalevel.png'
@@ -39,10 +39,66 @@ import bcs6 from '@/public/projects/bcs-serpong/bcs-6.png'
 import bcs7 from '@/public/projects/bcs-serpong/bcs-7.png'
 import bcs8 from '@/public/projects/bcs-serpong/bcs-8.png'
 
+// Expense-Tracker
+import expensetrackerThumbnail from '@/public/projects/expense-tracker/expense-tracker-thumbnail.png'
+import expensetracker1 from '@/public/projects/expense-tracker/expense-tracker-1.png'
+import expensetracker2 from '@/public/projects/expense-tracker/expense-tracker-2.png'
+import expensetracker3 from '@/public/projects/expense-tracker/expense-tracker-3.png'
+import expensetracker4 from '@/public/projects/expense-tracker/expense-tracker-4.png'
+import expensetracker5 from '@/public/projects/expense-tracker/expense-tracker-5.png'
+import expensetracker6 from '@/public/projects/expense-tracker/expense-tracker-6.png'
+import expensetracker7 from '@/public/projects/expense-tracker/expense-tracker-7.png'
+import expensetracker8 from '@/public/projects/expense-tracker/expense-tracker-8.png'
+
 import { Project } from '@/types/project'
 import { motion } from 'framer-motion'
 
 export const projects: Project[] = [
+  {
+    href: 'https://ach-expense-tracker.vercel.app',
+    repo: '',
+    title: 'Expense Tracker',
+    category: 'short-projects',
+    description: `A full-stack expense tracking application that helps users manage and visualize their financial transactions. Built with Next.js, Tailwind CSS, and PostgreSQL, featuring secure authentication through Clerk.`,
+    thumbnail: expensetrackerThumbnail,
+    images: [
+      expensetracker1,
+      expensetracker2,
+      expensetracker3,
+      expensetracker4,
+      expensetracker5,
+      expensetracker6,
+      expensetracker7,
+      expensetracker8,
+    ],
+    stack: ['Nextjs', 'Tailwindcss', 'Shadcn', 'Clerk', 'Prisma', 'Postgres'],
+    slug: 'expense-tracker',
+    content: (
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <p className="font-roboto text-gray-400">
+          This expense tracker represents one of my first ventures into
+          full-stack web development, combining modern technologies like
+          Next.js, Tailwind CSS, and shadcn/ui for the frontend, with Prisma and
+          PostgreSQL handling the backend database operations. The application
+          features a clean, intuitive interface that allows users to easily
+          track their financial transactions and manage their personal finances.
+        </p>
+        <p className="font-roboto text-gray-400">
+          Users can securely log in using Clerk authentication, add and
+          categorize their income and expenses, and visualize their financial
+          data through interactive charts and summaries. The application
+          provides detailed transaction history, category-wise breakdowns, and
+          financial trends over time. This project helped me gain hands-on
+          experience with full-stack development, database management, and
+          implementing secure user authentication in a real-world application.
+        </p>
+      </motion.div>
+    ),
+  },
   {
     href: 'https://bcs-serpong.org',
     repo: '',
