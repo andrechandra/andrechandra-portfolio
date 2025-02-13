@@ -27,6 +27,9 @@ import orangeBurger2 from '@/public/projects/orange-burger/orange-burger2.png'
 
 // Sei-You
 import seiYouThumbnail from '@/public/projects/sei-you/sei-you-thumbnail.png'
+import sei1 from '@/public/projects/sei-you/sei-you.jpg'
+import sei2 from '@/public/projects/sei-you/sei-you2.jpg'
+import sei3 from '@/public/projects/sei-you/sei-you3.jpg'
 
 // BCS-Serpong
 import bcsThumbnail from '@/public/projects/bcs-serpong/bcs-thumbnail.png'
@@ -220,6 +223,45 @@ export const projects: Project[] = [
           blending education with gaming, Math Fantasy seeks to encourage
           students to stay motivated and improve their knowledge in a fun and
           immersive way.
+        </p>
+      </motion.div>
+    ),
+  },
+  {
+    href: 'https://sei-you.vercel.app/',
+    repo: 'https://github.com/IArnFredo/WeHearYouAll-SeiYou',
+    title: 'Sei-You',
+    category: 'university',
+    description:
+      'SeiYou is a voice-over application and it is hoped that everyone will get passion and work from this application for those who need it.',
+    thumbnail: seiYouThumbnail,
+    images: [sei1, sei2, sei3],
+    stack: ['Ionic', 'Capacitor', 'React'],
+    slug: 'sei-you',
+    content: (
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <p className="font-roboto text-gray-400">
+          SeiYou is a voice-over application designed to enable users to express
+          themselves through voice recordings. Users can easily record their
+          voices and share them with the community, allowing others to discover
+          and listen to unique voice content.
+        </p>
+        <p className="font-roboto text-gray-400">
+          This project was developed using Ionic and Capacitor for
+          cross-platform compatibility, combined with React and TypeScript for a
+          robust and scalable architecture. The goal was to create a seamless
+          user experience with intuitive navigation and smooth audio playback
+          functionality.
+        </p>
+        <p className="font-roboto text-gray-400">
+          Through this project, I gained valuable experience in mobile app
+          development, integrating audio recording features, and managing
+          user-generated content. SeiYou represents my ability to build engaging
+          applications that encourage creativity and interaction among users.
         </p>
       </motion.div>
     ),

@@ -66,13 +66,25 @@ export default function ProjectSection() {
               <CarouselContent>
                 {project.images.map((image, index) => (
                   <CarouselItem key={index} className="basis-full sm:basis-1/2">
-                    <div className="relative aspect-video overflow-hidden rounded-lg border-2">
-                      <Image
-                        src={image}
-                        alt={`${project.title} screenshot ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="relative overflow-hidden rounded-lg border-2">
+                      <div className="w-full h-full">
+                        <Image
+                          src={image}
+                          alt={`${project.title} screenshot ${index + 1}`}
+                          fill
+                          className="object-contain"
+                          onLoadingComplete={(img) => {
+                            const container = img.parentElement
+                            if (container) {
+                              if (img.naturalHeight > img.naturalWidth) {
+                                container.style.aspectRatio = '3/4' // Portrait
+                              } else {
+                                container.style.aspectRatio = '16/9' // Landscape
+                              }
+                            }
+                          }}
+                        />
+                      </div>
                     </div>
                   </CarouselItem>
                 ))}

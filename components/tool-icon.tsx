@@ -14,6 +14,8 @@ import {
   SiClerk,
   SiPrisma,
   SiPostgresql,
+  SiIonic,
+  SiCapacitor,
 } from 'react-icons/si'
 export const ToolIcon = ({ tool }: { tool: string }) => {
   switch (tool.toLowerCase()) {
@@ -47,6 +49,10 @@ export const ToolIcon = ({ tool }: { tool: string }) => {
       return <SiPrisma className="h-5 w-5" />
     case 'postgres':
       return <SiPostgresql className="h-5 w-5" />
+    case 'ionic':
+      return <SiIonic className="h-5 w-5" />
+    case 'capacitor':
+      return <SiCapacitor className="h-5 w-5" />
     default:
       return null
   }
