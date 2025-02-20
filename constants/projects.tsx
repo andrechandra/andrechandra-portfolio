@@ -1,6 +1,8 @@
 // Tailwind Starter
 import nextStarterThumbnail from '@/public/projects/next-starter/next-thumbnail.png'
 import nextStarter from '@/public/projects/next-starter/tailwind-starter.png'
+import nextStarter2 from '@/public/projects/next-starter/tailwind-starter-2.png'
+import nextStarter3 from '@/public/projects/next-starter/tailwind-starter-3.png'
 
 // Math Fantasy
 import mathFantasyThumbnail from '@/public/projects/math-fantasy/math-fantasy-thumbnail.png'
@@ -53,13 +55,18 @@ import expensetracker6 from '@/public/projects/expense-tracker/expense-tracker-6
 import expensetracker7 from '@/public/projects/expense-tracker/expense-tracker-7.png'
 import expensetracker8 from '@/public/projects/expense-tracker/expense-tracker-8.png'
 
+// Notion-Links
+import notionLinksThumbnail from '@/public/projects/notion-links/notion-links-thumbnail.png'
+import notionLinks from '@/public/projects/notion-links/notion-links.png'
+import notionLinks2 from '@/public/projects/notion-links/notion-links-2.png'
+
 import { Project } from '@/types/project'
 import { motion } from 'framer-motion'
 
 export const projects: Project[] = [
   {
     href: 'https://ach-expense-tracker.vercel.app',
-    repo: '',
+    repo: 'https://github.com/andrechandra/expense-tracker',
     title: 'Expense Tracker',
     category: 'short-projects',
     description: `A full-stack expense tracking application that helps users manage and visualize their financial transactions. Built with Next.js, Tailwind CSS, and PostgreSQL, featuring secure authentication through Clerk.`,
@@ -139,6 +146,39 @@ export const projects: Project[] = [
     ),
   },
   {
+    href: 'https://notionlinks.vercel.app/',
+    repo: 'https://github.com/andrechandra/notion-links',
+    title: 'Notion Links',
+    category: 'short-projects',
+    description:
+      'A personalized Linktree-style website built with Next.js, using the Notion API as a CMS for seamless link management.',
+    thumbnail: notionLinksThumbnail,
+    images: [notionLinks, notionLinks2],
+    stack: ['Nextjs', 'Tailwindcss', 'Notion'],
+    slug: 'starter',
+    content: (
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <p className="font-roboto text-gray-400">
+          Notion Links is a Linktree-style website built with Next.js, using the
+          Notion API as a CMS for effortless link management. It allows users to
+          update and organize links directly from their Notion workspace, making
+          customization seamless and intuitive.
+        </p>
+        <p className="font-roboto text-gray-400">
+          This project leverages Tailwind CSS for styling and shadcn/ui for
+          modern UI components, ensuring a clean and responsive design. With its
+          dynamic content fetching from Notion, users can manage their personal
+          or professional links without modifying code, offering both
+          flexibility and efficiency.
+        </p>
+      </motion.div>
+    ),
+  },
+  {
     href: 'https://next-shadcn-starter-template.vercel.app/',
     repo: 'https://github.com/andrechandra/next-tailwind-starter',
     title: 'Next + Tailwind + Shadcn Starter Template',
@@ -146,7 +186,7 @@ export const projects: Project[] = [
     description:
       'A starter template for building modern web applications with Next.js, Tailwind CSS, and shadcn/ui components. Pre-configured with TypeScript and ESLint.',
     thumbnail: nextStarterThumbnail,
-    images: [nextStarter],
+    images: [nextStarter, nextStarter2, nextStarter3],
     stack: ['Nextjs', 'Tailwindcss', 'Shadcn'],
     slug: 'starter',
     content: (
