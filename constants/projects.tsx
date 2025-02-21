@@ -155,7 +155,7 @@ export const projects: Project[] = [
     thumbnail: notionLinksThumbnail,
     images: [notionLinks, notionLinks2],
     stack: ['Nextjs', 'Tailwindcss', 'Notion'],
-    slug: 'starter',
+    slug: 'notion-links',
     content: (
       <motion.div
         initial={{ opacity: 0, y: 40 }}
