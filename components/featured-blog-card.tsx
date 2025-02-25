@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import MotionWrapper from '@/components/motion-wrapper'
 import { featuredBlogs } from '@/constants/featured-blogs'
+import { LinkButton } from './ui/link-button'
 
 export default function FeaturedBlogCard() {
   return (
@@ -45,16 +46,19 @@ export default function FeaturedBlogCard() {
                         </Badge>
                       ))}
                     </div>
-                    <Button
+                    <LinkButton
                       asChild
-                      variant="link_right"
+                      variant="unstyled_link_right"
                       className="rounded-full text-gray-400 hover:text-white"
                     >
-                      <Link href={blog.slug}>
-                        <ArrowRight className="mr-2 h-4 w-4" />
+                      <Link
+                        href={blog.slug}
+                        className="flex items-center group"
+                      >
                         Read More
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
-                    </Button>
+                    </LinkButton>
                   </div>
                 )}
               </div>
@@ -83,12 +87,16 @@ export default function FeaturedBlogCard() {
             className: 'flex justify-center',
           }}
         >
-          <Button asChild variant="link_right" className="text-white">
-            <Link href="/blog">
-              Read More Blogs
-              <ArrowRight className="mr-2 h-4 w-4" />
+          <LinkButton
+            asChild
+            variant="underline_link_right"
+            className="text-white"
+          >
+            <Link href="/blog" className="flex items-center group">
+              View more blogs
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-          </Button>
+          </LinkButton>
         </MotionWrapper>
       </div>
     </div>

@@ -28,6 +28,7 @@ import { motion } from 'framer-motion'
 
 import { ToolIcon } from '@/components/tool-icon'
 import { ProjectContent } from '@/components/project-content'
+import { LinkButton } from '../ui/link-button'
 
 export default function ProjectSection() {
   const params = useParams()
@@ -43,16 +44,16 @@ export default function ProjectSection() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
-      <Button
+      <LinkButton
         asChild
-        variant="link_left"
-        className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mb-4 sm:mb-6"
+        variant="unstyled_link_left"
+        className="text-white mb-4 sm:mb-6"
       >
-        <Link href="/projects">
-          <ArrowLeft className="mr-2 h-4 w-4" />
+        <Link href="/projects" className="flex items-center group">
+          <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
           Back to Projects
         </Link>
-      </Button>
+      </LinkButton>
 
       <div className="space-y-6 sm:space-y-8">
         {project.images.length > 0 && (
@@ -133,7 +134,11 @@ export default function ProjectSection() {
 
         <div className="flex flex-row gap-4">
           {project.href && (
-            <Button asChild variant="outline" className="w-full sm:w-auto">
+            <Button
+              asChild
+              variant="outline"
+              className="w-full sm:w-auto cursor-[var(--external-cursor)]"
+            >
               <Link href={project.href} target="_blank">
                 <Link2 className="mr-2 h-4 w-4" />
                 Visit Website
@@ -141,7 +146,11 @@ export default function ProjectSection() {
             </Button>
           )}
           {project.repo && (
-            <Button asChild variant="outline" className="w-full sm:w-auto">
+            <Button
+              asChild
+              variant="outline"
+              className="w-full sm:w-auto cursor-[var(--external-cursor)]"
+            >
               <Link href={project.repo} target="_blank">
                 <Github className="mr-2 h-4 w-4" />
                 View Source

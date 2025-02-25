@@ -17,6 +17,7 @@ import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { ToolIcon } from './tool-icon'
+import { LinkButton } from './ui/link-button'
 
 const projectVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -111,7 +112,7 @@ export default function ProjectCard({
                     : 'lg:[&>*:first-child]:order-last lg:grid-cols-[1fr_2fr]'
                 }`}
               >
-                <div className="space-y-6 order-2 lg:order-none">
+                <div className="space-y-4 order-2 lg:order-none">
                   <h2 className="text-xl font-bold tracking-tight">
                     {project.title}
                   </h2>
@@ -159,37 +160,37 @@ export default function ProjectCard({
                       </HoverBorderGradient>
                     </div>
 
-                    <div>
+                    <div className="flex gap-4">
                       {project.href && (
-                        <Button
+                        <LinkButton
                           asChild
-                          variant="link_right"
-                          className="rounded-full text-gray-400 hover:text-white"
+                          variant="unstyled_link_right"
+                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)]"
                         >
                           <Link href={project.href} target="_blank">
                             <Link2 className="mr-2 h-4 w-4" />
                             Live Site
                           </Link>
-                        </Button>
+                        </LinkButton>
                       )}
 
                       {project.repo && (
-                        <Button
+                        <LinkButton
                           asChild
-                          variant="link_right"
-                          className="rounded-full text-gray-400 hover:text-white"
+                          variant="unstyled_link_right"
+                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)]"
                         >
                           <Link href={project.repo} target="_blank">
                             <Github className="mr-2 h-4 w-4" />
                             Repository
                           </Link>
-                        </Button>
+                        </LinkButton>
                       )}
                     </div>
                   </div>
                 </div>
 
-                <div className="relative aspect-[4/3] w-full mx-auto overflow-hidden rounded-lg">
+                <div className="relative aspect-[4/3] w-full mx-auto overflow-hidden rounded-lg items-center">
                   <Image
                     src={project.thumbnail}
                     alt={project.title}
@@ -211,12 +212,16 @@ export default function ProjectCard({
             exit="exit"
             className="flex justify-center"
           >
-            <Button asChild variant="link_right" className="text-white">
-              <Link href="/projects">
+            <LinkButton
+              asChild
+              variant="underline_link_right"
+              className="text-white"
+            >
+              <Link href="/projects" className="flex items-center group">
                 View more projects
-                <ArrowRight className="mr-2 h-4 w-4" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-            </Button>
+            </LinkButton>
           </motion.div>
         )}
       </div>

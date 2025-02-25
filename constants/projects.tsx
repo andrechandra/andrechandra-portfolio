@@ -69,7 +69,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/andrechandra/expense-tracker',
     title: 'Expense Tracker',
     category: 'short-projects',
-    description: `A full-stack expense tracking application that helps users manage and visualize their financial transactions. Built with Next.js, Tailwind CSS, and PostgreSQL, featuring secure authentication through Clerk.`,
+    description: `A full-stack expense tracking application that helps users manage and visualize their financial transactions.`,
     thumbnail: expensetrackerThumbnail,
     images: [
       expensetracker1,
@@ -114,7 +114,7 @@ export const projects: Project[] = [
     repo: '',
     title: 'GKKK BCS Serpong | Website',
     category: 'freelance',
-    description: `A dedicated website for GKKK BCS Serpong, showcasing our church's mission, values, and community activities. Explore our profile, learn about our purpose, and discover meaningful ways to support and engage with our church.`,
+    description: `A dedicated website for GKKK BCS Serpong, showcasing our church's mission, values, and community activities.`,
     thumbnail: bcsThumbnail,
     images: [bcs1, bcs2, bcs3, bcs4, bcs5, bcs6, bcs7, bcs8],
     stack: ['Nextjs', 'Tailwindcss', 'Shadcn'],
@@ -220,7 +220,7 @@ export const projects: Project[] = [
     title: 'Math Fantasy',
     category: 'university',
     description:
-      'Math Fantasy, is a statistics mathematic learning game with a 2D Top Down Syle.',
+      'Math Fantasy, is a statistics mathematic learning game with a 2D Top Down Syle, designed to help students learn through playing a game.',
     thumbnail: mathFantasyThumbnail,
     images: [
       mathFantasyMainMenu,
@@ -355,7 +355,7 @@ export const projects: Project[] = [
     title: 'Anugerah Teknik Mandiri',
     category: 'freelance',
     description:
-      'Company website for Anugerah Teknik Mandiri, made for commercial purposes.',
+      'Company website for Anugerah Teknik Mandiri to displays their services and products. Made for commercial purposes.',
     thumbnail: cvAtmThumbnail,
     images: [cvAtm, cvAtm2],
     stack: ['HTML', 'CSS', 'Javascript'],

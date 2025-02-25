@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { LinkButton } from '@/components/ui/link-button'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -21,9 +21,9 @@ export default function ErrorPage() {
         </p>
         <div className="pt-4">
           <Link href="/">
-            <Button variant="link_left" className="text-white">
+            <LinkButton variant="unstyled_link_left" className="text-white">
               Return to homepage
-            </Button>
+            </LinkButton>
           </Link>
         </div>
       </div>

@@ -57,18 +57,6 @@ export default function Navbar() {
       icon: User,
       description: 'My experiences and skill',
     },
-    // {
-    //   href: '/uses',
-    //   label: 'Uses',
-    //   icon: Monitor,
-    //   description: 'A peek into my digital workspace',
-    // },
-    // {
-    //   href: '/bucket-list',
-    //   label: 'Bucket List',
-    //   icon: List,
-    //   description: 'Things to do at least once in my life',
-    // },
   ]
 
   const mainLinks = links.slice(0, 5)

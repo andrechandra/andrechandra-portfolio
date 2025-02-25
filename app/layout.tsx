@@ -1,28 +1,12 @@
-import '@/app/globals.css'
+import '@/styles/globals.css'
 import React from 'react'
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from '@/components/theme-provider'
-import Footer from '@/components/footer-component'
+import { Footer } from '@/components/footer-component'
 import Navbar from '@/components/nav-bar'
-import { Poppins, Roboto } from 'next/font/google'
-
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  display: 'swap',
-  preload: true,
-})
-
-const roboto = Roboto({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  variable: '--font-roboto',
-  display: 'swap',
-  preload: true,
-})
+import { fonts } from '@/lib/fonts'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://andrechandra.vercel.app'),
@@ -90,11 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${poppins.variable} ${roboto.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning className={fonts.join(' ')}>
       <body>
         <ThemeProvider
           attribute="class"

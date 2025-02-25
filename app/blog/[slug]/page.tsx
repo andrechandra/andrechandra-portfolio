@@ -8,6 +8,7 @@ import { BlogNavigation } from '@/components/blog-navigation'
 import Image from 'next/image'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { LinkButton } from '@/components/ui/link-button'
 
 interface BlogData {
   title: string
@@ -110,16 +111,16 @@ export default async function BlogPage({ params }: Props) {
         </div>
 
         <div className="mt-10">
-          <Button
+          <LinkButton
             asChild
-            variant="link_left"
-            className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mb-4 sm:mb-6"
+            variant="unstyled_link_left"
+            className="text-white"
           >
-            <Link href="/blog">
-              <ArrowLeft className="mr-4 h-4 w-4" />
+            <Link href="/blog" className="flex items-center group">
+              <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
               Back to Blogs
             </Link>
-          </Button>
+          </LinkButton>
         </div>
       </div>
     </main>

@@ -60,7 +60,7 @@ export default function ResumeSection() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-fit text-yellow-400 after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
+              className="cursor-[var(--external-cursor)] relative w-fit text-yellow-400 after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
               {company}
             </a>{' '}

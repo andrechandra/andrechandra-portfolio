@@ -102,14 +102,14 @@ export default {
 			'tilt': 'tilt 10s infinite linear',
   		},
   		fontFamily: {
-  			poppins: [
-  				'var(--font-poppins)'
-  			],
-  			roboto: [
-  				'var(--font-roboto)'
-  			],
-			signature: ['var(--font-signature)'],
-  		}
+			inter: ['var(--font-sans)'],
+			jetbrains: ['var(--font-mono)'],
+			poppins: ['var(--font-poppins)'],
+			merriweather: ['var(--font-merriweather)'],
+		},
+		cursor: {
+			'external-pointer': 'var(--external-cursor)',
+		},
   	}
   },
   plugins: [require('tailwindcss-animate')],

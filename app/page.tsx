@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
 import { ArrowDown } from 'lucide-react'
 import FeaturedBlogCard from '@/components/featured-blog-card'
+import { LinkButton } from '@/components/ui/link-button'
 
 const SocialLink = ({
   href,
@@ -82,8 +83,9 @@ export default function Home() {
           development, with experience in building user-friendly interfaces.
           Currently, I&apos;m working at{' '}
           <Link
-            href="/"
-            className="relative w-fit text-white after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
+            href="https://www.panindai-ichilife.co.id/"
+            target="_blank"
+            className="cursor-[var(--external-cursor)] relative w-fit text-white after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
           >
             Panin Dai-ichi Life
           </Link>
@@ -105,9 +107,9 @@ export default function Home() {
               <ArrowDown className="h-4 w-4" />
             </Link>
           </HoverBorderGradient>
-          <Button variant="link_right" className="text-white">
+          <LinkButton variant="underline_link_right" className="text-white">
             <Link href="/about">More about me</Link>
-          </Button>
+          </LinkButton>
         </motion.div>
       </div>
 

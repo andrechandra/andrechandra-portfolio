@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { getSortedBlogs } from '@/lib/blog'
 import MotionWrapper from '@/components/motion-wrapper'
+import { LinkButton } from './ui/link-button'
 
 export default function BlogCard() {
   const formatDate = (dateStr: string) => {
@@ -56,16 +57,19 @@ export default function BlogCard() {
                         </Badge>
                       ))}
                     </div>
-                    <Button
+                    <LinkButton
                       asChild
-                      variant="link_right"
+                      variant="unstyled_link_right"
                       className="rounded-full text-gray-400 hover:text-white"
                     >
-                      <Link href={`/blog/${blog.id}`}>
-                        <ArrowRight className="mr-2 h-4 w-4" />
+                      <Link
+                        href={`/blog/${blog.id}`}
+                        className="flex items-center group"
+                      >
                         Read More
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
-                    </Button>
+                    </LinkButton>
                   </div>
                 )}
               </div>

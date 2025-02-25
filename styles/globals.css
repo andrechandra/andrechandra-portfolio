@@ -2,13 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom cursor for light/dark modes */
+:root {
+  --external-cursor: url('/cursor/external.svg') 4 4, auto;
+}
+
+.dark {
+  --external-cursor: url('/cursor/external-dark.svg') 4 4, auto;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.01em;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-poppins), sans-serif;
 }
 
 /* width */
