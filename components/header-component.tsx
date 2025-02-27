@@ -69,8 +69,7 @@ export default function Header({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
-        className="absolute inset-0 opacity-60"
-        style={backgroundStyles[backgroundVariant]}
+        className="absolute inset-0 opacity-60 bg-grid-hero"
       />
       {/* Content */}
       <div className="relative z-10 text-center space-y-4 px-4">

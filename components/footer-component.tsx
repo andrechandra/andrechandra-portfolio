@@ -12,7 +12,7 @@ import { socialLinks } from '@/constants/socials'
 
 export const Footer = () => {
   return (
-    <footer className="py-6 text-center text-xs sm:text-sm text-muted-foreground space-y-4">
+    <footer className="py-6 text-center text-xs sm:text-sm text-muted-foreground space-y-4 bg-black">
       <div className="relative flex items-center justify-center w-full">
         <div className="absolute left-0 w-1/4 h-[1px] bg-gradient-to-r from-transparent to-[#2c2c2c]"></div>
         <Separator className="w-1/2 bg-[#2c2c2c]" />
