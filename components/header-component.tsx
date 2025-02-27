@@ -83,7 +83,7 @@ export default function Header({
           </MotionText>{' '}
           <MotionText
             as="span"
-            className="bg-[#55f89f] bg-clip-text text-transparent animate-shiny font-light"
+            className="font-light text-[#55f89f]"
             duration={0.4}
           >
             {title2}

@@ -136,7 +136,7 @@ export default function Home() {
               </MotionText>{' '}
               <MotionText
                 as="span"
-                className="font-light bg-[#55f89f] bg-clip-text text-transparent animate-shiny border-b border-dashed border-gray-500"
+                className="font-light text-[#55f89f] border-b border-dashed border-gray-500"
                 duration={0.2}
               >
                 Projects
