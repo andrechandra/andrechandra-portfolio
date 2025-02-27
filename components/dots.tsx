@@ -21,7 +21,16 @@ export const Dots = () => {
           key={index}
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [1, 0.7, 1],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+          }}
           viewport={{ once: true }}
           className="absolute w-[6px] h-[6px] bg-[#55f89f] rounded-full"
           style={{
