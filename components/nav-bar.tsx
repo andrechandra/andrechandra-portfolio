@@ -29,33 +29,27 @@ export default function Navbar() {
   const links = [
     {
       href: '/',
-      label: 'Home',
+      label: '>_home',
       icon: Home,
       description: 'Explore my digital space!',
     },
-    // {
-    //   href: '/blog',
-    //   label: 'Blog',
-    //   icon: Book,
-    //   description: 'Insights and guides',
-    // },
     {
       href: '/projects',
-      label: 'Projects',
+      label: '>_projects',
       icon: FolderGit2,
       description: 'Showcase of my projects',
     },
     {
-      href: '/about',
-      label: 'About',
-      icon: User,
-      description: 'Get to know me better!',
-    },
-    {
       href: '/experiences',
-      label: 'Experiences',
+      label: '>_experiences',
       icon: User,
       description: 'My experiences and skill',
+    },
+    {
+      href: '/about',
+      label: '>_about',
+      icon: User,
+      description: 'Get to know me better!',
     },
   ]
 
@@ -65,7 +59,7 @@ export default function Navbar() {
   return (
     <>
       <motion.div
-        className="fixed top-0 lg:left-0 right-0 z-50 px-8 py-8"
+        className="fixed top-0 md:left-0 lg:left-0 right-0 z-50 px-8 py-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -100 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}

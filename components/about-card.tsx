@@ -18,6 +18,7 @@ import {
   SiTypescript as TypescriptIcon,
 } from 'react-icons/si'
 import MotionText from './motions/motion-text'
+import Link from 'next/link'
 
 export default function AboutCard() {
   return (
@@ -37,14 +38,16 @@ export default function AboutCard() {
             className="text-gray-400 mb-4 font-geist_mono"
           >
             IT Application Developer at{' '}
-            <a
+            <span className="hidden sm:inline"></span>
+            <span className="block sm:hidden"></span>
+            <Link
               href="https://www.panindai-ichilife.co.id/"
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-[var(--external-cursor)] relative w-fit text-[#55f89f] after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
               Panin Dai-ichi Life
-            </a>
+            </Link>
           </MotionText>
           <MotionText
             as="p"

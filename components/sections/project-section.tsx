@@ -70,7 +70,7 @@ export default function ProjectSection() {
               <CarouselContent>
                 {project.images.map((image, index) => (
                   <CarouselItem key={index} className="basis-full sm:basis-1/2">
-                    <div className="relative overflow-hidden rounded-lg border-2">
+                    <div className="relative overflow-hidden rounded-none border-2">
                       <div className="w-full h-full">
                         <Image
                           src={image}

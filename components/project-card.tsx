@@ -105,7 +105,7 @@ export default function ProjectCard({
               className="relative"
             >
               <div
-                className={`grid grid-cols-1 gap-0 lg:gap-4 md:gap-2 items-stretched ${
+                className={`grid grid-cols-1 gap-0 lg:gap-4 items-stretched ${
                   index % 2 === 0
                     ? 'lg:grid-cols-[2fr_1fr]'
                     : 'lg:[&>*:first-child]:order-last lg:grid-cols-[1fr_2fr]'
