@@ -102,10 +102,9 @@ export default {
 			'tilt': 'tilt 10s infinite linear',
   		},
   		fontFamily: {
-			inter: ['var(--font-sans)'],
-			jetbrains: ['var(--font-mono)'],
-			poppins: ['var(--font-poppins)'],
-			merriweather: ['var(--font-merriweather)'],
+			alliance: ['var(--font-alliance)'],
+			geist: ['var(--font-geist)'],
+			geist_mono: ['var(--font-geist-mono)']
 		},
 		cursor: {
 			'external-pointer': 'var(--external-cursor)',

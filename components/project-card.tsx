@@ -59,7 +59,7 @@ export default function ProjectCard({
     .slice(0, limit || undefined)
 
   return (
-    <div className="w-full bg-background text-foreground min-h-screen py-4">
+    <div className="w-full bg-transparent text-foreground min-h-screen py-4">
       <div className="max-w-7xl mx-auto space-y-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -37,7 +37,7 @@ export default function AboutCard() {
               href="https://www.panindai-ichilife.co.id/"
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-[var(--external-cursor)] relative w-fit text-yellow-400 after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
+              className="cursor-[var(--external-cursor)] relative w-fit text-[#55f89f] after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
               Panin Dai-ichi Life
             </a>
@@ -104,7 +104,7 @@ export default function AboutCard() {
       >
         <div className="relative w-full max-w-md mx-auto">
           <div className="group">
-            <div className="absolute -inset-0 bg-gradient-to-r from-yellow-400 to-pink-200 blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+            <div className="absolute -inset-0 bg-gradient-to-r from-[#55f89f] to-[#55f8d5] blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
             <div className="relative p-2">
               <div className="bg-black shadow-xl overflow-hidden">
                 <div className="relative aspect-square">

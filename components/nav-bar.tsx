@@ -85,8 +85,8 @@ export default function Navbar() {
                     (link.href === '/projects' &&
                       pathname?.startsWith('/projects/')) ||
                     (link.href === '/blog' && pathname?.startsWith('/blog/'))
-                      ? 'text-yellow-400'
-                      : 'text-gray-300 hover:text-yellow-400'
+                      ? 'text-[#55f89f]'
+                      : 'text-gray-300 hover:text-[#55f89f]'
                   } transition-colors`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

@@ -80,7 +80,7 @@ export default function Header({
           className="text-4xl md:text-6xl font-bold tracking-tight mt-20"
         >
           <span className="text-white">{title}</span>{' '}
-          <span className="bg-gradient-to-r from-yellow-400 via-pink-200 to-yellow-400 bg-clip-text text-transparent animate-shiny">
+          <span className="bg-gradient-to-r from-[#55f89f] via-[#55f8d5] to-[#55f89f] bg-clip-text text-transparent animate-shiny">
             {title2}
           </span>
         </motion.h1>

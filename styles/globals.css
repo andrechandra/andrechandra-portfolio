@@ -18,7 +18,7 @@ html {
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-alliance), sans-serif;
 }
 
 /* width */
@@ -39,6 +39,22 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #1d1d1d;
+}
+
+.bg-grid {
+  background-color: #000;
+  background-image: radial-gradient(rgba(150, 150, 150, 0.2) 2px, transparent 2px);
+  background-size: 35px 35px;
+  background-position: center;
+}
+
+.bg-grid-hero {
+  background-color: #000;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: center;
 }
 
 @layer base {

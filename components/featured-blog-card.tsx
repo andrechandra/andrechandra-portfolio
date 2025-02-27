@@ -2,14 +2,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import MotionWrapper from '@/components/motion-wrapper'
 import { featuredBlogs } from '@/constants/featured-blogs'
 import { LinkButton } from './ui/link-button'
 
 export default function FeaturedBlogCard() {
   return (
-    <div className="w-full bg-background text-foreground py-4">
+    <div className="w-full bg-transparent text-foreground py-4">
       <div className="max-w-7xl mx-auto space-y-16">
         {featuredBlogs.map((blog, index) => (
           <MotionWrapper

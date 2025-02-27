@@ -1,33 +1,27 @@
-import { Inter, JetBrains_Mono, Poppins, Merriweather } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google';
+import Alliance from 'next/font/local';
 
-const fontSans = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  fallback: ['system-ui', 'arial'],
-})
+const fontAlliance = Alliance({
+  src: [
+    { path: '../public/fonts/alliance-no-2.otf', weight: '400', style: 'normal' }
+  ],
+  variable: '--font-alliance',
+});
 
-const fontMono = JetBrains_Mono({
+const fontGeist = Geist({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-mono',
-  fallback: ['system-ui', 'arial'],
-})
+  variable: '--font-geist',
+});
 
-const fontPoppins = Poppins({
+const fontGeistMono = Geist_Mono({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-poppins',
-})
-
-const fontMerriweather = Merriweather({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  variable: '--font-merriweather',
-})
+  variable: '--font-geist-mono',
+});
 
 export const fonts = [
-  fontSans.variable,
-  fontMono.variable,
-  fontPoppins.variable,
-  fontMerriweather.variable,
-]
+  fontAlliance.variable,
+  fontGeist.variable,
+  fontGeistMono.variable,
+];

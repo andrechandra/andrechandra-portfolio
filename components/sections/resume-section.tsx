@@ -60,7 +60,7 @@ export default function ResumeSection() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-[var(--external-cursor)] relative w-fit text-yellow-400 after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-yellow-400 after:to-pink-200 after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
+              className="cursor-[var(--external-cursor)] relative w-fit text-[#55f89f] after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
               {company}
             </a>{' '}
@@ -74,7 +74,7 @@ export default function ResumeSection() {
               (responsibility: string, index: number) => (
                 <li
                   key={index}
-                  className="relative pl-4 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-yellow-400 before:to-pink-200"
+                  className="relative pl-4 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-[#55f89f] before:to-[#55f8d5]"
                 >
                   <span className="text-gray-400">{responsibility}</span>
                 </li>
