@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground pt-20">
+    <main className="min-h-screen bg-grid text-foreground pt-20">
       <div className="space-y-8 sm:space-y-12">
         <ProjectSection />
       </div>

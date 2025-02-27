@@ -4,63 +4,20 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import ProjectCard from '@/components/project-card'
 import { socialLinks } from '@/constants/socials'
-import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
 import { ArrowDown } from 'lucide-react'
 import FeaturedBlogCard from '@/components/featured-blog-card'
-import { LinkButton } from '@/components/ui/link-button'
 import { Button } from '@/components/ui/button'
-
-const SocialLink = ({
-  href,
-  children,
-  className = '',
-}: {
-  href: string
-  children: React.ReactNode
-  className?: string
-}) => (
-  <Link
-    href={href}
-    target="_blank"
-    className={`block mb-4 text-gray-400 hover:text-[#55f89f] hover:scale-110 transition-colors ${className}`}
-  >
-    {children}
-  </Link>
-)
-
-const Dots = () => {
-  const dots = [
-    { top: '15%', left: '10%' },
-    { top: '20%', left: '70%' },
-    { top: '35%', left: '85%' },
-    { top: '70%', left: '20%' },
-    { top: '80%', left: '60%' },
-    { top: '90%', left: '80%' },
-  ]
-
-  return (
-    <>
-      {dots.map((dot, index) => (
-        <div
-          key={index}
-          className="absolute w-[6px] h-[6px] bg-[#55f89f] rounded-full shadow-lg"
-          style={{
-            top: dot.top,
-            left: dot.left,
-            boxShadow: '0px 0px 8px 2px rgba(85, 248, 159, 0.8)',
-          }}
-        >
-          <div className="absolute w-[1px] h-[40px] bg-gradient-to-t from-[#55f89f] to-transparent -top-10 left-1/2 transform -translate-x-1/2"></div>
-        </div>
-      ))}
-    </>
-  )
-}
+import MotionText from '@/components/motions/motion-text'
+import MotionElement from '@/components/motions/motion-element'
+import { Dots } from '@/components/dots'
+import { SocialLink } from '@/components/social-links'
+import { LinkButton } from '@/components/ui/link-button'
+import { SiGithub, SiGoogledocs } from 'react-icons/si'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-grid">
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2, delay: 0.5, ease: 'easeInOut' }}
@@ -72,32 +29,29 @@ export default function Home() {
           </SocialLink>
         ))}
         <div className="w-px h-32 bg-gray-400 mx-auto mt-6"></div>
-      </motion.div>
+      </motion.div> */}
       <Dots />
-      <div className="max-w-4xl mx-auto px-8 flex flex-col justify-center min-h-screen bg-grid-hero">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, ease: 'easeInOut' }}
-          className="text-[#55f89f] mb-4 block font-geist_mono"
+      <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl flex flex-col justify-center min-h-screen bg-grid-hero">
+        <MotionText
+          as="span"
+          className="text-[#55f89f] mb-4 block font-geist_mono tracking-widest"
+          duration={0.2}
         >
           Hi, my name is
-        </motion.span>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.1, ease: 'easeInOut' }}
-          className=" text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-200 mb-4"
+        </MotionText>
+        <MotionText
+          as="h1"
+          className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-200 mb-4 flex"
+          duration={0.2}
         >
-          Andre Chandra Putra.
-        </motion.h1>
+          Andre Chandra Putra
+        </MotionText>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.2, ease: 'easeInOut' }}
-          className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-400 mb-8"
+        <MotionText
+          as="h2"
+          className="text-lg sm:text-xl lg:text-2xl font-light text-gray-400 mb-8"
+          delay={0.2}
+          duration={0.2}
         >
           IT Application Developer at{' '}
           <Link
@@ -107,28 +61,55 @@ export default function Home() {
           >
             Panin Dai-ichi Life
           </Link>
-        </motion.h2>
+        </MotionText>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.3, ease: 'easeInOut' }}
-          className="text-gray-400 max-w-xl mb-12 "
+        <MotionText
+          as="p"
+          className="text-gray-400 max-w-xl mb-8 font-geist_mono"
+          delay={0.3}
+          duration={0.2}
+          simpleAnimation={true}
         >
-          I&apos;m a software engineer passionate about front-end and mobile app
+          I'm a software engineer passionate about front-end and mobile app
           development, with experience in building user-friendly interfaces.
-        </motion.p>
+        </MotionText>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.4, ease: 'easeInOut' }}
+        <MotionElement
+          className="space-x-4 flex flex-row items-center mb-4"
+          delay={0.4}
+          duration={0.2}
+        >
+          <LinkButton variant="unstyled_link_right">
+            <Link
+              href="https://shorturl.at/gl6SQ"
+              target="_blank"
+              className="flex items-center gap-2 cursor-[var(--external-cursor)]"
+            >
+              <SiGoogledocs className="h-4 w-4" />
+              <span className="font-light font-geist_mono">Resume</span>
+            </Link>
+          </LinkButton>
+          <LinkButton variant="unstyled_link_right">
+            <Link
+              href="https://github.com/andrechandra"
+              target="_blank"
+              className="flex items-center gap-2 cursor-[var(--external-cursor)]"
+            >
+              <SiGithub className="h-4 w-4" />
+              <span className="font-light font-geist_mono">Github</span>
+            </Link>
+          </LinkButton>
+        </MotionElement>
+
+        <MotionElement
           className="space-x-4 flex flex-row items-center"
+          delay={0.4}
+          duration={0.2}
         >
           <Button variant="explorer">
-            <Link href="#project" className="flex items-center gap-2">
+            <Link href="#project" className="flex items-center gap-2 group">
               <span className="font-bold">View Project</span>
-              <ArrowDown className="h-4 w-4" />
+              <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-[0.1rem]" />
             </Link>
           </Button>
           <Button variant="cypher">
@@ -136,69 +117,42 @@ export default function Home() {
               <span className="font-bold">More About Me</span>
             </Link>
           </Button>
-        </motion.div>
+        </MotionElement>
       </div>
 
-      <style jsx>{`
-        .writing-mode-vertical {
-          writing-mode: vertical-rl;
-        }
-      `}</style>
-
-      <div
-        className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"
-        id="posts"
-      >
-        <div className="flex flex-col gap-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="space-y-4"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mt-20">
-              <span className="text-white">Featured</span>{' '}
-              <span className="bg-gradient-to-r from-[#55f89f] via-[#55f8d5] to-[#55f89f] bg-clip-text text-transparent animate-shiny border-b border-dashed border-gray-500">
-                Posts
-              </span>
-            </h1>
-            <p className="bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 bg-clip-text text-transparent animate-shiny text-sm">
-              Some of my recent blog posts
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.2, delay: 0.2, ease: 'easeInOut' }}
-          >
-            <FeaturedBlogCard />
-          </motion.div>
-        </div>
-      </div>
       <div
         className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"
         id="project"
       >
         <div className="flex flex-col gap-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="space-y-4"
-          >
+          <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mt-20">
-              <span className="text-white">Featured</span>{' '}
-              <span className="bg-gradient-to-r from-[#55f89f] via-[#55f8d5] to-[#55f89f] bg-clip-text text-transparent animate-shiny">
+              <MotionText
+                as="span"
+                className="text-white font-light"
+                duration={0.2}
+              >
+                Featured
+              </MotionText>{' '}
+              <MotionText
+                as="span"
+                className="font-light bg-[#55f89f] bg-clip-text text-transparent animate-shiny border-b border-dashed border-gray-500"
+                duration={0.2}
+              >
                 Projects
-              </span>
+              </MotionText>
             </h1>
-            <p className="bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 bg-clip-text text-transparent animate-shiny text-sm">
+            <MotionText
+              as="p"
+              className="bg-gray-400 bg-clip-text text-transparent animate-shiny text-sm"
+              delay={0.3}
+              duration={0.2}
+              simpleAnimation={true}
+            >
               Some of my recent projects
-            </p>
-          </motion.div>
+            </MotionText>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,6 +164,55 @@ export default function Home() {
         </div>
       </div>
 
+      {/* <div
+        className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"
+        id="posts"
+      >
+        <div className="flex flex-col gap-4">
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mt-20">
+              <MotionText
+                as="span"
+                className="text-white font-light"
+                duration={0.2}
+              >
+                Featured
+              </MotionText>{' '}
+              <MotionText
+                as="span"
+                className="font-light bg-[#55f89f] bg-clip-text text-transparent animate-shiny border-b border-dashed border-gray-500"
+                duration={0.2}
+              >
+                Posts
+              </MotionText>
+            </h1>
+            <MotionText
+              as="p"
+              className="bg-gray-400 bg-clip-text text-transparent animate-shiny text-sm"
+              delay={0.3}
+              duration={0.2}
+              simpleAnimation={true}
+            >
+              Some of my recent blog posts
+            </MotionText>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.2, delay: 0.2, ease: 'easeInOut' }}
+          >
+            <FeaturedBlogCard />
+          </motion.div>
+        </div>
+      </div> */}
+
+      {/* <style jsx>{`
+        .writing-mode-vertical {
+          writing-mode: vertical-rl;
+        }
+      `}</style>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -220,7 +223,7 @@ export default function Home() {
           andrechandra.work@gmail.com
         </div>
         <div className="w-px h-32 bg-gray-400 mx-auto"></div>
-      </motion.div>
+      </motion.div> */}
     </main>
   )
 }

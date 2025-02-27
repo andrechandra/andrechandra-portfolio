@@ -3,7 +3,7 @@ import Header from '@/components/header-component'
 import ResumeSection from '@/components/sections/resume-section'
 
 export const metadata: Metadata = {
-  title: 'Resume',
+  title: 'Experiences',
   description:
     "Explore Andre Chandra Putra's professional experience, education, and skills. View my career journey and achievements in software engineering.",
   openGraph: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-grid">
       <Header
         title="My"
         title2="Experiences"

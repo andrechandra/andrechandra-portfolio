@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import React from 'react'
+import MotionText from './motions/motion-text'
 
 export default function Header({
   title,
@@ -73,25 +74,30 @@ export default function Header({
       />
       {/* Content */}
       <div className="relative z-10 text-center space-y-4 px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.2, ease: 'easeOut' }}
-          className="text-4xl md:text-6xl font-bold tracking-tight mt-20"
-        >
-          <span className="text-white">{title}</span>{' '}
-          <span className="bg-gradient-to-r from-[#55f89f] via-[#55f8d5] to-[#55f89f] bg-clip-text text-transparent animate-shiny">
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mt-20">
+          <MotionText
+            as="span"
+            className="text-white font-light"
+            duration={0.4}
+          >
+            {title}
+          </MotionText>{' '}
+          <MotionText
+            as="span"
+            className="bg-[#55f89f] bg-clip-text text-transparent animate-shiny font-light"
+            duration={0.4}
+          >
             {title2}
-          </span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2, delay: 0.4, ease: 'easeOut' }}
-          className="bg-gradient-to-r from-gray-600 via-gray-400 to-gray-600 bg-clip-text text-transparent animate-shiny text-sm"
+          </MotionText>
+        </h1>
+        <MotionText
+          as="p"
+          className="bg-gray-400 bg-clip-text text-transparent animate-shiny text-sm font-geist_mono"
+          duration={0.4}
+          simpleAnimation={true}
         >
           {description}
-        </motion.p>
+        </MotionText>
       </div>
     </div>
   )

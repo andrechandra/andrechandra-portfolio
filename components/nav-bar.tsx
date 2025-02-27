@@ -33,12 +33,12 @@ export default function Navbar() {
       icon: Home,
       description: 'Explore my digital space!',
     },
-    {
-      href: '/blog',
-      label: 'Blog',
-      icon: Book,
-      description: 'Insights and guides',
-    },
+    // {
+    //   href: '/blog',
+    //   label: 'Blog',
+    //   icon: Book,
+    //   description: 'Insights and guides',
+    // },
     {
       href: '/projects',
       label: 'Projects',
@@ -52,8 +52,8 @@ export default function Navbar() {
       description: 'Get to know me better!',
     },
     {
-      href: '/resume',
-      label: 'Resume',
+      href: '/experiences',
+      label: 'Experiences',
       icon: User,
       description: 'My experiences and skill',
     },
@@ -66,21 +66,18 @@ export default function Navbar() {
     <>
       <motion.div
         className="fixed top-0 lg:left-0 right-0 z-50 px-8 py-8"
-        initial={{ opacity: 1, y: 0 }}
-        animate={{
-          opacity: isVisible ? 1 : 0,
-          y: isVisible ? 0 : -100,
-        }}
-        transition={{ duration: 0.2 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -100 }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
       >
-        <nav className="max-w-[fit-content] mx-auto bg-white/5 backdrop-blur-sm px-5 py-3 rounded-lg">
+        <nav className="max-w-[fit-content] mx-auto bg-white/5 backdrop-blur-sm px-4 py-2 rounded-none border border-[#2c2c2c]">
           <div className="flex items-center justify-between mx-auto">
             <div className="hidden md:flex items-center space-x-8">
               {mainLinks.map((link) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-poppins ${
+                  className={`text-sm font-geist_mono ${
                     pathname === link.href ||
                     (link.href === '/projects' &&
                       pathname?.startsWith('/projects/')) ||
@@ -94,46 +91,6 @@ export default function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
-              <div className="w-px h-4 bg-gray-400"></div>
-              <div className="relative">
-                <motion.button
-                  // onClick={() => setIsMoreOpen(!isMoreOpen)}
-                  className="flex items-center text-gray-400 text-sm font-poppins"
-                  // whileHover={{ scale: 1.05 }}
-                  // whileTap={{ scale: 0.95 }}
-                >
-                  Coming Soon
-                  {/* <ChevronDown className="ml-1 w-4 h-4" /> */}
-                </motion.button>
-                <AnimatePresence>
-                  {isMoreOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="absolute left-0 top-full mt-4 w-full bg-white/5 rounded-lg shadow-lg py-2"
-                    >
-                      {moreLinks.map((link) => (
-                        <motion.a
-                          key={link.href}
-                          href={link.href}
-                          className="block px-4 py-2 hover:bg-gray-800 font-poppins"
-                          whileHover={{
-                            backgroundColor: 'rgba(31, 41, 55, 0.5)',
-                          }}
-                        >
-                          <div className="text-sm text-gray-300 hover:text-white font-poppins">
-                            {link.label}
-                          </div>
-                          <div className="text-xs text-gray-500 font-poppins">
-                            {link.description}
-                          </div>
-                        </motion.a>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
             </div>
 
             <motion.button
@@ -168,7 +125,7 @@ export default function Navbar() {
               exit={{ opacity: 0, x: -20 }}
               className="fixed top-0 left-0 h-full w-64 bg-zinc-900/90 p-4 z-50 md:hidden"
             >
-              <div className="flex justify-between items-center mb-8">
+              {/* <div className="flex justify-between items-center mb-8">
                 <span className="text-white font-semibold">
                   Navigation Menu
                 </span>
@@ -179,21 +136,21 @@ export default function Navbar() {
                 >
                   <X className="w-6 h-6 text-gray-300" />
                 </motion.button>
-              </div>
+              </div> */}
               <div className="space-y-4">
                 {links.map((link) => (
                   <motion.a
                     key={link.href}
                     href={link.href}
-                    className="flex items-start space-x-3 text-gray-300 bg-black hover:text-white p-2 rounded-lg hover:bg-black"
+                    className="flex items-start space-x-3 text-gray-300 bg-black hover:text-white p-2 rounded-none hover:bg-black"
                     whileHover={{ x: 4 }}
                   >
-                    <div className="flex items-center p-2 bg-white/10 rounded-md">
+                    <div className="flex items-center p-2 bg-white/10 rounded-none">
                       <link.icon className="w-5 h-5 mt-0.5" />
                     </div>
                     <div>
                       <div className="text-sm font-medium">{link.label}</div>
-                      <div className="text-xs text-gray-500 font-poppins">
+                      <div className="text-xs text-gray-400">
                         {link.description}
                       </div>
                     </div>

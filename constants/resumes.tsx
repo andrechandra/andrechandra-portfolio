@@ -13,7 +13,7 @@ export const resumes = {
     },
     {
       title: 'Mobile Developer',
-      location: 'PT Central Artificial Intelligence - Remote',
+      location: 'PT Central Artificial Intelligence - Depok, Remote',
       duration: 'Aug 2022 - Dec 2022 | Internship',
       responsibilities: [
         'Developed a Central POS (Point of Sales) product within 5 months using JavaScript and React Native, leading to a 20% increase in daily transactions for 100+ retail clients.',

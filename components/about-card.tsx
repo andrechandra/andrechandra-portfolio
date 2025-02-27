@@ -17,21 +17,25 @@ import {
   SiJavascript as JavascriptIcon,
   SiTypescript as TypescriptIcon,
 } from 'react-icons/si'
+import MotionText from './motions/motion-text'
 
 export default function AboutCard() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 items-start">
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.2, delay: 0.6, ease: 'easeOut' }}
-        className="space-y-8 order-last lg:order-first"
-      >
+      <div className="space-y-8 order-last lg:order-first">
         <div>
-          <h2 className="text-2xl font-bold text-white mb-2">
+          <MotionText
+            as="h2"
+            className="text-2xl font-bold text-white mb-2"
+            duration={0.2}
+          >
             Andre Chandra Putra
-          </h2>
-          <p className="text-gray-400 mb-4 font-roboto">
+          </MotionText>
+          <MotionText
+            as="p"
+            duration={0.2}
+            className="text-gray-400 mb-4 font-geist_mono"
+          >
             IT Application Developer at{' '}
             <a
               href="https://www.panindai-ichilife.co.id/"
@@ -41,36 +45,75 @@ export default function AboutCard() {
             >
               Panin Dai-ichi Life
             </a>
-          </p>
-          <p className="text-gray-400 font-roboto">
+          </MotionText>
+          <MotionText
+            as="p"
+            duration={0.2}
+            simpleAnimation={true}
+            className="text-gray-400 font-geist_mono"
+          >
             Hello! You can call me{' '}
-            <span className="text-white font-medium">Acepe</span>. I am a
-            Software Engineer working with the React ecosystem and passionate
-            about teaching others how to understand and build with modern web
-            technologies.
-          </p>
+            <MotionText
+              as="span"
+              duration={0.2}
+              simpleAnimation={true}
+              className="text-white font-medium"
+            >
+              Acepe
+            </MotionText>
+            . I am a Software Engineer working with the React ecosystem and
+            passionate about teaching others how to understand and build with
+            modern web technologies.
+          </MotionText>
         </div>
 
         <div>
-          <h3 className="text-lg font-medium text-white mb-4">My Journey</h3>
-          <p className="text-gray-400 mb-4 font-roboto">
+          <MotionText
+            as="h3"
+            duration={0.2}
+            className="text-lg font-medium text-white mb-4"
+          >
+            My Journey
+          </MotionText>
+          <MotionText
+            as="p"
+            duration={0.2}
+            simpleAnimation={true}
+            className="text-gray-400 mb-4 font-geist_mono"
+          >
             Born and raised in Indonesia, I discovered my passion for web
             development during the pandemic. What started as a way to combat
             boredom turned into a full-fledged career in software engineering.
-          </p>
-          <p className="text-gray-400 font-roboto">
+          </MotionText>
+          <MotionText
+            as="p"
+            duration={0.2}
+            simpleAnimation={true}
+            className="text-gray-400 font-geist_mono"
+          >
             I believe in learning in public and sharing knowledge through
             writing and teaching. This helps me solidify my understanding while
             helping others grow in their journey.
-          </p>
+          </MotionText>
         </div>
 
         <div>
-          <h3 className="text-lg font-medium text-white mb-4">Tech Stack</h3>
-          <p className="text-gray-400 mb-4 font-roboto">
+          <MotionText
+            as="h3"
+            duration={0.2}
+            className="text-lg font-medium text-white mb-4"
+          >
+            Tech Stack
+          </MotionText>
+          <MotionText
+            as="p"
+            duration={0.2}
+            simpleAnimation={true}
+            className="text-gray-400 mb-4 font-geist_mono"
+          >
             Here are the few technologies that I&apos;m currently learning and
             working with.
-          </p>
+          </MotionText>
           <div className="flex flex-row flex-wrap gap-4">
             <TooltipProvider>
               {[
@@ -95,7 +138,7 @@ export default function AboutCard() {
             </TooltipProvider>
           </div>
         </div>
-      </motion.div>
+      </div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -110,10 +153,10 @@ export default function AboutCard() {
                 <div className="relative aspect-square">
                   <div className="absolute inset-0 border-8 border-black z-10 transition-colors duration-300 ">
                     <Image
-                      src="/profile/profile-picture.jpg"
+                      src="/profile/profile-picture-2.jpeg"
                       alt="Andre Chandra Putra's Profile Picture"
                       fill
-                      className="object-cover transition-all duration-500 ease-in-out group-hover:scale-110 group-hover:rotate-2"
+                      className="object-cover transition-all duration-500 ease-in-out"
                     />
                   </div>
                 </div>

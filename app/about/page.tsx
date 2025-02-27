@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-grid">
       <Header
         title="About"
         title2="Me"

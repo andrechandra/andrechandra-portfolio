@@ -24,7 +24,7 @@ export const ProjectContent = ({ children }: { children: React.ReactNode }) => {
           border-radius: 0.5rem;
           padding: 1rem;
           color: #e5e7eb;
-          font-family: monospace;
+          font-family: --font-geist-mono;
         }
         .prose .command-line::before {
           content: '$ ';

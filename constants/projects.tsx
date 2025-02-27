@@ -89,7 +89,7 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           This expense tracker represents one of my first ventures into
           full-stack web development, combining modern technologies like
           Next.js, Tailwind CSS, and shadcn/ui for the frontend, with Prisma and
@@ -97,7 +97,7 @@ export const projects: Project[] = [
           features a clean, intuitive interface that allows users to easily
           track their financial transactions and manage their personal finances.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           Users can securely log in using Clerk authentication, add and
           categorize their income and expenses, and visualize their financial
           data through interactive charts and summaries. The application
@@ -125,7 +125,7 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           I created a website for my church, GKKK BCS Serpong, to provide a
           comprehensive online platform that represents our community, mission,
           and values. The website serves as a central hub for sharing our
@@ -134,7 +134,7 @@ export const projects: Project[] = [
           information about our church activities, worship schedules, and
           opportunities to get involved.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           My motivation for building this website was to make it easier for
           people to connect with our church, learn about who we are, and
           understand how they can support our ministry. It&apos;s a tool to
@@ -162,13 +162,13 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           Notion Links is a Linktree-style website built with Next.js, using the
           Notion API as a CMS for effortless link management. It allows users to
           update and organize links directly from their Notion workspace, making
           customization seamless and intuitive.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           This project leverages Tailwind CSS for styling and shadcn/ui for
           modern UI components, ensuring a clean and responsive design. With its
           dynamic content fetching from Notion, users can manage their personal
@@ -195,7 +195,7 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           Creating a starter template for Next.js is a valuable endeavor as it
           streamlines the development process by providing a solid foundation
           for building modern web applications. This template is pre-configured
@@ -203,7 +203,7 @@ export const projects: Project[] = [
           components for accessible and customizable UI elements, and TypeScript
           for type safety, ensuring a scalable and maintainable codebase.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           By using this template, developers can save significant time setting
           up repetitive configurations and jump straight into building features.
           It&apos;s particularly useful for quickly prototyping ideas or
@@ -242,7 +242,7 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           Math Fantasy is my final project at Universitas Multimedia Nusantara,
           where I developed a top-down 2D RPG-style game designed to make
           learning statistics more engaging. The game utilizes the Fisher-Yates
@@ -254,7 +254,7 @@ export const projects: Project[] = [
           incorporating educational elements into an interactive, fun gameplay
           experience.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           The game was created using Unity Engine version 2021.3.16f1, and I
           used 2D assets obtained from itch.io to bring the game to life. The
           game&apos;s mechanics are focused on rewarding problem-solving and
@@ -284,20 +284,20 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           SeiYou is a voice-over application designed to enable users to express
           themselves through voice recordings. Users can easily record their
           voices and share them with the community, allowing others to discover
           and listen to unique voice content.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           This project was developed using Ionic and Capacitor for
           cross-platform compatibility, combined with React and TypeScript for a
           robust and scalable architecture. The goal was to create a seamless
           user experience with intuitive navigation and smooth audio playback
           functionality.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           Through this project, I gained valuable experience in mobile app
           development, integrating audio recording features, and managing
           user-generated content. SeiYou represents my ability to build engaging
@@ -323,21 +323,21 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           Orange Burger is a web application developed as a midterm project for
           the Web Programming course during the 4th semester of my university
           studies. The website was designed to simulate a functional restaurant
           platform where users can browse through a menu, customize their
           orders, and place food orders directly through the site.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           The project also includes an admin dashboard, allowing restaurant
           administrators to efficiently manage orders and transactions. Through
           the dashboard, admins can track incoming orders, update order
           statuses, and maintain a record of past transactions, ensuring a
           seamless order management experience.
         </p>
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           This project not only helped me strengthen my skills in front-end and
           back-end web development but also gave me practical experience in
           building full-stack applications with user authentication, order
@@ -366,7 +366,7 @@ export const projects: Project[] = [
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <p className="font-roboto text-gray-400">
+        <p className="font-geist_mono text-gray-400">
           In 2020, during the COVID-19 pandemic, a friend offered me a freelance
           opportunity to create a website for his parent&apos;s company. Despite
           having no prior experience with web development at the time, I decided

@@ -52,7 +52,7 @@ export default function ResumeSection() {
         key={idx}
         className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-4 lg:gap-12 items-start mb-12"
       >
-        <p className="text-sm text-gray-400 font-roboto">{item.duration}</p>
+        <p className="text-sm text-gray-400 font-geist_mono">{item.duration}</p>
         <div className="space-y-2">
           <h2 className="text-xl font-bold text-white mb-2">{item.title}</h2>
           <p className="text-gray-400 text-sm">
@@ -67,14 +67,14 @@ export default function ResumeSection() {
             - {locationDetails}
           </p>
           <ul
-            className="text-sm space-y-1 font-roboto"
+            className="text-sm space-y-1 font-geist_mono"
             aria-label={`${type === 'work' ? 'Work' : 'Voluntary'} responsibilities`}
           >
             {item.responsibilities.map(
               (responsibility: string, index: number) => (
                 <li
                   key={index}
-                  className="relative pl-4 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-[#55f89f] before:to-[#55f8d5]"
+                  className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-mono before:text-lg"
                 >
                   <span className="text-gray-400">{responsibility}</span>
                 </li>
@@ -135,9 +135,14 @@ export default function ResumeSection() {
                   </h3>
                   <p className="text-gray-400 text-sm">{item.degree}</p>
                   <p className="text-gray-400 text-sm">{item.gpa}</p>
-                  <ul className="list-disc list-inside text-gray-400 text-sm space-y-1 font-roboto">
+                  <ul className="list-disc list-inside text-gray-400 text-sm space-y-1 font-geist_mono">
                     {item.keySubjects.map((keySubject, index) => (
-                      <li key={index}>{keySubject}</li>
+                      <li
+                        className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-mono before:text-lg"
+                        key={index}
+                      >
+                        {keySubject}
+                      </li>
                     ))}
                   </ul>
                 </div>

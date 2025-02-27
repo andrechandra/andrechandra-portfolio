@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import MotionWrapper from '@/components/motion-wrapper'
+import MotionWrapper from '@/components/motions/motion-wrapper'
 import { featuredBlogs } from '@/constants/featured-blogs'
 import { LinkButton } from './ui/link-button'
 

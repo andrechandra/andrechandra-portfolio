@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { getSortedBlogs } from '@/lib/blog'
-import MotionWrapper from '@/components/motion-wrapper'
+import MotionWrapper from '@/components/motions/motion-wrapper'
 import { LinkButton } from './ui/link-button'
 
 export default function BlogCard() {
@@ -35,8 +35,8 @@ export default function BlogCard() {
               },
             }}
           >
-            <div className="grid grid-cols-1 gap-8 items-center lg:grid-cols-[2fr_1fr]">
-              <div className="space-y-6 order-2 lg:order-none">
+            <div className="grid grid-cols-1 gap-4 items-center lg:grid-cols-[2fr_1fr] items-stretched">
+              <div className="space-y-4 order-2 lg:order-none border border-[#2c2c2c] bg-[#111111] p-4">
                 <p className="text-sm text-gray-400">{formatDate(blog.date)}</p>
                 <div className="space-y-2">
                   <h2 className="text-xl font-bold tracking-tight">
@@ -74,11 +74,11 @@ export default function BlogCard() {
                 )}
               </div>
 
-              <div className="relative aspect-[5/3] w-full mx-auto overflow-hidden rounded-lg">
+              <div className="relative w-full mx-auto overflow-hidden rounded-none border border-[#2c2c2c] bg-[#111111] p-4">
                 <Image
                   src={blog.thumbnail}
                   alt={blog.title}
-                  className="object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-none"
                   fill
                   priority
                 />

@@ -8,7 +8,7 @@
 }
 
 .dark {
-  --external-cursor: url('/cursor/external-dark.svg') 4 4, auto;
+  --external-cursor: url('/cursor/external.svg') 4 4, auto;
 }
 
 html {
@@ -18,7 +18,7 @@ html {
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-alliance), sans-serif;
+  font-family: var(--font-alliance), sans-serif;      
 }
 
 /* width */
@@ -170,16 +170,14 @@ body {
   margin-bottom: var(--tw-prose-spacing-0);
 }
 
-.prose h3 {
-  font-family: 'Roboto', sans-serif;
+.prose h3 {  
   font-size: 1.5rem;
   font-weight: 500;
   margin-top: var(--tw-prose-spacing-0);
   margin-bottom: var(--tw-prose-spacing-0);
 }
 
-.prose p {
-  font-family: 'Roboto', sans-serif;
+.prose p {  
   margin-top: var(--tw-prose-spacing-0);
   margin-bottom: var(--tw-prose-spacing-0);
   color: var(--tw-prose-body);
@@ -192,8 +190,7 @@ body {
   margin-bottom: var(--tw-prose-spacing-0);
 }
 
-.prose li {
-  font-family: 'Roboto', sans-serif;
+.prose li {  
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   color: var(--tw-prose-body);
@@ -218,8 +215,7 @@ body {
   background-color: #1d1d1d; /* Dark background */
   color: #ffffff; /* Light text */
   padding: 1rem; /* Inner padding */
-  border-radius: 1rem; /* Rounded corners */
-  font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+  border-radius: 1rem; /* Rounded corners */  
   overflow-x: auto; /* Horizontal scroll for long lines */
 }
 
@@ -227,8 +223,7 @@ body {
   background-color: #1d1d1d; /* Match the pre background */
   color: #ff79c6; /* Highlighted text color */
   border-radius: 0.25rem; /* Slight rounding for inline code */
-  padding: 0.2rem 0.4rem; /* Padding for inline code */
-  font-family: 'Courier New', Courier, monospace; /* Monospace font */
+  padding: 0.2rem 0.4rem; /* Padding for inline code */  
 }
 
 .prose pre code {

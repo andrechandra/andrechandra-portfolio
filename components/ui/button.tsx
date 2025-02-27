@@ -20,9 +20,9 @@ const buttonVariants = cva(
 
         // Custom Variants
         explorer:
-          'bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f]',
+          'bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10',
         cypher:
-          'bg-[#55f89f] text-black rounded-none shadow-sm relative overflow-hidden z-10 before:absolute before:inset-0 before:-z-10 before:translate-x-[-100%] before:bg-[#34c477] before:transition-transform before:duration-300 hover:before:translate-x-0 after:absolute after:inset-0 after:-z-10 after:translate-x-0 after:bg-[#55f89f] after:transition-transform after:duration-300 hover:after:translate-x-[100%] group-hover:before:translate-x-0 group-hover:after:translate-x-[100%]',
+          'bg-[#55f89f] text-black rounded-none relative overflow-hidden z-10 before:absolute before:inset-0 before:-z-10 before:bg-[#34c477] before:translate-x-[-100%] hover:before:translate-x-0 before:transition-transform before:duration-300 before:ease-in-out',
       },
       size: {
         default: 'h-10 px-4 py-2',

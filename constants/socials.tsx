@@ -1,10 +1,4 @@
-import {
-  FaGithub,
-  FaInstagram,
-  FaTwitter,
-  FaLinkedin,
-  FaCodepen,
-} from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaXTwitter, FaLinkedin } from 'react-icons/fa6'
 
 export const socialLinks = [
   {
@@ -24,12 +18,7 @@ export const socialLinks = [
   },
   {
     name: 'Twitter',
-    icon: FaTwitter,
+    icon: FaXTwitter,
     href: 'https://twitter.com/acepew_',
-  },
-  {
-    name: 'CodePen',
-    icon: FaCodepen,
-    href: 'https://codepen.io/andrechandra',
   },
 ]

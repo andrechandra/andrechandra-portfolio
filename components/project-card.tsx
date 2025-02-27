@@ -13,7 +13,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { ToolIcon } from './tool-icon'
@@ -70,7 +69,7 @@ export default function ProjectCard({
           {showTabs && (
             <Tabs
               defaultValue={initialCategory}
-              className=" hidden lg:block w-full"
+              className=" hidden lg:block w-full font-geist_mono"
               onValueChange={setActiveCategory}
             >
               <TabsList className="grid w-full grid-cols-4">
@@ -92,7 +91,7 @@ export default function ProjectCard({
         </motion.div>
 
         <motion.div
-          className="space-y-16"
+          className="space-y-4"
           initial="hidden"
           animate="visible"
           exit="exit"
@@ -106,22 +105,20 @@ export default function ProjectCard({
               className="relative"
             >
               <div
-                className={`grid grid-cols-1 gap-8 items-center ${
+                className={`grid grid-cols-1 gap-0 lg:gap-4 md:gap-2 items-stretched ${
                   index % 2 === 0
                     ? 'lg:grid-cols-[2fr_1fr]'
                     : 'lg:[&>*:first-child]:order-last lg:grid-cols-[1fr_2fr]'
                 }`}
               >
-                <div className="space-y-4 order-2 lg:order-none">
-                  <h2 className="text-xl font-bold tracking-tight">
-                    {project.title}
-                  </h2>
-                  <p className="text-sm text-gray-400 font-roboto">
+                <div className="space-y-4 order-2 lg:order-none border border-[#2c2c2c]  bg-[#111111] py-4 pl-4 pr-8">
+                  <h2 className="text-xl font-light">{project.title}</h2>
+                  <p className="text-sm text-gray-400 font-geist_mono">
                     {project.description}
                   </p>
 
                   {project.stack && (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center lg:gap-2 md:gap-2">
                       <span className="text-xs text-gray-500">Tools:</span>
                       <TooltipProvider>
                         {project.stack.map((tech) => (
@@ -142,30 +139,27 @@ export default function ProjectCard({
 
                   <div className="flex items-center flex-wrap gap-4 pt-4 justify-between">
                     <div>
-                      <HoverBorderGradient
-                        as="button"
-                        className="flex items-center space-x-2"
-                      >
+                      <Button variant="explorer">
                         <Link
                           href={
                             project.slug
                               ? `/projects/${project.slug}`
                               : project.href || '#'
                           }
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2 group"
                         >
-                          <span>View Project</span>
-                          <ArrowUpRight className="h-4 w-4" />
+                          <span className="font-bold">View Project</span>
+                          <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-[0.1rem] group-hover:-translate-y-[0.1rem]" />
                         </Link>
-                      </HoverBorderGradient>
+                      </Button>
                     </div>
 
-                    <div className="flex gap-4">
+                    <div className="flex gap-8">
                       {project.href && (
                         <LinkButton
                           asChild
                           variant="unstyled_link_right"
-                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)]"
+                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist_mono"
                         >
                           <Link href={project.href} target="_blank">
                             <Link2 className="mr-2 h-4 w-4" />
@@ -178,7 +172,7 @@ export default function ProjectCard({
                         <LinkButton
                           asChild
                           variant="unstyled_link_right"
-                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)]"
+                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist_mono"
                         >
                           <Link href={project.repo} target="_blank">
                             <Github className="mr-2 h-4 w-4" />
@@ -190,11 +184,11 @@ export default function ProjectCard({
                   </div>
                 </div>
 
-                <div className="relative aspect-[4/3] w-full mx-auto overflow-hidden rounded-lg items-center">
+                <div className="relative w-full mx-auto overflow-hidden rounded-none border border-[#2c2c2c] bg-[#111111] p-4">
                   <Image
                     src={project.thumbnail}
                     alt={project.title}
-                    className="object-cover rounded-lg"
+                    className="w-full h-full object-cover rounded-none"
                     priority={index === 0}
                   />
                 </div>
@@ -217,7 +211,10 @@ export default function ProjectCard({
               variant="underline_link_right"
               className="text-white"
             >
-              <Link href="/projects" className="flex items-center group">
+              <Link
+                href="/projects"
+                className="flex items-center group font-geist_mono"
+              >
                 View more projects
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>

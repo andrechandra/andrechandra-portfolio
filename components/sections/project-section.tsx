@@ -49,7 +49,10 @@ export default function ProjectSection() {
         variant="unstyled_link_left"
         className="text-white mb-4 sm:mb-6"
       >
-        <Link href="/projects" className="flex items-center group">
+        <Link
+          href="/projects"
+          className="flex items-center group font-geist_mono"
+        >
           <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
           Back to Projects
         </Link>
@@ -136,7 +139,7 @@ export default function ProjectSection() {
           {project.href && (
             <Button
               asChild
-              variant="outline"
+              variant="explorer"
               className="w-full sm:w-auto cursor-[var(--external-cursor)]"
             >
               <Link href={project.href} target="_blank">
@@ -148,7 +151,7 @@ export default function ProjectSection() {
           {project.repo && (
             <Button
               asChild
-              variant="outline"
+              variant="explorer"
               className="w-full sm:w-auto cursor-[var(--external-cursor)]"
             >
               <Link href={project.repo} target="_blank">
