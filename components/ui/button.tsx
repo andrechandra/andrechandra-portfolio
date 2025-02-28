@@ -14,14 +14,14 @@ const buttonVariants = cva(
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         outline:
           'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        secondary:
+        secondary_old:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
 
         // Custom Variants
-        explorer:
+        primary:
           'bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10',
-        cypher:
+        secondary:
           'bg-[#55f89f] text-black rounded-none relative overflow-hidden z-10 before:absolute before:inset-0 before:-z-10 before:bg-[#34c477] before:translate-x-[-100%] hover:before:translate-x-0 before:transition-transform before:duration-300 before:ease-in-out',
       },
       size: {

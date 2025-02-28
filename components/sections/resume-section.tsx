@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { resumes } from '@/constants/resumes'
+import Link from 'next/link'
 
 export default function ResumeSection() {
   const {
@@ -56,14 +57,14 @@ export default function ResumeSection() {
         <div className="space-y-2">
           <h2 className="text-xl font-bold text-white mb-2">{item.title}</h2>
           <p className="text-gray-400 text-sm">
-            <a
+            <Link
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-[var(--external-cursor)] relative w-fit text-[#55f89f] after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
               {company}
-            </a>{' '}
+            </Link>{' '}
             - {locationDetails}
           </p>
           <ul
@@ -74,7 +75,7 @@ export default function ResumeSection() {
               (responsibility: string, index: number) => (
                 <li
                   key={index}
-                  className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-mono before:text-lg"
+                  className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-geist_mono before:text-lg"
                 >
                   <span className="text-gray-400">{responsibility}</span>
                 </li>
@@ -138,7 +139,7 @@ export default function ResumeSection() {
                   <ul className="list-disc list-inside text-gray-400 text-sm space-y-1 font-geist_mono">
                     {item.keySubjects.map((keySubject, index) => (
                       <li
-                        className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-mono before:text-lg"
+                        className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-geist_mono before:text-lg"
                         key={index}
                       >
                         {keySubject}
@@ -162,7 +163,7 @@ export default function ResumeSection() {
                   key={key}
                   className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4"
                 >
-                  <p className="text-sm font-semibold text-gray-400 capitalize sm:w-1/3">
+                  <p className="text-sm font-semibold text-gray-400 capitalize sm:w-1/3 font-geist_mono">
                     {key.replace(/([A-Z])/g, ' $1')}:
                   </p>
                   <p className="text-sm text-gray-400 sm:w-2/3">

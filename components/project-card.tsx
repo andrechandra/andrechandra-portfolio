@@ -139,7 +139,7 @@ export default function ProjectCard({
 
                   <div className="flex items-center flex-wrap gap-4 pt-4 justify-between">
                     <div>
-                      <Button variant="explorer">
+                      <Button variant="primary">
                         <Link
                           href={
                             project.slug
@@ -161,7 +161,11 @@ export default function ProjectCard({
                           variant="unstyled_link_right"
                           className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist_mono"
                         >
-                          <Link href={project.href} target="_blank">
+                          <Link
+                            href={project.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Link2 className="mr-2 h-4 w-4" />
                             Live Site
                           </Link>
@@ -174,7 +178,11 @@ export default function ProjectCard({
                           variant="unstyled_link_right"
                           className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist_mono"
                         >
-                          <Link href={project.repo} target="_blank">
+                          <Link
+                            href={project.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Github className="mr-2 h-4 w-4" />
                             Repository
                           </Link>

@@ -139,10 +139,14 @@ export default function ProjectSection() {
           {project.href && (
             <Button
               asChild
-              variant="explorer"
+              variant="primary"
               className="w-full sm:w-auto cursor-[var(--external-cursor)]"
             >
-              <Link href={project.href} target="_blank">
+              <Link
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Link2 className="mr-2 h-4 w-4" />
                 Visit Website
               </Link>
@@ -151,10 +155,14 @@ export default function ProjectSection() {
           {project.repo && (
             <Button
               asChild
-              variant="explorer"
+              variant="primary"
               className="w-full sm:w-auto cursor-[var(--external-cursor)]"
             >
-              <Link href={project.repo} target="_blank">
+              <Link
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github className="mr-2 h-4 w-4" />
                 View Source
               </Link>

@@ -8,17 +8,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-
-import {
-  SiNextdotjs as NextjsIcon,
-  SiReact as ReactIcon,
-  SiTailwindcss as TailwindIcon,
-  SiShadcnui as ShadcnIcon,
-  SiJavascript as JavascriptIcon,
-  SiTypescript as TypescriptIcon,
-} from 'react-icons/si'
 import MotionText from './motions/motion-text'
 import Link from 'next/link'
+import { techStack } from '@/constants/tech-stacks'
 
 export default function AboutCard() {
   return (
@@ -41,10 +33,8 @@ export default function AboutCard() {
             <span className="hidden sm:inline"></span>
             <span className="block sm:hidden"></span>
             <Link
-              href="https://www.panindai-ichilife.co.id/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-[var(--external-cursor)] relative w-fit text-[#55f89f] after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
+              href="/experiences#working-experience"
+              className="relative w-fit text-[#55f89f] after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
               Panin Dai-ichi Life
             </Link>
@@ -119,25 +109,25 @@ export default function AboutCard() {
           </MotionText>
           <div className="flex flex-row flex-wrap gap-4">
             <TooltipProvider>
-              {[
-                { icon: NextjsIcon, name: 'Next.js' },
-                { icon: ReactIcon, name: 'React' },
-                { icon: TypescriptIcon, name: 'TypeScript' },
-                { icon: JavascriptIcon, name: 'JavaScript' },
-                { icon: TailwindIcon, name: 'Tailwind CSS' },
-                { icon: ShadcnIcon, name: 'Shadcn UI' },
-              ].map((tech, index) => (
-                <Tooltip key={index}>
-                  <TooltipTrigger asChild>
-                    <div className="p-1 rounded-full">
-                      <tech.icon className="h-5 w-5" />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{tech.name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              ))}
+              <div className="flex gap-3 flex-wrap">
+                {techStack.map((tech, index) => (
+                  <Tooltip key={index}>
+                    <TooltipTrigger asChild>
+                      <div className="p-1 rounded-full cursor-pointer hover:bg-muted/50 transition-colors">
+                        <tech.icon className="h-5 w-5" />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-[250px] p-3">
+                      <div className="space-y-1">
+                        <p className="font-medium">{tech.name}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {tech.description}
+                        </p>
+                      </div>
+                    </TooltipContent>
+                  </Tooltip>
+                ))}
+              </div>
             </TooltipProvider>
           </div>
         </div>

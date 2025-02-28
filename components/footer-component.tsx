@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/tooltip'
 import { SocialLink } from './social-links'
 import { socialLinks } from '@/constants/socials'
+import { footerLinks } from '@/constants/footer-links'
 
 export const Footer = () => {
   return (
@@ -20,57 +21,30 @@ export const Footer = () => {
       </div>
       <TooltipProvider>
         <div className="font-geist_mono space-x-4">
-          {/* Starter Template */}
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <LinkButton
-                variant="unstyled_link_right"
-                asChild
-                className="p-0 h-auto cursor-[var(--external-cursor)]"
-              >
-                <Link
-                  href="https://github.com/andrechandra/next-tailwind-starter"
-                  target="_blank"
+          {footerLinks.map((item, index) => (
+            <Tooltip key={index}>
+              <TooltipTrigger asChild>
+                <LinkButton
+                  variant="unstyled_link_right"
+                  asChild
+                  className={`p-0 h-auto ${item.isExternal ? 'cursor-[var(--external-cursor)]' : ''}`}
                 >
-                  Starter Template
-                </Link>
-              </LinkButton>
-            </TooltipTrigger>
-            <TooltipContent>View starter template on GitHub</TooltipContent>
-          </Tooltip>
-
-          {/* Source Code */}
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <LinkButton
-                variant="unstyled_link_right"
-                asChild
-                className="p-0 h-auto cursor-[var(--external-cursor)]"
-              >
-                <Link
-                  href="https://github.com/andrechandra/andrechandra-portfolio"
-                  target="_blank"
-                >
-                  Source Code
-                </Link>
-              </LinkButton>
-            </TooltipTrigger>
-            <TooltipContent>View full source code</TooltipContent>
-          </Tooltip>
-
-          {/* Design */}
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <LinkButton
-                variant="unstyled_link_right"
-                asChild
-                className="p-0 h-auto"
-              >
-                <Link href="/design">Design</Link>
-              </LinkButton>
-            </TooltipTrigger>
-            <TooltipContent>View design system</TooltipContent>
-          </Tooltip>
+                  {item.isExternal ? (
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <Link href={item.href}>{item.label}</Link>
+                  )}
+                </LinkButton>
+              </TooltipTrigger>
+              <TooltipContent>{item.tooltip}</TooltipContent>
+            </Tooltip>
+          ))}
         </div>
       </TooltipProvider>
       <div className="font-geist_mono">

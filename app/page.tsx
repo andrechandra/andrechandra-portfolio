@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/button'
 import MotionText from '@/components/motions/motion-text'
 import MotionElement from '@/components/motions/motion-element'
 import { Dots } from '@/components/dots'
-
 import { LinkButton } from '@/components/ui/link-button'
 import { SiGithub, SiGoogledocs, SiLinkedin } from 'react-icons/si'
+import { heroLinks } from '@/constants/hero-links'
 
 export default function Home() {
   return (
@@ -43,9 +43,8 @@ export default function Home() {
             <span className="hidden sm:inline"></span>
             <span className="block sm:hidden"></span>
             <Link
-              href="https://www.panindai-ichilife.co.id/"
-              target="_blank"
-              className="cursor-[var(--external-cursor)] border-b border-dotted border-white relative w-fit text-white after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:border-transparent hover:after:scale-x-100 hover:after:origin-left"
+              href="/experiences#working-experience"
+              className="border-b border-dotted border-white relative w-fit text-white after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:border-transparent hover:after:scale-x-100 hover:after:origin-left"
             >
               Panin Dai-ichi Life
             </Link>
@@ -67,36 +66,31 @@ export default function Home() {
             delay={0.4}
             duration={0.2}
           >
-            <LinkButton variant="unstyled_link_right">
-              <Link
-                href="https://shorturl.at/gl6SQ"
-                target="_blank"
-                className="flex items-center gap-2 cursor-[var(--external-cursor)]"
-              >
-                <SiGoogledocs className="h-4 w-4" />
-                <span className="font-light font-geist_mono">Resume</span>
-              </Link>
-            </LinkButton>
-            <LinkButton variant="unstyled_link_right">
-              <Link
-                href="https://github.com/andrechandra"
-                target="_blank"
-                className="flex items-center gap-2 cursor-[var(--external-cursor)]"
-              >
-                <SiGithub className="h-4 w-4" />
-                <span className="font-light font-geist_mono">Github</span>
-              </Link>
-            </LinkButton>
-            <LinkButton variant="unstyled_link_right">
-              <Link
-                href="https://linkedin.com/in/andrechandraputra"
-                target="_blank"
-                className="flex items-center gap-2 cursor-[var(--external-cursor)]"
-              >
-                <SiLinkedin className="h-4 w-4" />
-                <span className="font-light font-geist_mono">LinkedIn</span>
-              </Link>
-            </LinkButton>
+            {heroLinks.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <LinkButton
+                  key={index}
+                  asChild
+                  variant="unstyled_link_right"
+                  className={
+                    item.isExternal ? 'cursor-[var(--external-cursor)]' : ''
+                  }
+                >
+                  <Link
+                    href={item.href}
+                    target={item.isExternal ? '_blank' : undefined}
+                    rel={item.isExternal ? 'noopener noreferrer' : undefined}
+                    className="flex items-center gap-2"
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span className="font-light font-geist_mono">
+                      {item.label}
+                    </span>
+                  </Link>
+                </LinkButton>
+              )
+            })}
           </MotionElement>
 
           <MotionElement
@@ -104,13 +98,13 @@ export default function Home() {
             delay={0.4}
             duration={0.2}
           >
-            <Button variant="explorer">
+            <Button variant="primary">
               <Link href="#project" className="flex items-center gap-2 group">
                 <span className="font-bold">View Project</span>
                 <ArrowDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-[0.1rem]" />
               </Link>
             </Button>
-            <Button variant="cypher">
+            <Button variant="secondary">
               <Link href="/about" className="flex items-center gap-2">
                 <span className="font-bold">More About Me</span>
               </Link>
