@@ -20,7 +20,7 @@ export const Footer = () => {
         <div className="absolute right-0 w-1/4 h-[1px] bg-gradient-to-l from-transparent to-[#2c2c2c]"></div>
       </div>
       <TooltipProvider>
-        <div className="font-geist_mono space-x-4">
+        <div className="font-geist_mono tracking-tighter space-x-4">
           {footerLinks.map((item, index) => (
             <Tooltip key={index}>
               <TooltipTrigger asChild>
@@ -47,7 +47,7 @@ export const Footer = () => {
           ))}
         </div>
       </TooltipProvider>
-      <div className="font-geist_mono">
+      <div className="font-geist_mono tracking-tighter">
         <p className="text-sm text-gray-400 mb-2">Reach me out</p>
         <div className="flex justify-center gap-4">
           {socialLinks.map((link) => (
@@ -57,7 +57,7 @@ export const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="font-geist_mono">
+      <div className="font-geist_mono tracking-tighter">
         <b>
           © {new Date().getFullYear()}{' '}
           <LinkButton

@@ -21,7 +21,7 @@ export default function DesignSection() {
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2, delay: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
       className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl space-y-4 bg-grid"
     >
       {/* Section Title */}
@@ -34,7 +34,7 @@ export default function DesignSection() {
             key={index}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
             viewport={{ once: true }}
             className="flex items-center space-x-4"
           >
@@ -67,7 +67,7 @@ export default function DesignSection() {
               key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
               className={`p-4 border border-[#2c2c2c] bg-[#111111] rounded-none ${font.style}`}
             >

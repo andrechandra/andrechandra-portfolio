@@ -78,6 +78,7 @@ export default function Header({
             as="span"
             className="text-white font-light"
             duration={0.4}
+            simpleAnimation={true}
           >
             {title}
           </MotionText>{' '}
@@ -85,13 +86,14 @@ export default function Header({
             as="span"
             className="font-light text-[#55f89f]"
             duration={0.4}
+            simpleAnimation={true}
           >
             {title2}
           </MotionText>
         </h1>
         <MotionText
           as="p"
-          className="bg-gray-400 bg-clip-text text-transparent animate-shiny text-sm font-geist_mono"
+          className="bg-gray-400 bg-clip-text text-transparent animate-shiny text-sm font-geist"
           duration={0.4}
           simpleAnimation={true}
         >

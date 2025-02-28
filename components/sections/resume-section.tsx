@@ -53,7 +53,9 @@ export default function ResumeSection() {
         key={idx}
         className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-4 lg:gap-12 items-start mb-12"
       >
-        <p className="text-sm text-gray-400 font-geist_mono">{item.duration}</p>
+        <p className="text-sm text-gray-400 font-geist_mono tracking-tighter">
+          {item.duration}
+        </p>
         <div className="space-y-2">
           <h2 className="text-xl font-bold text-white mb-2">{item.title}</h2>
           <p className="text-gray-400 text-sm">
@@ -68,14 +70,14 @@ export default function ResumeSection() {
             - {locationDetails}
           </p>
           <ul
-            className="text-sm space-y-1 font-geist_mono"
+            className="text-sm space-y-1 font-geist_mono tracking-tighter"
             aria-label={`${type === 'work' ? 'Work' : 'Voluntary'} responsibilities`}
           >
             {item.responsibilities.map(
               (responsibility: string, index: number) => (
                 <li
                   key={index}
-                  className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-geist_mono before:text-lg"
+                  className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-geist_mono before:text-lg tracking-tighter"
                 >
                   <span className="text-gray-400">{responsibility}</span>
                 </li>
@@ -91,7 +93,7 @@ export default function ResumeSection() {
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2, delay: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
       className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl"
     >
       <div className="grid grid-cols-1 lg:grid-cols-[6fr_1fr] gap-4">
@@ -129,17 +131,19 @@ export default function ResumeSection() {
                 key={idx}
                 className="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-4 lg:gap-12 items-start mb-12"
               >
-                <p className="text-sm text-gray-400">{item.duration}</p>
+                <p className="text-sm text-gray-400 font-geist_mono tracking-tighter">
+                  {item.duration}
+                </p>
                 <div className="space-y-2">
                   <h3 className="text-xl font-bold text-white mb-2">
                     {item.institution}
                   </h3>
                   <p className="text-gray-400 text-sm">{item.degree}</p>
                   <p className="text-gray-400 text-sm">{item.gpa}</p>
-                  <ul className="list-disc list-inside text-gray-400 text-sm space-y-1 font-geist_mono">
+                  <ul className="list-disc list-inside text-gray-400 text-sm space-y-1 font-geist_mono tracking-tighter">
                     {item.keySubjects.map((keySubject, index) => (
                       <li
-                        className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-geist_mono before:text-lg"
+                        className="relative pl-6 flex items-center gap-2 before:content-['>_'] before:text-[#55f89f] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:font-geist_mono before:text-lg tracking-tighter"
                         key={index}
                       >
                         {keySubject}
@@ -163,10 +167,10 @@ export default function ResumeSection() {
                   key={key}
                   className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4"
                 >
-                  <p className="text-sm font-semibold text-gray-400 capitalize sm:w-1/3 font-geist_mono">
+                  <p className="text-sm text-gray-400 capitalize sm:w-1/3 font-geist_mono tracking-tighter">
                     {key.replace(/([A-Z])/g, ' $1')}:
                   </p>
-                  <p className="text-sm text-gray-400 sm:w-2/3">
+                  <p className="text-sm text-gray-400 sm:w-2/3 font-geist_mono tracking-tighter">
                     {Array.isArray(values) ? values.join(', ') : values}
                   </p>
                 </div>

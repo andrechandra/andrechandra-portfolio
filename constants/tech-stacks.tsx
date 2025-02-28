@@ -5,6 +5,7 @@ import {
   SiShadcnui as ShadcnIcon,
   SiJavascript as JavascriptIcon,
   SiTypescript as TypescriptIcon,
+  SiPrisma as PrismaIcon,
 } from 'react-icons/si'
 
 export const techStack = [
@@ -43,5 +44,11 @@ export const techStack = [
     name: 'Shadcn UI',
     description:
       'Provides beautifully designed, accessible components that I can easily customize and own in my projects.',
+  },
+  {
+    icon: PrismaIcon,
+    name: 'Prisma',
+    description:
+      'A next-generation ORM that makes working with databases effortless. It provides type safety and a great developer experience.',
   },
 ]

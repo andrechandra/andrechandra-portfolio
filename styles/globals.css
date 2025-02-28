@@ -45,16 +45,17 @@ body {
   background-color: #000;
   background-image: radial-gradient(rgba(150, 150, 150, 0.2) 2px, transparent 2px);
   background-size: 35px 35px;
-  background-position: center;
+  background-position: 0 0;
 }
 
 .bg-grid-hero {
   background-color: #000;
   background-image: 
+    radial-gradient(circle, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.6) 100%),
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
-  background-position: center;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 100% 100%, 80px 80px, 80px 80px;
+  background-position: 0 0 0;
 }
 
 #working-experience {

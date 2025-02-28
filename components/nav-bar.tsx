@@ -62,9 +62,9 @@ export default function Navbar() {
         className="fixed top-0 md:left-0 lg:left-0 right-0 z-50 px-8 py-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -100 }}
-        transition={{ duration: 0.2, ease: 'easeOut' }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
       >
-        <nav className="max-w-[fit-content] mx-auto bg-white/5 backdrop-blur-sm px-4 py-2 rounded-none border border-[#2c2c2c]">
+        <nav className="max-w-[fit-content] mx-auto bg-[#111111] backdrop-blur-sm px-4 py-2 rounded-none border border-[#2c2c2c]">
           <div className="flex items-center justify-between mx-auto">
             <div className="hidden md:flex items-center space-x-8">
               {mainLinks.map((link) => (

@@ -33,7 +33,7 @@ const projectVariants = {
     opacity: 0,
     y: 20,
     transition: {
-      duration: 0.3,
+      duration: 0.4,
     },
   },
 }
@@ -64,12 +64,12 @@ export default function ProjectCard({
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.2, ease: 'easeInOut' }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
           {showTabs && (
             <Tabs
               defaultValue={initialCategory}
-              className=" hidden lg:block w-full font-geist_mono"
+              className=" hidden lg:block w-full font-geist_mono tracking-tighter"
               onValueChange={setActiveCategory}
             >
               <TabsList className="grid w-full grid-cols-4">
@@ -113,7 +113,7 @@ export default function ProjectCard({
               >
                 <div className="space-y-4 order-2 lg:order-none border border-[#2c2c2c]  bg-[#111111] py-4 pl-4 pr-8">
                   <h2 className="text-xl font-light">{project.title}</h2>
-                  <p className="text-sm text-gray-400 font-geist_mono">
+                  <p className="text-sm text-gray-400 font-geist_mono tracking-tighter">
                     {project.description}
                   </p>
 
@@ -139,7 +139,7 @@ export default function ProjectCard({
 
                   <div className="flex items-center flex-wrap gap-4 pt-4 justify-between">
                     <div>
-                      <Button variant="primary">
+                      <Button variant="primary" asChild>
                         <Link
                           href={
                             project.slug
@@ -148,7 +148,7 @@ export default function ProjectCard({
                           }
                           className="flex items-center gap-2 group"
                         >
-                          <span className="font-bold">View Project</span>
+                          <span className="font-normal">View Project</span>
                           <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-[0.1rem] group-hover:-translate-y-[0.1rem]" />
                         </Link>
                       </Button>
@@ -159,7 +159,7 @@ export default function ProjectCard({
                         <LinkButton
                           asChild
                           variant="unstyled_link_right"
-                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist_mono"
+                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist"
                         >
                           <Link
                             href={project.href}
@@ -176,7 +176,7 @@ export default function ProjectCard({
                         <LinkButton
                           asChild
                           variant="unstyled_link_right"
-                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist_mono"
+                          className="text-gray-400 hover:text-white cursor-[var(--external-cursor)] font-geist"
                         >
                           <Link
                             href={project.repo}
@@ -221,7 +221,7 @@ export default function ProjectCard({
             >
               <Link
                 href="/projects"
-                className="flex items-center group font-geist_mono"
+                className="flex items-center group font-geist_mono tracking-tighter"
               >
                 View more projects
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

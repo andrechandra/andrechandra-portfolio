@@ -20,14 +20,16 @@ export default function AboutCard() {
           <MotionText
             as="h2"
             className="text-2xl font-bold text-white mb-2"
-            duration={0.2}
+            duration={0.4}
+            simpleAnimation={true}
           >
             Andre Chandra Putra
           </MotionText>
           <MotionText
             as="p"
-            duration={0.2}
-            className="text-gray-400 mb-4 font-geist_mono"
+            duration={0.4}
+            simpleAnimation={true}
+            className="text-gray-400 mb-4 font-geist_mono tracking-tighter"
           >
             IT Application Developer at{' '}
             <span className="hidden sm:inline"></span>
@@ -41,73 +43,83 @@ export default function AboutCard() {
           </MotionText>
           <MotionText
             as="p"
-            duration={0.2}
+            duration={0.4}
             simpleAnimation={true}
-            className="text-gray-400 font-geist_mono"
+            className="text-gray-400 font-geist_mono tracking-tighter"
           >
             Hello! You can call me{' '}
             <MotionText
               as="span"
-              duration={0.2}
+              duration={0.4}
               simpleAnimation={true}
               className="text-white font-medium"
             >
               Acepe
             </MotionText>
-            . I am a Software Engineer working with the React ecosystem and
-            passionate about teaching others how to understand and build with
-            modern web technologies.
+            . Right now, I love working on web applications with great designs,
+            and I pay a lot of attention to detail.
           </MotionText>
         </div>
 
         <div>
           <MotionText
             as="h3"
-            duration={0.2}
+            duration={0.4}
+            simpleAnimation={true}
             className="text-lg font-medium text-white mb-4"
           >
             My Journey
           </MotionText>
           <MotionText
             as="p"
-            duration={0.2}
+            duration={0.4}
             simpleAnimation={true}
-            className="text-gray-400 mb-4 font-geist_mono"
+            className="text-gray-400 mb-4 font-geist_mono tracking-tighter"
           >
-            Born and raised in Indonesia, I discovered my passion for web
-            development during the pandemic. What started as a way to combat
-            boredom turned into a full-fledged career in software engineering.
+            During my college years, I wasn&apos;t really into web development
+            even though it was my major—haha. Then came the pandemic, where I
+            started building simple web applications, though sadly, I lost those
+            projects. That&apos;s when my interest in web development peaked.
           </MotionText>
           <MotionText
             as="p"
-            duration={0.2}
+            duration={0.4}
             simpleAnimation={true}
-            className="text-gray-400 font-geist_mono"
+            className="text-gray-400 font-geist_mono tracking-tighter"
           >
-            I believe in learning in public and sharing knowledge through
-            writing and teaching. This helps me solidify my understanding while
-            helping others grow in their journey.
+            But for some reason, every single job I&apos;ve had—except for my
+            old freelance gig—ended up being in mobile app development. So yeah,
+            I have skills in both, but I personally don&apos;t like being a
+            generalist. While I work as a software engineer in application
+            development, I still dive into web development as a hobby during my
+            free time.
           </MotionText>
         </div>
 
         <div>
           <MotionText
             as="h3"
-            duration={0.2}
+            duration={0.4}
+            simpleAnimation={true}
             className="text-lg font-medium text-white mb-4"
           >
             Tech Stack
           </MotionText>
           <MotionText
             as="p"
-            duration={0.2}
+            duration={0.4}
             simpleAnimation={true}
-            className="text-gray-400 mb-4 font-geist_mono"
+            className="text-gray-400 mb-4 font-geist_mono tracking-tighter"
           >
             Here are the few technologies that I&apos;m currently learning and
             working with.
           </MotionText>
-          <div className="flex flex-row flex-wrap gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+            className="flex flex-row flex-wrap gap-4"
+          >
             <TooltipProvider>
               <div className="flex gap-3 flex-wrap">
                 {techStack.map((tech, index) => (
@@ -117,25 +129,26 @@ export default function AboutCard() {
                         <tech.icon className="h-5 w-5" />
                       </div>
                     </TooltipTrigger>
-                    <TooltipContent className="max-w-[250px] p-3">
-                      <div className="space-y-1">
-                        <p className="font-medium">{tech.name}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {tech.description}
-                        </p>
+                    <TooltipContent className="max-w-[250px] p-3 space-y-2">
+                      <div className="space-y-1 flex items-center gap-2">
+                        <tech.icon className="h-5 w-5" />
+                        <p className="font-medium font-alliance">{tech.name}</p>
                       </div>
+                      <p className="text-sm text-muted-foreground">
+                        {tech.description}
+                      </p>
                     </TooltipContent>
                   </Tooltip>
                 ))}
               </div>
             </TooltipProvider>
-          </div>
+          </motion.div>
         </div>
       </div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.2, delay: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
         className="space-y-8"
       >
         <div className="relative w-full max-w-md mx-auto">
@@ -144,22 +157,12 @@ export default function AboutCard() {
             <div className="relative p-2">
               <div className="bg-black shadow-xl overflow-hidden">
                 <div className="relative aspect-square">
-                  <div className="absolute inset-0 border-8 border-black z-10 transition-colors duration-300 ">
+                  <div className="absolute inset-0 border-8 border-[black] z-10 transition-colors duration-300 ">
                     <Image
                       src="/profile/profile-picture-2.jpeg"
                       alt="Andre Chandra Putra's Profile Picture"
                       fill
                       className="object-cover transition-all duration-500 ease-in-out"
-                    />
-                  </div>
-                </div>
-                <div className="p-4 flex justify-end items-center">
-                  <div className="w-24 h-12 relative">
-                    <Image
-                      src="/profile/signature.png"
-                      alt="Andre Chandra Putra's signature"
-                      fill
-                      className="object-contain transition-all duration-300 opacity-75 group-hover:opacity-100 group-hover:scale-110 invert"
                     />
                   </div>
                 </div>
