@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Header from '@/components/header-component'
 import ProjectCard from '@/components/project-card'
-import CodeRain from '@/components/code-rain'
 
 export const metadata: Metadata = {
   title: 'Projects',
