@@ -104,7 +104,8 @@ export default {
   		fontFamily: {
 			alliance: ['var(--font-alliance)'],
 			geist: ['var(--font-geist)'],
-			geist_mono: ['var(--font-geist-mono)']
+			geist_mono: ['var(--font-geist_mono)'],
+			roboto_mono: ['var(--font-roboto_mono)']
 		},
 		cursor: {
 			'external-pointer': 'var(--external-cursor)',

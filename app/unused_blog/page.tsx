@@ -34,7 +34,7 @@ export default function BlogsPage() {
         description="A blog about my journey as a developer."
         backgroundVariant="about"
       />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl">
         <div className="space-y-8 sm:space-y-12">
           <div className="flex flex-col gap-4">
             <BlogCard />

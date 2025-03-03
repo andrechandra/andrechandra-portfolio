@@ -63,7 +63,7 @@ export default async function BlogPage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-background text-foreground pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 sm:py-12 lg:py-16 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl">
         <div className="mb-8">
           <div className="flex flex-wrap gap-2 mb-4">
             {blog.tags.map((tag: string, index: number) => (

@@ -9,8 +9,8 @@ export const Dots = () => {
     { top: '35%', left: '85%' },
     { top: '90%', left: '20%' },
     { top: '80%', left: '60%' },
-    { top: '90%', left: '80%' },
-    { top: '65%', left: '5%' },
+    { top: '70%', left: '80%' },
+    { top: '55%', left: '5%' },
     { top: '65%', left: '95%' },
   ]
 
@@ -32,7 +32,7 @@ export const Dots = () => {
             ease: 'easeInOut',
           }}
           viewport={{ once: true }}
-          className="absolute w-[6px] h-[6px] bg-[#55f89f] rounded-full"
+          className="absolute w-[6px] h-[6px] bg-[#55f89f] rounded-full z-11"
           style={{
             top: dot.top,
             left: dot.left,

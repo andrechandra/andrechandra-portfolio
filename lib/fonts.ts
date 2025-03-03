@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Roboto_Mono } from 'next/font/google';
 import Alliance from 'next/font/local';
 
 const fontAlliance = Alliance({
@@ -17,11 +17,18 @@ const fontGeist = Geist({
 const fontGeistMono = Geist_Mono({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
-  variable: '--font-geist-mono',
+  variable: '--font-geist_mono',
 });
+
+const fontRobotoMono = Roboto_Mono({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-roboto_mono',
+})
 
 export const fonts = [
   fontAlliance.variable,
   fontGeist.variable,
   fontGeistMono.variable,
+  fontRobotoMono.variable
 ];

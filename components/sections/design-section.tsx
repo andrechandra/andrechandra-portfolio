@@ -14,6 +14,7 @@ const fonts = [
   { name: 'Alliance No.2', style: 'font-alliance' },
   { name: 'Geist', style: 'font-geist' },
   { name: 'Geist Mono', style: 'font-geist_mono' },
+  { name: 'Roboto Mono', style: 'font-roboto_mono' },
 ]
 
 export default function DesignSection() {
@@ -24,10 +25,7 @@ export default function DesignSection() {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl space-y-4 bg-grid"
     >
-      {/* Section Title */}
       <h3 className="text-xl font-semibold text-white mb-4">Color Palettes</h3>
-
-      {/* Colors */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 border border-[#2c2c2c] bg-[#111111] rounded-none">
         {colors.map((color, index) => (
           <motion.div
@@ -57,8 +55,6 @@ export default function DesignSection() {
           </motion.div>
         ))}
       </div>
-
-      {/* Fonts */}
       <div>
         <h3 className="text-xl font-semibold text-white mb-4">Typography</h3>
         <div className="space-y-4">
