@@ -80,10 +80,10 @@ export default function TerminalSection() {
       cmd: 'hobbies --list',
       output: (
         <>
-          <span className="text-purple-400">🎮 Badminton</span> •
-          <span className="text-green-400"> 📚 Bible Reading</span> •
-          <span className="text-yellow-400"> 🏊‍♂️ Church Activities</span> •
-          <span className="text-blue-400"> 🎵 Music OFC</span>
+          <span className="text-purple-400">🏸 Badminton</span> •
+          <span className="text-green-400">📚 Bible Reading</span> •
+          <span className="text-yellow-400">⛪ Church Activities</span> •
+          <span className="text-blue-400">🎵 Music OFC</span>
         </>
       ),
     },
@@ -322,7 +322,12 @@ export default function TerminalSection() {
                 }
               }}
             >
-              <div className="w-4/5 max-w-4xl">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-4/5 max-w-4xl"
+              >
                 <div className="terminal-window flex flex-col">
                   <div className="terminal-header cursor-move flex-shrink-0">
                     <div className="terminal-buttons">
@@ -414,7 +419,7 @@ export default function TerminalSection() {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           ) : (
             <motion.div
