@@ -39,7 +39,7 @@ export default function AboutPage() {
         backgroundVariant="about"
       />
       <section
-        className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl"
+        className="container mx-auto px-4 sm:px-6 lg:px-24 py-8 sm:py-12 lg:py-16 max-w-7xl"
         aria-label="About Andre Chandra Putra"
       >
         <div className="space-y-8 sm:space-y-12">

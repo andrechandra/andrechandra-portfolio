@@ -111,7 +111,7 @@ export default function ProjectCard({
                     : 'lg:[&>*:first-child]:order-last lg:grid-cols-[1fr_2fr]'
                 }`}
               >
-                <div className="space-y-7 order-2 lg:order-none border border-[#2c2c2c] bg-[#111111] py-4 pl-4 pr-8">
+                <div className="order-2 lg:order-none border border-[#2c2c2c] bg-[#111111] flex flex-col p-4 justify-between">
                   <h2 className="text-xl font-light">{project.title}</h2>
                   <p className="text-sm text-gray-400 font-geist_mono tracking-tighter">
                     {project.description}
@@ -154,7 +154,7 @@ export default function ProjectCard({
                       </Button>
                     </div>
 
-                    <div className="flex gap-8">
+                    <div className="flex flex-row gap-8 mr-4">
                       {project.href && (
                         <LinkButton
                           asChild

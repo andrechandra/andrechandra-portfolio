@@ -23,7 +23,7 @@ export default function DesignSection() {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl space-y-4 bg-grid"
+      className="container mx-auto px-4 sm:px-6 lg:px-24 py-8 sm:py-12 lg:py-16 max-w-7xl space-y-4 bg-grid"
     >
       <h3 className="text-xl font-semibold text-white mb-4">Color Palettes</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 border border-[#2c2c2c] bg-[#111111] rounded-none">

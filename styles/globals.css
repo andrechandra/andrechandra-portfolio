@@ -18,7 +18,7 @@ html {
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-alliance), sans-serif;      
+  font-family: var(--font-alliance), sans-serif; 
 }
 
 /* width */

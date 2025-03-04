@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-grid">
       <section className="relativ bg-grid-hero">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-16 pb-8 pt-24 sm:pb-12 sm:pt-28 lg:py-16 lg:mt-0 min-h-screen max-w-7xl flex flex-col md:flex-col lg:flex-row items-center justify-center z-10 relative">
-          <div className="w-full md:1/2 lg:w-2/3 space-y-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-24 pb-8 pt-24 sm:pb-12 sm:pt-28 lg:py-16 lg:mt-0 min-h-screen max-w-7xl flex flex-col md:flex-col lg:flex-row items-center justify-center z-10 relative gap-8">
+          <div className="w-full flex flex-col justify-between">
             <MotionText
               as="span"
               className="text-[#55f89f] mb-4 block font-geist_mono tracking-widest text-xs sm:text-sm lg:text-base"
@@ -27,7 +27,7 @@ export default function Home() {
             </MotionText>
             <MotionText
               as="h1"
-              className="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-200 mb-4 flex"
+              className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-200 mb-4 flex"
               duration={0.4}
             >
               Andre Chandra Putra
@@ -35,7 +35,7 @@ export default function Home() {
 
             <MotionText
               as="h2"
-              className="text-base sm:text-xl lg:text-2xl font-light text-gray-400 mb-8 font-geist_mono tracking-tighter whitespace-nowrap"
+              className="text-base sm:text-lg lg:text-xl font-light text-gray-400 mb-8 font-geist_mono tracking-tighter whitespace-nowrap"
               delay={0.2}
               duration={0.4}
             >
@@ -125,7 +125,7 @@ export default function Home() {
       </section>
 
       <div
-        className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"
+        className="container mx-auto px-4 sm:px-6 lg:px-24 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"
         id="project"
       >
         <div className="flex flex-col gap-4">

@@ -31,65 +31,82 @@ export default function TerminalSection() {
 
   const commands: CommandData[] = [
     {
-      cmd: 'cat sugar-levels.txt',
-      output:
-        'WARNING: Cookie intake approaching critical levels. \nDiabetes risk: ELEVATED 🍪',
-    },
-    {
-      cmd: 'ls ~/secret-snack-stash/',
+      cmd: 'whoami --info',
       output: (
         <>
-          <span className="text-blue-400">chocolate-chips.jar</span>{' '}
-          <span className="text-yellow-400">emergency-donuts.box</span>{' '}
-          <span className="text-green-400">hidden-gummies.bag</span>
+          <span className="text-[#55f89f] font-bold">Andre Chandra</span>
+          <br />
+          <span className="text-gray-300">
+            Full-Stack Developer | Jakarta, Indonesia
+          </span>
         </>
       ),
     },
     {
-      cmd: 'sudo ask-dogs-for-advice',
+      cmd: 'contact --email',
       output: (
         <>
-          <span className="text-blue-400">Chivas:</span> "Refactor that code."
-          <br />
-          <span className="text-pink-400">Berry:</span> "Add more treats to the
-          algorithm."
+          <span className="text-blue-400">andrechandra.work@gmail.com</span>
         </>
       ),
     },
     {
-      cmd: 'git blame --sweet-tooth',
+      cmd: 'availability --status',
       output: (
         <>
-          <div className="text-yellow-400">sugar123</div>{' '}
-          <span>Added too many cookies to the cookie jar</span>
+          <span className="text-green-400 font-bold">
+            Available for freelance projects
+          </span>
           <br />
-          <div className="text-yellow-400">candyman</div>{' '}
-          <span>Implemented cake-based authentication</span>
-          <br />
-          <div className="text-yellow-400">chocolover</div>{' '}
-          <span>Deployed brownies to production</span>
+          <span className="text-gray-300">
+            Open to discussing new opportunities
+          </span>
         </>
       ),
     },
     {
-      cmd: './calculate-excuses-for-dessert.sh',
+      cmd: 'quote --random',
       output: (
         <>
-          <span className="text-red-500">Monday:</span> "It's the start of the
-          week"
+          <span className="text-blue-400 font-bold">
+            "The best error message is the one that never shows up."
+          </span>
           <br />
-          <span className="text-orange-500">Tuesday:</span> "Survived Monday"
-          <br />
-          <span className="text-yellow-500">Wednesday:</span> "Halfway there!"
-          <br />
-          <span className="text-green-500">Thursday:</span> "Almost Friday!"
-          <br />
-          <span className="text-blue-500">Friday:</span> "It's the weekend!"
-          <br />
-          <span className="text-purple-500">Saturday:</span> "Time to Bible
-          Study!"
-          <br />
-          <span className="text-pink-500">Sunday:</span> "Time to go to Church!"
+          <span className="text-gray-300">— Thomas Fuchs</span>
+        </>
+      ),
+    },
+    {
+      cmd: 'hobbies --list',
+      output: (
+        <>
+          <span className="text-purple-400">🎮 Badminton</span> •
+          <span className="text-green-400"> 📚 Bible Reading</span> •
+          <span className="text-yellow-400"> 🏊‍♂️ Church Activities</span> •
+          <span className="text-blue-400"> 🎵 Music OFC</span>
+        </>
+      ),
+    },
+    {
+      cmd: 'dog --summon',
+      output: (
+        <>
+          <pre className="text-yellow-400">
+            {`
+ ⢠⣶⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠖⢶⡆⠀⠀⠀⠀
+⠀⠸⡇⠀⠈⠳⣄⠀⠀⠀⠀⠀⠀⠀⠀⢀⡜⠁⠀⠸⡄⠀⠀⠀⠀
+⠀⢸⡇⠀⠀⠀⠘⣦⠀⠀⢀⣀⣀⡀⠀⣾⠀⢀⣀⠀⠹⡀⠀⠀⠀
+⠀⠈⣇⠀⠀⣠⡄⣿⣶⣿⣿⣿⣿⣿⣿⣿⡇⢻⣿⠀⢠⡇⠀⠀⠀
+⠀⠀⢻⠂⠀⢿⡧⣽⣿⣿⡟⠁⢻⣿⣿⣿⠉⣶⣅⢀⡤⠃⠀⠀⠀
+⠀⠀⠀⠙⠲⢿⣷⣿⡿⢿⣇⠀⢸⡿⠿⣿⣷⣿⡟⠉⠀⠀⠀⠀⠀
+⠀⣠⣤⣤⠀⠈⣿⣯⣶⣼⣿⠆⣿⣧⣾⣶⣿⢿⠀⠀⢀⣀⣀⠀⠀
+⡾⣯⣿⣬⡟⡆⢙⢯⣭⠟⠉⠀⠈⠛⢷⣿⡞⠸⢀⡞⣿⣹⡟⣷⡄
+⠚⠛⠒⠚⠓⠓⠚⠢⡁⠀⣔⡒⣶⠀⢀⠀⣰⠓⠚⠓⠛⠛⠛⠓⠃
+⠀⠀⠀⠀⠀⠀⠀⠀⠑⠦⡙⠷⠉⢐⡠⠚⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            `}
+          </pre>
+          <span className="text-gray-300">Chivas & Berry have appeared!</span>
         </>
       ),
     },
@@ -211,9 +228,7 @@ export default function TerminalSection() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && terminalState === 'maximized') {
-        setTerminalState(
-          previousTerminalState === 'maximized' ? 'open' : previousTerminalState
-        )
+        setTerminalState('open')
       }
     }
 
@@ -263,7 +278,7 @@ export default function TerminalSection() {
       )
       setTerminalState('maximized')
     } else {
-      setTerminalState(previousTerminalState)
+      setTerminalState('open')
     }
   }
 
@@ -275,136 +290,246 @@ export default function TerminalSection() {
   }
 
   return (
-    <div className="w-full lg:w-1/3 mt-8 md:mt-12 lg:mt-0 flex justify-center lg:justify-center items-center">
+    <div className="w-full flex justify-center lg:justify-center items-center">
       {terminalState === 'closed' ? (
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="p-4  shadow-lg bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10 font-geist"
+          className="p-4 shadow-lg bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10 font-geist"
           onClick={handleReopenTerminal}
         >
           <Terminal className="w-6 h-6 mb-2 mx-auto" />
           <span className="text-sm font-roboto_mono">Open Terminal</span>
         </motion.button>
       ) : (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-          viewport={{ once: true }}
-          className={`relative terminal-container w-full ${
-            terminalState === 'maximized'
-              ? 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4'
-              : ''
-          } ${terminalState === 'minimized' ? 'terminal-minimized' : ''}`}
-          onClick={focusTerminal}
-          style={{
-            maxWidth: terminalState === 'maximized' ? '100%' : '500px',
-          }}
-        >
-          <div
-            className={`terminal-window ${
-              terminalState === 'maximized'
-                ? 'w-11/12 h-5/6 max-w-full max-h-screen'
-                : terminalState === 'minimized'
-                  ? 'terminal-minimized-window'
-                  : ''
-            }`}
-          >
-            <div className="terminal-header cursor-move">
-              <div className="terminal-buttons">
-                <button
-                  className="terminal-button close"
-                  onClick={handleCloseTerminal}
-                  title="Close"
-                ></button>
-                <button
-                  className="terminal-button minimize"
-                  onClick={handleMinimizeTerminal}
-                  title="Minimize"
-                ></button>
-                <button
-                  className="terminal-button maximize"
-                  onClick={handleMaximizeTerminal}
-                  title={
-                    terminalState === 'maximized'
-                      ? 'Exit Full Screen'
-                      : 'Full Screen'
-                  }
-                ></button>
-              </div>
-              <div className="terminal-title font-roboto_mono truncate">
-                andrechandra@dev: ~/andrechandra-portfolio{' '}
-                {terminalState === 'maximized' ? '(Full Screen)' : ''}
-              </div>
-            </div>
+        <>
+          {terminalState === 'maximized' && (
             <div
-              className={`terminal-body overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900 ${
-                terminalState === 'minimized' ? 'hidden' : ''
-              }`}
-              ref={terminalBodyRef}
-              style={{
-                height:
-                  terminalState === 'maximized' ? 'calc(100% - 30px)' : '320px',
-                overflowY: 'auto',
-                scrollBehavior: 'smooth',
+              className="fixed inset-0 bg-black bg-opacity-80 z-40"
+              onClick={() => setTerminalState('open')}
+            />
+          )}
+
+          {terminalState === 'maximized' ? (
+            <div
+              className="fixed inset-0 flex items-center justify-center z-50"
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  setTerminalState('open')
+                } else {
+                  focusTerminal()
+                }
               }}
             >
-              {terminalHistory.length === 0 && (
-                <div className="terminal-welcome mb-2">
-                  <p className="text-[#55f89f]">Welcome to Andre's Terminal!</p>
-                  <p className="text-gray-400">
-                    Type 'help' to see available commands.
-                  </p>
-                </div>
-              )}
+              <div className="w-4/5 max-w-4xl">
+                <div className="terminal-window flex flex-col">
+                  <div className="terminal-header cursor-move flex-shrink-0">
+                    <div className="terminal-buttons">
+                      <button
+                        className="terminal-button close"
+                        onClick={handleCloseTerminal}
+                        title="Close"
+                      ></button>
+                      <button
+                        className="terminal-button minimize"
+                        onClick={handleMinimizeTerminal}
+                        title="Minimize"
+                      ></button>
+                      <button
+                        className="terminal-button maximize"
+                        onClick={handleMaximizeTerminal}
+                        title="Exit Full Screen"
+                      ></button>
+                    </div>
+                    <div className="terminal-title font-roboto_mono truncate">
+                      andrechandra@dev: ~/andrechandra-portfolio (Full Screen)
+                    </div>
+                  </div>
+                  <div
+                    className="terminal-body overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900 flex-grow"
+                    ref={terminalBodyRef}
+                    style={{
+                      height: '70vh',
+                      maxHeight: 'calc(80vh - 30px)',
+                      overflowY: 'auto',
+                      scrollBehavior: 'smooth',
+                    }}
+                  >
+                    {terminalHistory.length === 0 && (
+                      <div className="terminal-welcome mb-2">
+                        <p className="text-[#55f89f]">
+                          Welcome to Andre's Terminal!
+                        </p>
+                        <p className="text-gray-400">
+                          Type 'help' to see available commands.
+                        </p>
+                      </div>
+                    )}
 
-              {terminalHistory.map((entry, index) => (
-                <div key={index} className="mb-4">
+                    {terminalHistory.map((entry, index) => (
+                      <div key={index} className="mb-4">
+                        <div className="terminal-line">
+                          <span className="terminal-prompt font-roboto_mono">
+                            $
+                          </span>{' '}
+                          <span className="terminal-command font-roboto_mono">
+                            {entry.command}
+                          </span>
+                        </div>
+                        <div className="terminal-output font-roboto_mono mt-1">
+                          {entry.output}
+                        </div>
+                      </div>
+                    ))}
+
+                    <div className="terminal-line">
+                      <span className="terminal-prompt font-roboto_mono">
+                        $
+                      </span>{' '}
+                      <span className="terminal-command font-roboto_mono">
+                        {userInput}
+                      </span>
+                      <span className="terminal-caret"></span>
+                    </div>
+
+                    <input
+                      ref={terminalInputRef}
+                      type="text"
+                      className="terminal-hidden-input"
+                      value={userInput}
+                      onChange={(e) => setUserInput(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      autoCorrect="off"
+                      autoCapitalize="off"
+                      autoComplete="off"
+                      spellCheck="false"
+                      autoFocus
+                      aria-label="Terminal command input"
+                      style={{
+                        position: 'absolute',
+                        opacity: 0,
+                        pointerEvents: 'none',
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              viewport={{ once: true }}
+              className={`relative terminal-container w-full ${
+                terminalState === 'minimized' ? 'terminal-minimized' : ''
+              }`}
+              onClick={focusTerminal}
+              style={{
+                maxWidth: '500px',
+              }}
+            >
+              <div
+                className={`terminal-window ${
+                  terminalState === 'minimized'
+                    ? 'terminal-minimized-window'
+                    : ''
+                }`}
+              >
+                <div className="terminal-header cursor-move">
+                  <div className="terminal-buttons">
+                    <button
+                      className="terminal-button close"
+                      onClick={handleCloseTerminal}
+                      title="Close"
+                    ></button>
+                    <button
+                      className="terminal-button minimize"
+                      onClick={handleMinimizeTerminal}
+                      title="Minimize"
+                    ></button>
+                    <button
+                      className="terminal-button maximize"
+                      onClick={handleMaximizeTerminal}
+                      title="Full Screen"
+                    ></button>
+                  </div>
+                  <div className="terminal-title font-roboto_mono truncate">
+                    andrechandra@dev: ~/andrechandra-portfolio
+                  </div>
+                </div>
+                <div
+                  className={`terminal-body overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900 ${
+                    terminalState === 'minimized' ? 'hidden' : ''
+                  }`}
+                  ref={terminalBodyRef}
+                  style={{
+                    height: '320px',
+                    overflowY: 'auto',
+                    scrollBehavior: 'smooth',
+                  }}
+                >
+                  {terminalHistory.length === 0 && (
+                    <div className="terminal-welcome mb-2">
+                      <p className="text-[#55f89f]">
+                        Welcome to Andre's Terminal!
+                      </p>
+                      <p className="text-gray-400">
+                        Type 'help' to see available commands.
+                      </p>
+                    </div>
+                  )}
+
+                  {terminalHistory.map((entry, index) => (
+                    <div key={index} className="mb-4">
+                      <div className="terminal-line">
+                        <span className="terminal-prompt font-roboto_mono">
+                          $
+                        </span>{' '}
+                        <span className="terminal-command font-roboto_mono">
+                          {entry.command}
+                        </span>
+                      </div>
+                      <div className="terminal-output font-roboto_mono mt-1">
+                        {entry.output}
+                      </div>
+                    </div>
+                  ))}
+
                   <div className="terminal-line">
                     <span className="terminal-prompt font-roboto_mono">$</span>{' '}
                     <span className="terminal-command font-roboto_mono">
-                      {entry.command}
+                      {userInput}
                     </span>
+                    <span className="terminal-caret"></span>
                   </div>
-                  <div className="terminal-output font-roboto_mono mt-1">
-                    {entry.output}
-                  </div>
+
+                  <input
+                    ref={terminalInputRef}
+                    type="text"
+                    className="terminal-hidden-input"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    autoComplete="off"
+                    spellCheck="false"
+                    autoFocus
+                    aria-label="Terminal command input"
+                    style={{
+                      position: 'absolute',
+                      opacity: 0,
+                      pointerEvents: 'none',
+                      display: terminalState === 'minimized' ? 'none' : 'block',
+                    }}
+                  />
                 </div>
-              ))}
-
-              <div className="terminal-line">
-                <span className="terminal-prompt font-roboto_mono">$</span>{' '}
-                <span className="terminal-command font-roboto_mono">
-                  {userInput}
-                </span>
-                <span className="terminal-caret"></span>
               </div>
-
-              <input
-                ref={terminalInputRef}
-                type="text"
-                className="terminal-hidden-input"
-                value={userInput}
-                onChange={(e) => setUserInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                autoCorrect="off"
-                autoCapitalize="off"
-                autoComplete="off"
-                spellCheck="false"
-                autoFocus
-                aria-label="Terminal command input"
-                style={{
-                  position: 'absolute',
-                  opacity: 0,
-                  pointerEvents: 'none',
-                  display: terminalState === 'minimized' ? 'none' : 'block',
-                }}
-              />
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          )}
+        </>
       )}
     </div>
   )

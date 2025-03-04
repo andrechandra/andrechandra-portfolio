@@ -94,7 +94,7 @@ export default function ResumeSection() {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="container mx-auto px-4 sm:px-6 lg:px-16 py-8 sm:py-12 lg:py-16 max-w-7xl"
+      className="container mx-auto px-4 sm:px-6 lg:px-24 py-8 sm:py-12 lg:py-16 max-w-7xl"
     >
       <div className="grid grid-cols-1 lg:grid-cols-[6fr_1fr] gap-4">
         <div className="space-y-24">
