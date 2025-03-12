@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/tooltip'
 import { LinkButton } from '@/components/ui/link-button'
 import { ToolIcon } from './tool-icon'
-import { projects } from '@/constants/projects'
+import { miniProjects } from '@/constants/mini-projects'
 
 const miniProjectVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -50,7 +50,7 @@ export default function MiniProjectCard({
   limit,
   viewMoreHref = '/projects',
 }: MiniProjectCardsProps) {
-  const displayedProjects = limit ? projects.slice(0, limit) : projects
+  const displayedProjects = limit ? miniProjects.slice(0, limit) : miniProjects
 
   return (
     <div className="w-full bg-transparent text-foreground">
@@ -167,7 +167,7 @@ export default function MiniProjectCard({
           ))}
         </div>
 
-        {limit && limit < projects.length && (
+        {limit && limit < miniProjects.length && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
