@@ -11,6 +11,7 @@ import { LinkButton } from '@/components/ui/link-button'
 import { heroLinks } from '@/constants/hero-links'
 import React from 'react'
 import TerminalSection from '@/components/terminal'
+import MiniProjectCard from '@/components/mini-project-card'
 
 export default function Home() {
   return (
@@ -123,6 +124,50 @@ export default function Home() {
           <TerminalSection />
         </div>
       </section>
+
+      <div
+        className="container mx-auto px-4 sm:px-6 lg:px-24 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"
+        id="mini-project"
+      >
+        <div className="flex flex-col gap-4">
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mt-20">
+              <MotionText
+                as="span"
+                className="text-white font-light"
+                duration={0.4}
+              >
+                Mini
+              </MotionText>{' '}
+              <MotionText
+                as="span"
+                className="font-light text-[#55f89f] border-b border-dashed border-gray-500"
+                duration={0.4}
+              >
+                Projects
+              </MotionText>
+            </h1>
+            <MotionText
+              as="p"
+              className="bg-gray-400 bg-clip-text text-transparent animate-shiny text-sm"
+              delay={0.3}
+              duration={0.4}
+              simpleAnimation={true}
+            >
+              Some of my recent projects
+            </MotionText>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+          >
+            <MiniProjectCard limit={6} />
+          </motion.div>
+        </div>
+      </div>
 
       <div
         className="container mx-auto px-4 sm:px-6 lg:px-24 py-8 sm:py-12 lg:py-16 max-w-7xl -scroll-mt-24"

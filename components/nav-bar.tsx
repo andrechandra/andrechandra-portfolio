@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Menu, X, Home, Book, FolderGit2, User } from 'lucide-react'
+import { Menu, X, Home, FolderGit, FolderGit2, User } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
@@ -32,6 +32,12 @@ export default function Navbar() {
       label: '>_home',
       icon: Home,
       description: 'Explore my digital space!',
+    },
+    {
+      href: '/minis',
+      label: '>_minis',
+      icon: FolderGit,
+      description: 'Collection of my mini projects',
     },
     {
       href: '/projects',
