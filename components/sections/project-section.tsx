@@ -133,7 +133,7 @@ export default function ProjectSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="text-xl font-bold text-black dark:text-white"
+          className="text-xl font-bold text-white"
         >
           {project.title}
         </motion.h1>
@@ -148,7 +148,7 @@ export default function ProjectSection() {
               {project.stack.map((tech) => (
                 <Tooltip key={tech}>
                   <TooltipTrigger asChild>
-                    <div className="p-1 rounded-full">
+                    <div className="p-1 rounded-full text-white">
                       <ToolIcon tool={tech} />
                     </div>
                   </TooltipTrigger>

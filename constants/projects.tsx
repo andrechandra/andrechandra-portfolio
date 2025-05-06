@@ -49,10 +49,60 @@ import expensetracker6 from '@/public/projects/expense-tracker/expense-tracker-6
 import expensetracker7 from '@/public/projects/expense-tracker/expense-tracker-7.png'
 import expensetracker8 from '@/public/projects/expense-tracker/expense-tracker-8.png'
 
+// Expense-Tracker
+import atlantisRealtyThumbnail from '@/public/projects/atlantis-realty/atlantis-realty-thumbnail.png'
+import atlantisRealty1 from '@/public/projects/atlantis-realty/atlantis-realty-1.png'
+import atlantisRealty2 from '@/public/projects/atlantis-realty/atlantis-realty-2.png'
+import atlantisRealty3 from '@/public/projects/atlantis-realty/atlantis-realty-3.png'
+import atlantisRealty4 from '@/public/projects/atlantis-realty/atlantis-realty-4.png'
+import atlantisRealty5 from '@/public/projects/atlantis-realty/atlantis-realty-5.png'
+import atlantisRealty6 from '@/public/projects/atlantis-realty/atlantis-realty-6.png'
+
 import { Project } from '@/types/project'
 import { motion } from 'framer-motion'
 
 export const projects: Project[] = [
+  {
+    href: 'https://atlantis-realty.vercel.app',
+    repo: '',
+    title: 'Atlantis Realty ( Work in Progress )',
+    category: 'freelance',
+    description: `A responsive website for Atlantis Realty, designed to showcase the agency’s office location, property portfolio, and agents, with agent data managed through a spreadsheet-based CMS.`,
+    thumbnail: atlantisRealtyThumbnail,
+    images: [
+      atlantisRealty1,
+      atlantisRealty2,
+      atlantisRealty3,
+      atlantisRealty4,
+      atlantisRealty5,
+      atlantisRealty6,
+    ],
+    stack: ['Nextjs', 'Tailwindcss', 'Shadcn'],
+    slug: 'atlantis-realty',
+    content: (
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <p className="font-geist_mono tracking-tighter text-gray-400">
+          I built this website for a friend&apos;s property agency, Atlantis
+          Realty, to help establish their digital presence and make it easier
+          for clients to discover their services. The site includes several main
+          pages—Home, Portfolio, Our Agents, Cari Titip, and Tools—each serving
+          specific needs for property browsing and agent engagement.
+        </p>
+        <p className="font-geist_mono tracking-tighter text-gray-400">
+          One of the core features is the “Our Agents” page, which dynamically
+          renders agent profiles using data sourced from a spreadsheet, acting
+          as a lightweight CMS. This allows the agency to easily update agent
+          information without needing to access the codebase. Built with
+          Next.js, Tailwind CSS, and Shadcn UI components, the site is designed
+          for speed, clarity, and responsiveness across devices.
+        </p>
+      </motion.div>
+    ),
+  },
   {
     href: 'https://ach-expense-tracker.vercel.app',
     repo: 'https://github.com/andrechandra/expense-tracker',
@@ -101,7 +151,7 @@ export const projects: Project[] = [
   {
     href: 'https://bcs-serpong.org',
     repo: '',
-    title: 'GKKK BCS Serpong | Website',
+    title: 'GKKK BCS Serpong',
     category: 'freelance',
     description: `A dedicated website for GKKK BCS Serpong, showcasing our church's mission, values, and community activities.`,
     thumbnail: bcsThumbnail,

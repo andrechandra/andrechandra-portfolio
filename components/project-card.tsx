@@ -112,7 +112,9 @@ export default function ProjectCard({
                 }`}
               >
                 <div className="order-2 lg:order-none border border-[#2c2c2c] bg-[#111111] flex flex-col p-4 justify-between gap-4">
-                  <h2 className="text-xl font-light">{project.title}</h2>
+                  <h2 className="text-xl font-light text-white">
+                    {project.title}
+                  </h2>
                   <p className="text-sm text-gray-400 font-geist_mono tracking-tighter">
                     {project.description}
                   </p>
@@ -124,7 +126,7 @@ export default function ProjectCard({
                         {project.stack.map((tech) => (
                           <Tooltip key={tech}>
                             <TooltipTrigger asChild>
-                              <div className="p-1 rounded-full">
+                              <div className="p-1 rounded-full text-white">
                                 <ToolIcon tool={tech} />
                               </div>
                             </TooltipTrigger>

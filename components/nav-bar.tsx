@@ -34,12 +34,6 @@ export default function Navbar() {
       description: 'Explore my digital space!',
     },
     {
-      href: '/minis',
-      label: '>_minis',
-      icon: FolderGit,
-      description: 'Collection of my mini projects',
-    },
-    {
       href: '/projects',
       label: '>_projects',
       icon: FolderGit2,
