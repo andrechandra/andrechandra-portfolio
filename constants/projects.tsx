@@ -63,9 +63,9 @@ import { motion } from 'framer-motion'
 
 export const projects: Project[] = [
   {
-    href: 'https://atlantis-realty.vercel.app',
+    href: 'https://atlantisrealty.id',
     repo: '',
-    title: 'Atlantis Realty ( Work in Progress )',
+    title: 'Atlantis Realty',
     category: 'freelance',
     description: `A responsive website for Atlantis Realty, designed to showcase the agency’s office location, property portfolio, and agents, with agent data managed through a spreadsheet-based CMS.`,
     thumbnail: atlantisRealtyThumbnail,
