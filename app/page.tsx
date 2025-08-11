@@ -39,14 +39,14 @@ export default function Home() {
               delay={0.2}
               duration={0.4}
             >
-              IT Application Developer at{' '}
+              Fullstack Developer{' '}
               <span className="hidden sm:inline"></span>
               <span className="block sm:hidden"></span>
               <Link
                 href="/experiences#working-experience"
                 className="border-b border-dotted border-white relative w-fit text-white after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:border-transparent hover:after:scale-x-100 hover:after:origin-left"
               >
-                Panin Dai-ichi Life
+                Star Generation
               </Link>
             </MotionText>
 

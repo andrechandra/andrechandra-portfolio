@@ -31,14 +31,14 @@ export default function AboutCard() {
             simpleAnimation={true}
             className="text-gray-400 mb-4 font-geist_mono tracking-tighter"
           >
-            IT Application Developer at{' '}
+            Fullstack Developer at{' '}
             <span className="hidden sm:inline"></span>
             <span className="block sm:hidden"></span>
             <Link
               href="/experiences#working-experience"
               className="relative w-fit text-[#55f89f] after:absolute after:w-full after:scale-x-0 after:h-[0.05rem] after:bottom-0 after:left-0 after:origin-right after:bg-gradient-to-r after:from-[#55f89f] after:to-[#55f8d5] after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left"
             >
-              Panin Dai-ichi Life
+              Star Generation
             </Link>
           </MotionText>
           <MotionText

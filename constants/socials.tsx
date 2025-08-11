@@ -30,6 +30,6 @@ export const socialLinks = [
   {
     name: 'Twitter',
     icon: FaXTwitter,
-    href: 'https://twitter.com/acepew_',
+    href: 'https://twitter.com/andrechandraap',
   },
 ]

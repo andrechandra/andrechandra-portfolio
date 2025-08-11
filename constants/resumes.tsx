@@ -1,9 +1,20 @@
 export const resumes = {
   workingExperience: [
     {
+      title: 'Fullstack Developer',
+      location: 'Star Generation - Tangerang, On-site',
+      duration: 'June 2025 - Present | Full Time',
+      responsibilities: [
+        'Revamped the company’s outdated learning platform IT system, improving structure and maintainability.',
+        'Collaborated with two other developers to identify and prioritize key system changes',
+        'Designed and implemented the new ERD for the updated system, laying the foundation for future development.',
+      ],
+      link: 'https://stargeneration.net',
+    },
+    {
       title: 'IT Application Developer',
       location: 'Panin Dai-ichi Life - Jakarta Barat, Hybrid',
-      duration: 'Oct 2023 - Present | Full Time',
+      duration: 'Oct 2023 - June 2025 | Full Time',
       responsibilities: [
         'Improved and maintained the Cordova mobile app, resolving 95% of critical bugs and increasing app performance significantly SQLCipher integration for secure data handling.',
         'Developed and supported three Spring Boot web applications, adding 5+ new features and resolving critical issues, while ensuring stable SQL Server and REST API connections.',
