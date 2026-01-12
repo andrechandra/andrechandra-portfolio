@@ -17,7 +17,10 @@ import {
   SiIonic,
   SiCapacitor,
   SiNotion,
+  SiSupabase,
+  SiExpo,
 } from 'react-icons/si'
+
 export const ToolIcon = ({ tool }: { tool: string }) => {
   switch (tool.toLowerCase()) {
     case 'nextjs':
@@ -56,6 +59,12 @@ export const ToolIcon = ({ tool }: { tool: string }) => {
       return <SiCapacitor className="h-5 w-5" />
     case 'notion':
       return <SiNotion className="h-5 w-5" />
+    case 'supabase':
+      return <SiSupabase className="h-5 w-5" />
+    case 'react native':
+      return <ReactIcon className="h-5 w-5" />
+    case 'expo go':
+      return <SiExpo className="h-5 w-5" />
     default:
       return null
   }

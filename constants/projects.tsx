@@ -49,7 +49,7 @@ import expensetracker6 from '@/public/projects/expense-tracker/expense-tracker-6
 import expensetracker7 from '@/public/projects/expense-tracker/expense-tracker-7.png'
 import expensetracker8 from '@/public/projects/expense-tracker/expense-tracker-8.png'
 
-// Expense-Tracker
+// Atlantis Realty
 import atlantisRealtyThumbnail from '@/public/projects/atlantis-realty/atlantis-realty-thumbnail.png'
 import atlantisRealty1 from '@/public/projects/atlantis-realty/atlantis-realty-1.png'
 import atlantisRealty2 from '@/public/projects/atlantis-realty/atlantis-realty-2.png'
@@ -58,16 +58,78 @@ import atlantisRealty4 from '@/public/projects/atlantis-realty/atlantis-realty-4
 import atlantisRealty5 from '@/public/projects/atlantis-realty/atlantis-realty-5.png'
 import atlantisRealty6 from '@/public/projects/atlantis-realty/atlantis-realty-6.png'
 
+// BrokerID
+import brokerIdThumbnail from '@/public/projects/brokerid/brokerid-thumbnail.png'
+import brokerId1 from '@/public/projects/brokerid/brokerid-1.png'
+import brokerId2 from '@/public/projects/brokerid/brokerid-2.png'
+import brokerId3 from '@/public/projects/brokerid/brokerid-3.png'
+import brokerId4 from '@/public/projects/brokerid/brokerid-4.png'
+import brokerId5 from '@/public/projects/brokerid/brokerid-5.png'
+import brokerId6 from '@/public/projects/brokerid/brokerid-6.png'
+import brokerId7 from '@/public/projects/brokerid/brokerid-7.png'
+import brokerId8 from '@/public/projects/brokerid/brokerid-8.png'
+import brokerId9 from '@/public/projects/brokerid/brokerid-9.png'
+import brokerId10 from '@/public/projects/brokerid/brokerid-10.png'
+import brokerId11 from '@/public/projects/brokerid/brokerid-11.png'
+import brokerId12 from '@/public/projects/brokerid/brokerid-12.png'
+
 import { Project } from '@/types/project'
 import { motion } from 'framer-motion'
 
 export const projects: Project[] = [
   {
+    href: 'https://brokerid.app',
+    repo: '',
+    title: 'BrokerID',
+    category: 'freelance',
+    description: `BrokerID is an application designed to serve as a bridge and the primary platform for property agents in Indonesia, helping them fulfill all their needs in the real estate brokerage industry.`,
+    thumbnail: brokerIdThumbnail,
+    // Web screenshots (1-5)
+    webImages: [
+      brokerId1,
+      brokerId2,
+      brokerId3,
+      brokerId4,
+      brokerId5,
+    ],
+    // Mobile screenshots (6-12)
+    mobileImages: [
+      brokerId6,
+      brokerId7,
+      brokerId8,
+      brokerId9,
+      brokerId10,
+      brokerId11,
+      brokerId12,
+    ],
+    stack: ['React Native', 'Supabase', 'Expo Go', 'Nextjs'],
+    slug: 'brokerid',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.andrechandra.brokerid&hl=id',
+    appStoreUrl: 'https://apps.apple.com/id/app/brokerid/id6754389922',
+    content: (
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <p className="font-geist_mono tracking-tighter text-gray-400">
+          BrokerID is here to provide a solution to the vast number of property agent networks in Indonesia, where having too many networks makes inter-agent connections excessive and inefficient. For this reason, BrokerID has a vision to become the primary bridge for agents through thoughtfully designed features.
+        </p>
+        <p className="font-geist_mono tracking-tighter text-gray-400">
+          The problem arising from the abundance of networks is the difficulty in finding supply and demand, as information is unevenly distributed. Therefore, BrokerID, as the main bridge, aims to become the single platform that facilitates all property agent networks. However, it is not only a platform, BrokerID also offers filtering features that allow property agents to search for properties based on specific needs.
+        </p>
+        <p className="font-geist_mono tracking-tighter text-gray-400">
+          The BrokerID application is built using React Native with Expo Go to deliver a fast, flexible, and cross-platform mobile experience, with Supabase powering authentication, database management, and real-time data handling. In addition, the BrokerID website is developed using Next.js to ensure optimal performance and best-in-class SEO for maximum visibility and reach.
+        </p>
+      </motion.div>
+    ),
+  },
+  {
     href: 'https://atlantisrealty.id',
     repo: '',
     title: 'Atlantis Realty',
     category: 'freelance',
-    description: `A responsive website for Atlantis Realty, designed to showcase the agency’s office location, property portfolio, and agents, with agent data managed through a spreadsheet-based CMS.`,
+    description: `A responsive website for Atlantis Realty, designed to showcase the agency's office location, property portfolio, and agents, with agent data managed through a spreadsheet-based CMS.`,
     thumbnail: atlantisRealtyThumbnail,
     images: [
       atlantisRealty1,
@@ -93,7 +155,7 @@ export const projects: Project[] = [
           specific needs for property browsing and agent engagement.
         </p>
         <p className="font-geist_mono tracking-tighter text-gray-400">
-          One of the core features is the “Our Agents” page, which dynamically
+          One of the core features is the "Our Agents" page, which dynamically
           renders agent profiles using data sourced from a spreadsheet, acting
           as a lightweight CMS. This allows the agency to easily update agent
           information without needing to access the codebase. Built with
@@ -245,7 +307,7 @@ export const projects: Project[] = [
     description:
       'SeiYou is a voice-over application and it is hoped that everyone will get passion and work from this application for those who need it.',
     thumbnail: seiYouThumbnail,
-    images: [sei1, sei2, sei3],
+    mobileImages: [sei1, sei2, sei3],
     stack: ['Ionic', 'Capacitor', 'React'],
     slug: 'sei-you',
     content: (

@@ -6,6 +6,8 @@ import {
   SiJavascript as JavascriptIcon,
   SiTypescript as TypescriptIcon,
   SiPrisma as PrismaIcon,
+  SiExpo as ExpoIcon,
+  SiSupabase as SupabaseIcon,
 } from 'react-icons/si'
 
 export const techStack = [
@@ -20,6 +22,18 @@ export const techStack = [
     name: 'React',
     description:
       'My preferred UI library for building component-based interfaces with its powerful state management and hooks system.',
+  },
+  {
+    icon: ReactIcon,
+    name: 'React Native',
+    description:
+      'My preferred framework for building cross-platform mobile applications. It allows me to leverage React knowledge to create native mobile experiences.',
+  },
+  {
+    icon: ExpoIcon,
+    name: 'Expo',
+    description:
+      'Streamlines React Native development with powerful tools and services. Makes building, deploying, and iterating on mobile apps much faster.',
   },
   {
     icon: TypescriptIcon,
@@ -50,5 +64,11 @@ export const techStack = [
     name: 'Prisma',
     description:
       'A next-generation ORM that makes working with databases effortless. It provides type safety and a great developer experience.',
+  },
+  {
+    icon: SupabaseIcon,
+    name: 'Supabase',
+    description:
+      'An open-source Firebase alternative that provides a complete backend solution. Perfect for building scalable applications with real-time features and authentication.',
   },
 ]
