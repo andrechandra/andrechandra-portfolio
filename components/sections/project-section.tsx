@@ -201,7 +201,7 @@ export default function ProjectSection() {
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs text-gray-500">Tools:</span>
 
-            <TooltipProvider>
+            <TooltipProvider delayDuration={0}>
               {project.stack.map((tech) => (
                 <Tooltip key={tech}>
                   <TooltipTrigger asChild>

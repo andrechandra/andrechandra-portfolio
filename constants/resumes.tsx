@@ -1,6 +1,17 @@
 export const resumes = {
   workingExperience: [
     {
+      title: 'Co-Founder & CTO',
+      location: 'BrokerID - Tangerang',
+      duration: 'June 2025 - Present | Full Time',
+      responsibilities: [
+        'Co-founded brokerid and single-handedly architected and developed the entire application from the ground up, owning the full technology stack end-to-end.',
+        'Led all technical decisions as CTO, driving product direction, infrastructure, and engineering best practices across the platform.',
+        'Continuously shipped new features and improvements, balancing rapid development with long-term scalability and code quality.',
+      ],
+      link: 'https://brokerid.app',
+    },
+    {
       title: 'Fullstack Developer',
       location: 'Star Generation - Tangerang, On-site',
       duration: 'June 2025 - Present | Full Time',

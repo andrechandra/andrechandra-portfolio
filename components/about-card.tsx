@@ -120,7 +120,7 @@ export default function AboutCard() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="flex flex-row flex-wrap gap-4"
           >
-            <TooltipProvider>
+            <TooltipProvider delayDuration={0}>
               <div className="flex gap-3 flex-wrap">
                 {techStack.map((tech, index) => (
                   <Tooltip key={index}>

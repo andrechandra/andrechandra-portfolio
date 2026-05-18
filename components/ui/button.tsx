@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -22,7 +24,7 @@ const buttonVariants = cva(
         primary:
           'bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10 font-geist',
         secondary:
-          'bg-[#55f89f] text-black rounded-none relative overflow-hidden z-10 before:absolute before:inset-0 before:-z-10 before:bg-[#34c477] before:translate-x-[-100%] hover:before:translate-x-0 before:transition-transform before:duration-300 before:ease-in-out font-geist',
+          'bg-[#55f89f] text-black rounded-none relative overflow-hidden z-10 before:absolute before:inset-0 before:-z-10 before:bg-[#34c477] before:transition-transform before:ease-in-out font-geist',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -51,12 +53,61 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, state, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      state,
+      asChild = false,
+      onMouseEnter,
+      onMouseLeave,
+      ...props
+    },
+    ref
+  ) => {
+    const [slidePhase, setSlidePhase] = React.useState<
+      'rest' | 'enter' | 'exit'
+    >('rest')
+    const exitTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+      null
+    )
+    const isSecondary = variant === 'secondary'
+
+    const secondarySlideClass = isSecondary
+      ? slidePhase === 'rest'
+        ? 'before:translate-x-[-100%] before:duration-0'
+        : slidePhase === 'enter'
+          ? 'before:translate-x-0 before:duration-300'
+          : 'before:translate-x-[100%] before:duration-300'
+      : ''
+
+    const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (isSecondary) {
+        if (exitTimeoutRef.current) clearTimeout(exitTimeoutRef.current)
+        setSlidePhase('enter')
+      }
+      onMouseEnter?.(e)
+    }
+
+    const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (isSecondary) {
+        setSlidePhase('exit')
+        exitTimeoutRef.current = setTimeout(() => setSlidePhase('rest'), 300)
+      }
+      onMouseLeave?.(e)
+    }
+
     const Comp = asChild ? Slot : 'button'
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, state, className }))}
+        className={cn(
+          buttonVariants({ variant, size, state, className }),
+          secondarySlideClass
+        )}
         ref={ref}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         {...props}
       />
     )

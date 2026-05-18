@@ -63,7 +63,7 @@ export default function Header({
   }
 
   return (
-    <div className="relative w-full bg-background min-h-[25vh] sm:min-h-[30vh] lg:min-h-[40vh] flex items-center justify-center">
+    <div className="relative w-full bg-black min-h-[25vh] sm:min-h-[30vh] lg:min-h-[40vh] flex items-center justify-center">
       {/* Background grid pattern */}
       <motion.div
         initial={{ opacity: 0 }}

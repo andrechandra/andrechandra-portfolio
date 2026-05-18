@@ -19,7 +19,7 @@ export const Footer = () => {
         <Separator className="w-1/2 bg-[#2c2c2c]" />
         <div className="absolute right-0 w-1/4 h-[1px] bg-gradient-to-l from-transparent to-[#2c2c2c]"></div>
       </div>
-      <TooltipProvider>
+      <TooltipProvider delayDuration={0}>
         <div className="font-geist_mono tracking-tighter space-x-4">
           {footerLinks.map((item, index) => (
             <Tooltip key={index}>

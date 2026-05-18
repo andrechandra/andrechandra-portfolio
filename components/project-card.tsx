@@ -6,15 +6,12 @@ import Link from 'next/link'
 import { projects } from '@/constants/projects'
 import { ArrowUpRight, Github, Link2, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { cn } from '@/lib/utils'
-import { useState } from 'react'
 import { ToolIcon } from './tool-icon'
 import { LinkButton } from './ui/link-button'
 
@@ -50,58 +47,12 @@ const AppStoreIcon = () => (
   </svg>
 )
 
-export default function ProjectCard({
-  limit,
-  initialCategory = 'all',
-  showTabs = true,
-}: {
-  limit?: number
-  initialCategory?: string
-  showTabs?: boolean
-}) {
-  const [activeCategory, setActiveCategory] = useState(initialCategory)
-  const categories = ['all', 'university', 'freelance', 'short-projects']
-
-  const filteredProjects = projects
-    .filter(
-      (project) =>
-        activeCategory === 'all' || project.category === activeCategory
-    )
-    .slice(0, limit || undefined)
+export default function ProjectCard({ limit }: { limit?: number }) {
+  const filteredProjects = projects.slice(0, limit || undefined)
 
   return (
     <div className="w-full bg-transparent text-foreground min-h-screen py-4">
       <div className="max-w-7xl mx-auto space-y-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: 'easeInOut' }}
-        >
-          {showTabs && (
-            <Tabs
-              defaultValue={initialCategory}
-              className=" hidden lg:block w-full font-geist_mono tracking-tighter"
-              onValueChange={setActiveCategory}
-            >
-              <TabsList className="grid w-full grid-cols-4">
-                {categories.map((category) => (
-                  <TabsTrigger
-                    key={category}
-                    value={category}
-                    className={cn(
-                      'capitalize',
-                      activeCategory === category && 'text-primary'
-                    )}
-                  >
-                    {category.replace('-', ' ')}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
-          )}
-        </motion.div>
-
         <motion.div
           className="space-y-4"
           initial="hidden"
@@ -134,7 +85,7 @@ export default function ProjectCard({
                   {project.stack && (
                     <div className="flex items-center lg:gap-2 md:gap-2">
                       <span className="text-xs text-gray-500">Tools:</span>
-                      <TooltipProvider>
+                      <TooltipProvider delayDuration={0}>
                         {project.stack.map((tech) => (
                           <Tooltip key={tech}>
                             <TooltipTrigger asChild>
