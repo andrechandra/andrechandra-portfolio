@@ -1,5 +1,13 @@
 import { StaticImageData } from 'next/image'
 
+export type ProjectSection = {
+  id: string
+  title: string
+  content: string
+  images?: (StaticImageData | string)[]
+  imageLayout?: 'web' | 'mobile'
+}
+
 export type Project = {
   title: string
   category: string
@@ -13,6 +21,7 @@ export type Project = {
   slug?: string
   stack?: string[]
   content?: React.ReactNode | string
+  sections?: ProjectSection[]
   playStoreUrl?: string
   appStoreUrl?: string
 }

@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { StaticImageData } from 'next/image'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, Github, Link2, X, Smartphone, Monitor } from 'lucide-react'
+import { ArrowLeft, Github, Link2, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { projects } from '@/constants/projects'
 import {
@@ -14,30 +14,19 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import Autoplay from 'embla-carousel-autoplay'
-
 import { useParams } from 'next/navigation'
-
-import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
 import { ToolIcon } from '@/components/tool-icon'
-import { ProjectContent } from '@/components/project-content'
 import { LinkButton } from '../ui/link-button'
+import { markdownToHtml } from '@/lib/markdown'
 
 const PlayStoreIcon = () => (
   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
     <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
   </svg>
 )
+
+const IMAGE_PREVIEW_LIMIT = 6
 
 const AppStoreIcon = () => (
   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
@@ -48,46 +37,75 @@ const AppStoreIcon = () => (
 export default function ProjectSection() {
   const params = useParams()
   const project = projects.find((p) => p.slug === params.slug)
-  const [selectedImage, setSelectedImage] = useState<
-    string | StaticImageData | null
-  >(null)
-  const [imageType, setImageType] = useState<'mobile' | 'web'>('web')
+  const [activeSection, setActiveSection] = useState('')
+  const [selectedImage, setSelectedImage] = useState<string | StaticImageData | null>(null)
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({})
+
+  const toggleSection = (id: string) =>
+    setExpandedSections((prev) => ({ ...prev, [id]: !prev[id] }))
 
   if (!project) {
     notFound()
   }
 
-  const hasMultipleImageTypes = project.mobileImages && project.webImages
-  const hasMobileOnly = project.mobileImages && !project.webImages
-  const hasWebOnly = project.webImages && !project.mobileImages
-  
-  let currentImages: (string | StaticImageData)[] = []
-  if (hasMultipleImageTypes) {
-    currentImages = (imageType === 'mobile' ? project.mobileImages : project.webImages) || []
-  } else if (hasMobileOnly) {
-    currentImages = project.mobileImages || []
-  } else if (hasWebOnly) {
-    currentImages = project.webImages || []
-  } else {
-    currentImages = project.images || []
-  }
+  const sections = project.sections ?? []
 
-  const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }))
+  const allImages = useMemo(
+    () => sections.flatMap((s) => s.images ?? []),
+    [sections]
+  )
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setSelectedImage(null)
-    }
-  }
+  const renderedSections = useMemo(
+    () =>
+      sections.map((s) => ({
+        ...s,
+        html: markdownToHtml(s.content),
+      })),
+    [sections]
+  )
 
-  React.useEffect(() => {
-    if (selectedImage) {
-      window.addEventListener('keydown', handleKeyDown)
+  useEffect(() => {
+    const ids = sections.map((s) => s.id).join(', ')
+    if (!ids) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+            if (typeof window !== 'undefined') {
+              history.replaceState(null, '', `#${entry.target.id}`)
+            }
+          }
+        })
+      },
+      { threshold: 0.3, rootMargin: '0px 0px -40% 0px' }
+    )
+
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [sections])
+
+  useEffect(() => {
+    if (!selectedImage) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedImage(null)
+      if (e.key === 'ArrowRight') {
+        const idx = allImages.findIndex((img) => img === selectedImage)
+        setSelectedImage(allImages[(idx + 1) % allImages.length])
+      }
+      if (e.key === 'ArrowLeft') {
+        const idx = allImages.findIndex((img) => img === selectedImage)
+        setSelectedImage(allImages[idx <= 0 ? allImages.length - 1 : idx - 1])
+      }
     }
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [selectedImage])
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [selectedImage, allImages])
 
   return (
     <motion.div
@@ -96,111 +114,20 @@ export default function ProjectSection() {
       transition={{ duration: 0.3 }}
       className="container mx-auto px-4 sm:px-6 lg:px-24 py-8 sm:py-12 lg:py-16 max-w-7xl"
     >
-      <LinkButton
-        asChild
-        variant="unstyled_link_left"
-        className="text-white mb-4 sm:mb-6"
-      >
-        <Link
-          href="/projects"
-          className="flex items-center group font-geist_mono tracking-tighter"
-        >
+      <LinkButton asChild variant="unstyled_link_left" className="text-white mb-6">
+        <Link href="/projects" className="flex items-center group font-geist_mono tracking-tighter">
           <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
           Back to Projects
         </Link>
       </LinkButton>
 
-      <div className="space-y-6 sm:space-y-8">
-        {/* Image Type Tabs */}
-        {hasMultipleImageTypes && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Tabs
-              value={imageType}
-              onValueChange={(value) => setImageType(value as 'mobile' | 'web')}
-              className="w-full"
-            >
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="web" className="flex items-center gap-2">
-                  <Monitor className="h-4 w-4" />
-                  Web
-                </TabsTrigger>
-                <TabsTrigger value="mobile" className="flex items-center gap-2">
-                  <Smartphone className="h-4 w-4" />
-                  Mobile
-                </TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </motion.div>
-        )}
-
-        {/* Image Carousel */}
-        {currentImages.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-full"
-            key={imageType}
-          >
-            <Carousel plugins={[plugin.current] as any} className="w-full">
-              <CarouselContent>
-                {currentImages.map((image, index) => (
-                  <CarouselItem key={index} className="basis-full sm:basis-1/2">
-                    <div
-                      className="relative overflow-hidden rounded-none border-2 cursor-pointer transition-transform hover:scale-[0.99] hover:brightness-90"
-                      onClick={() => setSelectedImage(image)}
-                    >
-                      <div className="w-full h-full">
-                        <Image
-                          src={image}
-                          alt={`${project.title} screenshot ${index + 1}`}
-                          fill
-                          className="object-contain"
-                          onLoadingComplete={(img) => {
-                            const container = img.parentElement
-                            if (container) {
-                              if (img.naturalHeight > img.naturalWidth) {
-                                container.style.aspectRatio = '3/4'
-                              } else {
-                                container.style.aspectRatio = '16/9'
-                              }
-                            }
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              {currentImages.length > 2 && (
-                <>
-                  <CarouselPrevious className="hidden sm:flex" />
-                  <CarouselNext className="hidden sm:flex" />
-                </>
-              )}
-            </Carousel>
-          </motion.div>
-        )}
-
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="text-xl font-bold text-white"
-        >
-          {project.title}
-        </motion.h1>
-
-        <ProjectContent>{project.content}</ProjectContent>
+      {/* Title + meta above grid */}
+      <div className="mb-10 space-y-5">
+        <h1 className="text-3xl font-bold text-white">{project.title}</h1>
 
         {project.stack && (
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-gray-500">Tools:</span>
-
+            <span className="text-xs text-gray-500 font-geist_mono">Tools:</span>
             <TooltipProvider delayDuration={0}>
               {project.stack.map((tech) => (
                 <Tooltip key={tech}>
@@ -218,66 +145,34 @@ export default function ProjectSection() {
           </div>
         )}
 
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="flex flex-row flex-wrap gap-3">
           {project.href && (
-            <Button
-              asChild
-              variant="primary"
-              className="w-full sm:w-auto cursor-[var(--external-cursor)]"
-            >
-              <Link
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button asChild variant="primary" className="w-full sm:w-auto cursor-[var(--external-cursor)]">
+              <Link href={project.href} target="_blank" rel="noopener noreferrer">
                 <Link2 className="mr-2 h-4 w-4" />
                 <span className="font-normal">Visit Website</span>
               </Link>
             </Button>
           )}
           {project.repo && (
-            <Button
-              asChild
-              variant="primary"
-              className="w-full sm:w-auto cursor-[var(--external-cursor)]"
-            >
-              <Link
-                href={project.repo}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button asChild variant="primary" className="w-full sm:w-auto cursor-[var(--external-cursor)]">
+              <Link href={project.repo} target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-4 w-4" />
                 <span className="font-normal">View Source</span>
               </Link>
             </Button>
           )}
           {project.playStoreUrl && (
-            <Button
-              asChild
-              variant="primary"
-              className="w-full sm:w-auto cursor-[var(--external-cursor)]"
-            >
-              <Link
-                href={project.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button asChild variant="primary" className="w-full sm:w-auto cursor-[var(--external-cursor)]">
+              <Link href={project.playStoreUrl} target="_blank" rel="noopener noreferrer">
                 <PlayStoreIcon />
                 <span className="ml-2 font-normal">Play Store</span>
               </Link>
             </Button>
           )}
           {project.appStoreUrl && (
-            <Button
-              asChild
-              variant="primary"
-              className="w-full sm:w-auto cursor-[var(--external-cursor)]"
-            >
-              <Link
-                href={project.appStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button asChild variant="primary" className="w-full sm:w-auto cursor-[var(--external-cursor)]">
+              <Link href={project.appStoreUrl} target="_blank" rel="noopener noreferrer">
                 <AppStoreIcon />
                 <span className="ml-2 font-normal">App Store</span>
               </Link>
@@ -286,7 +181,102 @@ export default function ProjectSection() {
         </div>
       </div>
 
-      {/* Image Lightbox */}
+      {/* Two-column blog layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-[6fr_1fr] gap-4">
+        {/* Main content */}
+        <div className="space-y-20">
+          {renderedSections.map((section) => (
+            <section key={section.id} id={section.id} className="scroll-mt-12">
+              <h2 className="text-2xl font-bold text-white mb-4">{section.title}</h2>
+
+              <article
+                className="project-markdown prose prose-sm prose-invert max-w-none
+                  prose-p:text-gray-400 prose-p:font-geist_mono prose-p:tracking-tighter prose-p:leading-relaxed
+                  prose-strong:text-gray-200
+                  prose-li:text-gray-400 prose-li:font-geist_mono prose-li:tracking-tighter
+                  prose-ul:my-2"
+                dangerouslySetInnerHTML={{ __html: section.html }}
+              />
+
+              {section.images && section.images.length > 0 && (() => {
+                const isExpanded = expandedSections[section.id]
+                const hasMore = section.images.length > IMAGE_PREVIEW_LIMIT
+                const visibleImages = isExpanded
+                  ? section.images
+                  : section.images.slice(0, IMAGE_PREVIEW_LIMIT)
+
+                return (
+                  <>
+                    <div
+                      className={`mt-6 gap-3 ${section.imageLayout === 'mobile'
+                        ? 'grid grid-cols-2 sm:grid-cols-3'
+                        : 'grid grid-cols-1 sm:grid-cols-2'
+                        }`}
+                    >
+                      {visibleImages.map((image, idx) => (
+                        <div
+                          key={idx}
+                          className="relative overflow-hidden border-2 cursor-pointer transition-all hover:brightness-90 hover:scale-[0.99]"
+                          style={{
+                            aspectRatio: section.imageLayout === 'mobile' ? '3/4' : '16/9',
+                          }}
+                          onClick={() => setSelectedImage(image)}
+                        >
+                          <Image
+                            src={image}
+                            alt={`${project.title} screenshot ${idx + 1}`}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+
+                    {hasMore && (
+                      <div className="mt-6 flex justify-center">
+                        <Button
+                          variant="primary"
+                          className="cursor-pointer"
+                          onClick={() => toggleSection(section.id)}
+                        >
+                          <span className="font-normal font-geist_mono tracking-tighter">
+                            {isExpanded
+                              ? 'See less'
+                              : `See more (+${section.images.length - IMAGE_PREVIEW_LIMIT})`}
+                          </span>
+                        </Button>
+                      </div>
+                    )}
+                  </>
+                )
+              })()}
+            </section>
+          ))}
+        </div>
+
+        {/* Sticky sidebar navigation */}
+        {sections.length > 0 && (
+          <aside className="hidden lg:block" aria-label="Section navigation">
+            <div className="sticky top-24 space-y-4 border-l border-gray-800 pl-4">
+              {sections.map(({ id, title }) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className={`block text-sm transition-colors duration-200 ${activeSection === id
+                    ? 'text-white font-medium'
+                    : 'text-gray-400 hover:text-white'
+                    }`}
+                  aria-current={activeSection === id ? 'true' : undefined}
+                >
+                  {title}
+                </a>
+              ))}
+            </div>
+          </aside>
+        )}
+      </div>
+
+      {/* Lightbox */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -298,10 +288,7 @@ export default function ProjectSection() {
           >
             <motion.button
               className="absolute top-6 right-6 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 z-50 transition-all"
-              onClick={(e) => {
-                e.stopPropagation()
-                setSelectedImage(null)
-              }}
+              onClick={(e) => { e.stopPropagation(); setSelectedImage(null) }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -309,6 +296,7 @@ export default function ProjectSection() {
             >
               <X className="w-6 h-6" />
             </motion.button>
+
             <motion.div
               className="relative w-[90vw] h-[90vh] max-w-7xl"
               initial={{ scale: 0.9, opacity: 0 }}
@@ -327,23 +315,14 @@ export default function ProjectSection() {
               />
             </motion.div>
 
-            {currentImages.length > 1 && (
+            {allImages.length > 1 && (
               <>
                 <motion.button
                   className="absolute left-4 p-3 rounded-full bg-black/30 text-white hover:bg-black/50 transition-all"
                   onClick={(e) => {
                     e.stopPropagation()
-                    const currentIndex = currentImages.findIndex((img) =>
-                      typeof img === 'string' &&
-                      typeof selectedImage === 'string'
-                        ? img === selectedImage
-                        : img === selectedImage
-                    )
-                    const prevIndex =
-                      currentIndex <= 0
-                        ? currentImages.length - 1
-                        : currentIndex - 1
-                    setSelectedImage(currentImages[prevIndex])
+                    const idx = allImages.findIndex((img) => img === selectedImage)
+                    setSelectedImage(allImages[idx <= 0 ? allImages.length - 1 : idx - 1])
                   }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -356,17 +335,8 @@ export default function ProjectSection() {
                   className="absolute right-4 p-3 rounded-full bg-black/30 text-white hover:bg-black/50 transition-all"
                   onClick={(e) => {
                     e.stopPropagation()
-                    const currentIndex = currentImages.findIndex((img) =>
-                      typeof img === 'string' &&
-                      typeof selectedImage === 'string'
-                        ? img === selectedImage
-                        : img === selectedImage
-                    )
-                    const nextIndex =
-                      currentIndex >= currentImages.length - 1
-                        ? 0
-                        : currentIndex + 1
-                    setSelectedImage(currentImages[nextIndex])
+                    const idx = allImages.findIndex((img) => img === selectedImage)
+                    setSelectedImage(allImages[(idx + 1) % allImages.length])
                   }}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
