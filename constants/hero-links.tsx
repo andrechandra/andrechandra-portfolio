@@ -3,7 +3,7 @@ import { SiGoogledocs, SiGithub, SiLinkedin } from 'react-icons/si'
 export const heroLinks = [
   {
     label: 'Resume',
-    href: 'https://shorturl.at/shaVQ',
+    href: 'https://drive.google.com/file/d/1GNCPYcXA0-PY24cpsEEz-EQwigEl8D0v/view?usp=sharing',
     icon: SiGoogledocs,
     isExternal: true,
   },
