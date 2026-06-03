@@ -1,5 +1,14 @@
 import { StaticImageData } from 'next/image'
 
+export type MiniProject = {
+  title: string
+  description: string
+  images: (StaticImageData | string)[]
+  href?: string
+  repo?: string
+  stack?: string[]
+}
+
 export type ProjectSection = {
   id: string
   title: string

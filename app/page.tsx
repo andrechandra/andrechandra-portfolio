@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import ProjectCard from '@/components/project-card'
+import MiniProjectCard from '@/components/mini-project-card'
 import { ArrowDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import MotionText from '@/components/motions/motion-text'
@@ -166,6 +167,23 @@ export default function Home() {
             <ProjectCard limit={2} />
           </motion.div>
         </div>
+
+        {/* <div className="flex flex-col gap-4 mt-8">
+          <div className="flex items-center gap-3">
+            <h2 className="text-sm font-geist_mono tracking-tighter text-gray-500 uppercase">
+              Mini Projects
+            </h2>
+            <div className="flex-1 h-px bg-[#2c2c2c]" />
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+          >
+            <MiniProjectCard />
+          </motion.div>
+        </div> */}
       </div>
     </main>
   )

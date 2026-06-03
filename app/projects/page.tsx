@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Header from '@/components/header-component'
 import ProjectCard from '@/components/project-card'
+import MiniProjectCard from '@/components/mini-project-card'
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -68,6 +69,16 @@ export default function ProjectsPage() {
           <div className="flex flex-col gap-4">
             <ProjectCard />
           </div>
+
+          {/* <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <h2 className="text-sm font-geist_mono tracking-tighter text-gray-500 uppercase">
+                Mini Projects
+              </h2>
+              <div className="flex-1 h-px bg-[#2c2c2c]" />
+            </div>
+            <MiniProjectCard />
+          </div> */}
         </div>
       </section>
     </main>
