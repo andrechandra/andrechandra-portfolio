@@ -87,7 +87,7 @@ export default function Home() {
                       item.isExternal ? 'cursor-[var(--external-cursor)]' : ''
                     }
                   >
-                    <Link
+                    <a
                       href={item.href}
                       target={item.isExternal ? '_blank' : undefined}
                       rel={item.isExternal ? 'noopener noreferrer' : undefined}
@@ -98,7 +98,7 @@ export default function Home() {
                       <span className="font-light font-geist_mono tracking-tighter">
                         {item.label}
                       </span>
-                    </Link>
+                    </a>
                   </LinkButton>
                 )
               })}
