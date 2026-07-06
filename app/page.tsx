@@ -91,6 +91,7 @@ export default function Home() {
                       href={item.href}
                       target={item.isExternal ? '_blank' : undefined}
                       rel={item.isExternal ? 'noopener noreferrer' : undefined}
+                      download={item.download}
                       className="flex items-center gap-2"
                     >
                       <Icon className="h-4 w-4" />

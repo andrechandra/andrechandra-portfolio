@@ -3,9 +3,10 @@ import { SiGoogledocs, SiGithub, SiLinkedin } from 'react-icons/si'
 export const heroLinks = [
   {
     label: 'Resume',
-    href: 'https://drive.google.com/file/d/1GNCPYcXA0-PY24cpsEEz-EQwigEl8D0v/view?usp=sharing',
+    href: '/AndreChandraPutra_CV_2026.pdf',
     icon: SiGoogledocs,
-    isExternal: true,
+    isExternal: false,
+    download: 'AndreChandraPutra_CV_2026.pdf',
   },
   {
     label: 'Github',

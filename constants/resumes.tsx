@@ -1,26 +1,26 @@
 export const resumes = {
   workingExperience: [
-    // {
-    //   title: 'Co-Founder & CTO',
-    //   location: 'BrokerID - Tangerang',
-    //   duration: 'June 2025 - Present | Full Time',
-    //   responsibilities: [
-    //     'Co-founded brokerid and single-handedly architected and developed the entire application from the ground up, owning the full technology stack end-to-end.',
-    //     'Led all technical decisions as CTO, driving product direction, infrastructure, and engineering best practices across the platform.',
-    //     'Continuously shipped new features and improvements, balancing rapid development with long-term scalability and code quality.',
-    //   ],
-    //   link: 'https://brokerid.app',
-    // },
+    {
+      title: 'Co-Founder & CTO',
+      location: 'BrokerID - Tangerang',
+      duration: 'June 2025 - Present | Full Time',
+      responsibilities: [
+        'Architects and scales the entire property co-brokerage platform from the ground up, successfully onboarding 500+ users.',
+        'Owns the full technology stack and infrastructure, making all high-level technical and architectural decisions.',
+        'Ships new features continuously while maintaining system stability and code quality.',
+      ],
+      link: 'https://brokerid.app',
+    },
     {
       title: 'Fullstack Developer',
       location: 'Star Generation - Tangerang, On-site',
       duration: 'June 2025 - Present | Full Time',
       responsibilities: [
-        'Revamped the company’s outdated learning platform IT system, improving structure and maintainability.',
-        'Collaborated with two other developers to identify and prioritize key system changes',
-        'Designed and implemented the new ERD for the updated system, laying the foundation for future development.',
+        'Leads the development and architecture of the v2 dashboard website using Next.js and Supabase.',
+        'Spearheads the legacy platform revamp, redesigning the system architecture and ERD to improve scalability.',
+        'Audits existing systems and executes a phased migration roadmap to reduce technical debt.',
       ],
-      link: 'https://stargeneration.net',
+      link: 'https://stargeneration.id',
     },
     {
       title: 'IT Application Developer',
