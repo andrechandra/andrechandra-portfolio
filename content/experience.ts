@@ -2,32 +2,32 @@ import type { Experience } from './schema'
 
 export const experience = [
   {
-    id: 'star-generation',
-    role: 'Fullstack Engineer',
+    id: 'star-generation-lead',
+    role: 'Project Lead Developer',
     organization: 'Star Generation',
     organizationUrl: 'https://stargeneration.id',
     location: 'Tangerang, Indonesia',
     engagement: 'full-time',
     arrangement: 'on-site',
-    startDate: '2025-06',
+    startDate: '2026-06',
     endDate: 'present',
     summary:
-      'Leading the rebuild of the company platform from a legacy system onto a modern Next.js and Supabase stack.',
+      'Took the v2 platform from planning to launch, and now leads it in production.',
     bullets: [
       {
-        text: 'Leads architecture and delivery of the v2 dashboard on Next.js, TypeScript and Supabase, owning decisions from database schema to interface.',
-        pdf: 'Leads architecture and delivery of the v2 dashboard on Next.js, TypeScript and Supabase.',
+        text: 'Took the v2 platform from planning through to launch, owning the delivery plan, the test cases and the environments it runs on.',
+        pdf: 'Took the v2 platform from planning to launch, owning the delivery plan, test cases and environments.',
+        tags: ['ownership', 'leadership'],
+      },
+      {
+        text: 'Ran launch readiness and shipped v2 to production, where it now runs as the company platform.',
+        pdf: 'Ran launch readiness and shipped v2 to production as the company platform.',
         tags: ['ownership'],
       },
       {
-        text: 'Redesigned the legacy platform architecture and entity model to remove the scaling bottlenecks that blocked new feature work.',
-        pdf: 'Redesigned the legacy platform architecture and entity model to remove scaling bottlenecks.',
-        tags: ['scale'],
-      },
-      {
-        text: 'Audited the existing systems and now executes a phased migration roadmap that retires technical debt incrementally rather than in one risky cutover.',
-        pdf: 'Executes a phased migration roadmap that retires technical debt without a risky cutover.',
-        tags: ['ownership'],
+        text: 'Leads maintenance of v2 in production, triaging issues and deciding what ships in each release.',
+        pdf: 'Leads maintenance of v2 in production, triaging issues and deciding what ships each release.',
+        tags: ['leadership'],
       },
     ],
     stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
@@ -59,11 +59,6 @@ export const experience = [
         pdf: 'Designed the PostgreSQL schema, auth and real-time sync on Supabase behind a Next.js web platform.',
         tags: ['ownership'],
       },
-      {
-        text: 'Led the v1 to v2 pivot after usage data showed weak daily retention, expanding a single-purpose co-broking tool into an agent CRM and workflow hub that agents open every day.',
-        pdf: 'Led a v1 to v2 pivot after retention data showed weak daily usage, expanding into an agent CRM and workflow hub.',
-        tags: ['ownership'],
-      },
     ],
     stack: [
       'React Native',
@@ -73,6 +68,38 @@ export const experience = [
       'Supabase',
       'PostgreSQL',
     ],
+  },
+  {
+    id: 'star-generation-fullstack',
+    role: 'Fullstack Developer',
+    organization: 'Star Generation',
+    organizationUrl: 'https://stargeneration.id',
+    location: 'Tangerang, Indonesia',
+    engagement: 'full-time',
+    arrangement: 'on-site',
+    startDate: '2025-06',
+    endDate: '2026-05',
+    summary:
+      'Rebuilt the company platform off a legacy system onto a modern Next.js and Supabase stack.',
+    bullets: [
+      {
+        text: 'Led architecture and delivery of the v2 dashboard on Next.js, TypeScript and Supabase, owning decisions from database schema to interface.',
+        pdf: 'Led architecture and delivery of the v2 dashboard on Next.js, TypeScript and Supabase.',
+        tags: ['ownership'],
+      },
+      {
+        text: 'Redesigned the legacy platform architecture and entity model to remove the scaling bottlenecks that blocked new feature work.',
+        pdf: 'Redesigned the legacy platform architecture and entity model to remove scaling bottlenecks.',
+        tags: ['scale'],
+      },
+      {
+        text: 'Audited the existing systems and built the phased migration roadmap that retires technical debt incrementally rather than in one risky cutover.',
+        pdf: 'Built a phased migration roadmap that retires technical debt without a risky cutover.',
+        tags: ['ownership'],
+      },
+    ],
+    stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS'],
+    surfaces: ['resume', 'pdf'],
   },
   {
     id: 'panin-daiichi',

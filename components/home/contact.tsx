@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import { availability, on, profile, socials } from '@/content'
+import { availability, on, orList, profile, socials } from '@/content'
 import { socialIcons } from '@/components/icons'
 import { CopyEmail } from '@/components/ui/copy-email'
 import { Button } from '@/components/ui/button'
@@ -7,7 +7,10 @@ import { LinkButton } from '@/components/ui/link-button'
 import { Reveal } from '@/components/ui/reveal'
 
 export function Contact() {
-  const links = socials.filter(on('home')).filter((s) => s.id !== 'email')
+  const links = socials
+    .filter(on('home'))
+    .filter((s) => s.id !== 'email' && s.id !== 'whatsapp')
+  const whatsapp = socials.find((s) => s.id === 'whatsapp')
 
   return (
     <Reveal
@@ -29,9 +32,13 @@ export function Contact() {
         </h2>
 
         <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-400">
-          {availability.headline} ({availability.employmentTypes.join(' or ')}),
-          based in {profile.location.city} on {availability.timezone.label}.{' '}
-          {availability.engagement.note}
+          {availability.headline}: {orList(availability.employmentTypes)},{' '}
+          {orList(availability.workArrangement)}, based in{' '}
+          {profile.location.city} on {availability.timezone.label}
+          {availability.engagement.openToRelocation
+            ? ' and open to relocation'
+            : ''}
+          . {availability.engagement.note}
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -43,6 +50,16 @@ export function Contact() {
               <ArrowRight aria-hidden="true" />
             </a>
           </Button>
+          {whatsapp ? (
+            <Button variant="secondary" asChild isExternal>
+              <a href={whatsapp.href} target="_blank" rel="noopener noreferrer">
+                <span className="font-geist_mono tracking-tighter">
+                  {whatsapp.handle ?? whatsapp.label}
+                </span>
+                <ArrowRight aria-hidden="true" />
+              </a>
+            </Button>
+          ) : null}
           <CopyEmail email={profile.email} />
         </div>
 

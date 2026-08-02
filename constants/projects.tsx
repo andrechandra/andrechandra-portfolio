@@ -79,21 +79,21 @@ That's when it hit us. **Why not build an application specifically for co-brokin
       },
       {
         id: 'version-1',
-        title: 'Version 1 — The Co-Broking App',
+        title: 'Version 1 - The Co-Broking App',
         content: `We moved forward with the idea and built the first version: a focused co-broking platform. Agents could list their properties, browse other agents' listings, and filter by the specifications that mattered, location, price range, property type, and more.
 
 It was clean, purposeful, and solved exactly the problem we set out to fix.`,
       },
       {
         id: 'version-1-mobile',
-        title: 'Version 1 — Mobile',
+        title: 'Version 1 - Mobile',
         content: `A look at the original mobile app.`,
         images: [brokerId6, brokerId7, brokerId8, brokerId9, brokerId10, brokerId11, brokerId12],
         imageLayout: 'mobile',
       },
       {
         id: 'version-1-web',
-        title: 'Version 1 — Web',
+        title: 'Version 1 - Web',
         content: `A look at the original web platform.`,
         images: [brokerId1, brokerId2, brokerId3, brokerId4, brokerId5],
         imageLayout: 'web',
@@ -114,11 +114,11 @@ That's when the vision shifted. We started thinking bigger.`,
 
 Not just co-broking, but everything an agent needs, all in one place:
 
-- **CRM** — input and manage your clients, track what they're looking for, store their documents and preferences
-- **Media management** — attach images, videos, and files directly to client records
-- **Bank products** — browse current mortgage offerings and bank representative contacts
-- **Primary developers** — access developer profiles, projects, and collateral in one tap
-- **And more** — the platform keeps growing as new agent needs surface
+- **CRM** - input and manage your clients, track what they're looking for, store their documents and preferences
+- **Media management** - attach images, videos, and files directly to client records
+- **Bank products** - browse current mortgage offerings and bank representative contacts
+- **Primary developers** - access developer profiles, projects, and collateral in one tap
+- **And more** - the platform keeps growing as new agent needs surface
 
 The goal became clear: make agents so reliant on BrokerID that leaving it behind would mean leaving behind their entire workflow.`,
       },
@@ -133,14 +133,14 @@ Here's hoping Version 2 sticks the landing.`,
       },
       {
         id: 'version-2-web',
-        title: 'Version 2 — Web',
+        title: 'Version 2 - Web',
         content: `The web platform keeps the same familiar design language as Version 1, but grows well beyond co-broking. Agents now get a public **agent profile page**, a dedicated **listing page** for their own properties, a **primary listing page** for developer projects, and a **search page** to find and connect with other agents.`,
         images: [brokerIdv217, brokerIdv218, brokerIdv219, brokerIdv220, brokerIdv221, brokerIdv222, brokerIdv223, brokerIdv224, brokerIdv225],
         imageLayout: 'web',
       },
       {
         id: 'version-2-mobile',
-        title: 'Version 2 — Mobile',
+        title: 'Version 2 - Mobile',
         content: `The mobile app received the largest overhaul. Alongside the refreshed co-broking feed, it now carries the full super-app experience, CRM, client and media management, bank products, and the primary developer directory, all in an agent's pocket.`,
         images: [brokerIv2d1, brokerIv2d2, brokerIdv23, brokerIdv24, brokerIdv25, brokerIdv26, brokerIdv27, brokerIdv28, brokerIdv29, brokerIdv210, brokerIdv211, brokerIdv212, brokerIdv213, brokerIdv214, brokerIdv215, brokerIdv216],
         imageLayout: 'mobile',
@@ -148,9 +148,9 @@ Here's hoping Version 2 sticks the landing.`,
       {
         id: 'tech-stack',
         title: 'Tech Stack',
-        content: `- **React Native + Expo Go** — cross-platform mobile development for iOS and Android
-- **Supabase** — authentication, PostgreSQL database, and real-time subscriptions
-- **Next.js** — web frontend with server-side rendering and SEO optimization`,
+        content: `- **React Native + Expo Go** - cross-platform mobile development for iOS and Android
+- **Supabase** - authentication, PostgreSQL database, and real-time subscriptions
+- **Next.js** - web frontend with server-side rendering and SEO optimization`,
       },
       {
         id: 'looking-ahead',

@@ -64,6 +64,12 @@ export function engagementLabel(engagement: string): string {
   }
 }
 
+/** `['a', 'b', 'c']` -> `a, b or c`. Keeps arrangement lists readable. */
+export function orList(items: readonly string[]): string {
+  if (items.length < 2) return items.join('')
+  return `${items.slice(0, -1).join(', ')} or ${items[items.length - 1]}`
+}
+
 /** `Jakarta, Indonesia` style string for the current base. */
 export function locationLabel(location: {
   city: string

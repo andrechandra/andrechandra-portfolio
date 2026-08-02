@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { Terminal } from 'lucide-react'
 import React from 'react'
-import { availability, profile } from '@/content'
+import { availability, orList, profile } from '@/content'
 
 type CommandOutput = React.ReactNode | string
 
@@ -57,10 +57,11 @@ export default function TerminalSection() {
       output: (
         <>
           <span className="text-green-400 font-bold">
-            {availability.headline} ({availability.employmentTypes.join(' or ')})
+            {availability.headline} ({orList(availability.employmentTypes)})
           </span>
           <br />
           <span className="text-gray-300">
+            {orList(availability.workArrangement)} ·{' '}
             {availability.timezone.label} · {availability.timezone.overlapNote}
           </span>
         </>

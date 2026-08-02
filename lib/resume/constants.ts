@@ -1,6 +1,9 @@
-export const RESUME_PDF_FILENAME = 'andre-chandra-putra-resume.pdf'
+export const RESUME_PDF_BASENAME = 'AndreChandraPutra_CV'
+
+export const RESUME_PDF_YEAR = new Date().getFullYear()
+
+export const RESUME_PDF_FILENAME = `${RESUME_PDF_BASENAME}_${RESUME_PDF_YEAR}.pdf`
 
 export const RESUME_PDF_PATH = `/${RESUME_PDF_FILENAME}`
 
-export const RESUME_PDF_DOWNLOAD_NAME =
-  'Andre Chandra Putra - Fullstack Software Engineer.pdf'
+export const RESUME_PDF_DOWNLOAD_NAME = RESUME_PDF_FILENAME

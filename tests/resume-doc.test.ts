@@ -20,14 +20,14 @@ describe('toResumeDoc', () => {
   it('uses the shortened pdf bullet when one is provided', () => {
     // `satisfies Experience[]` narrows each bullet to its exact literal shape,
     // so widen back to Bullet to read the optional `pdf` override.
-    const source = experience.find((role) => role.id === 'star-generation')!
+    const source = experience.find((role) => role.id === 'star-generation-lead')!
     const bullet = source.bullets[0] as Bullet
     expect(bullet.pdf).toBeTruthy()
 
     const pdf = toResumeDoc('pdf')
     const web = toResumeDoc('resume')
-    const pdfRole = pdf.roles.find((r) => r.id === 'star-generation')!
-    const webRole = web.roles.find((r) => r.id === 'star-generation')!
+    const pdfRole = pdf.roles.find((r) => r.id === 'star-generation-lead')!
+    const webRole = web.roles.find((r) => r.id === 'star-generation-lead')!
 
     expect(pdfRole.bullets[0]).toBe(bullet.pdf)
     expect(webRole.bullets[0]).toBe(bullet.text)

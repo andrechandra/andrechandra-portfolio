@@ -42,8 +42,6 @@ export const metadata: Metadata = {
     title: `${site.title} - Fullstack Software Engineer`,
     description,
     siteName: site.title,
-    // No `images` here: app/opengraph-image.tsx generates the card at build
-    // time from content/, so it can never drift from the copy on the page.
   },
   twitter: {
     card: 'summary_large_image',
@@ -74,9 +72,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // `dark` is set statically. next-themes was previously mounted with
-    // `forcedTheme="dark"`, which meant a client provider and a hydration
-    // dance for a theme that could never change.
     <html lang={site.lang} className={`dark ${fonts.join(' ')}`}>
       <body className="bg-black">
         <a
@@ -85,8 +80,6 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        {/* One provider at the root rather than one per component, which is
-            how the previous version instantiated it in five places. */}
         <TooltipProvider delayDuration={150}>
           <SiteNav />
           <div className="flex min-h-screen flex-col">

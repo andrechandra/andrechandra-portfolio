@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { availability, on, profile, skills, socials } from '@/content'
+import { availability, on, orList, profile, skills, socials } from '@/content'
 import { socialIcons } from '@/components/icons'
 import { Button } from '@/components/ui/button'
 import { LinkButton } from '@/components/ui/link-button'
@@ -111,7 +111,8 @@ export default function AboutPage() {
             {availability.headline}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-gray-400">
-            {availability.employmentTypes.join(' or ')} ·{' '}
+            {orList(availability.employmentTypes)} ·{' '}
+            {orList(availability.workArrangement)} ·{' '}
             {availability.timezone.label} · {availability.timezone.overlapNote}
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-4">

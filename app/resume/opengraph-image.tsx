@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { availability, profile } from '@/content'
+import { availability, orList, profile } from '@/content'
 import { OG_CONTENT_TYPE, OG_SIZE, OgCard, ogFonts } from '@/lib/seo/og'
 
 export const alt = `Resume - ${profile.name}`
@@ -12,7 +12,7 @@ export default function Image() {
       <OgCard
         eyebrow="resume"
         title={profile.title}
-        subtitle={`${availability.employmentTypes.join(' or ')} · remote from ${profile.location.city} · ${availability.timezone.label}`}
+        subtitle={`${orList(availability.employmentTypes)} · ${orList(availability.workArrangement)} · ${profile.location.city} (${availability.timezone.label})`}
       />
     ),
     { ...size, fonts: ogFonts() }

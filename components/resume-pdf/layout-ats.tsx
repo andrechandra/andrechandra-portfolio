@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     fontSize: theme.size.section,
     fontWeight: 700,
     textTransform: 'uppercase',
-    color: theme.color.accent,
+    color: theme.color.heading,
+    letterSpacing: 0.4,
   },
   rule: {
     height: 1,
@@ -158,7 +159,7 @@ export function LayoutAts({ doc }: { doc: ResumeDoc }) {
         <View style={styles.contactRow}>
           {doc.contacts.map((contact, index) => (
             <React.Fragment key={contact.id}>
-              {index > 0 ? <Text style={styles.contactSep}> · </Text> : null}
+              {index > 0 ? <Text style={styles.contactSep}> | </Text> : null}
               {contact.href ? (
                 <Link src={contact.href} style={styles.link}>
                   <Text style={styles.contactItem}>{contact.value}</Text>
@@ -179,7 +180,7 @@ export function LayoutAts({ doc }: { doc: ResumeDoc }) {
           <View key={role.id} style={styles.entry} wrap={false}>
             <View style={styles.entryHead}>
               <Text style={styles.entryTitle}>
-                {role.role}, {role.organization}
+                {role.organization} - {role.role}
               </Text>
               <Text style={styles.entryDates}>{role.dates}</Text>
             </View>
@@ -213,7 +214,7 @@ export function LayoutAts({ doc }: { doc: ResumeDoc }) {
             </View>
             <Text style={styles.entryMeta}>
               {entry.degree}
-              {entry.grade ? ` · ${entry.grade}` : ''}
+              {entry.grade ? ` | ${entry.grade}` : ''}
             </Text>
           </View>
         ))}
@@ -223,7 +224,7 @@ export function LayoutAts({ doc }: { doc: ResumeDoc }) {
         style={styles.footer}
         render={({ pageNumber, totalPages }) =>
           totalPages > 1
-            ? `${doc.name} · Page ${pageNumber} of ${totalPages}`
+            ? `${doc.name} | Page ${pageNumber} of ${totalPages}`
             : ''
         }
         fixed

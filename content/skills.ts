@@ -9,7 +9,7 @@ export const skills = [
   {
     id: 'frontend',
     label: 'Frontend',
-    items: ['React', 'Next.js', 'Tailwind CSS', 'shadcn/ui'],
+    items: ['React', 'Next.js', 'HTML/CSS', 'Tailwind CSS', 'shadcn/ui'],
   },
   {
     id: 'backend',
@@ -20,6 +20,19 @@ export const skills = [
     id: 'mobile',
     label: 'Mobile',
     items: ['React Native', 'Expo'],
+  },
+  {
+    id: 'prior-stack',
+    label: 'Prior stack',
+    items: [
+      'Spring Boot',
+      'Cordova',
+      'Ionic Angular',
+      'Firebase',
+      'MS SQL Server',
+      'SQLite',
+    ],
+    surfaces: ['resume', 'pdf'],
   },
   {
     id: 'tooling',

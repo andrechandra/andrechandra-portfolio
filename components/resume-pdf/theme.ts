@@ -4,6 +4,8 @@ export const theme = {
     muted: '#575757',
     faint: '#8A8A8A',
     accent: '#0E6B45',
+    /** Section headings stay near-black so the PDF survives a mono printer. */
+    heading: '#111111',
     rule: '#D8D8D8',
   },
   font: {
@@ -21,8 +23,8 @@ export const theme = {
   },
   space: {
     page: 34,
-    section: 13,
-    entry: 9,
+    section: 11,
+    entry: 8,
     line: 2.5,
   },
   lineHeight: {

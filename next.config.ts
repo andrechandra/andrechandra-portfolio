@@ -2,7 +2,13 @@ import { NextConfig } from 'next'
 import {
   RESUME_PDF_DOWNLOAD_NAME,
   RESUME_PDF_PATH,
+  RESUME_PDF_YEAR,
 } from './lib/resume/constants'
+
+const pastResumeYears = Array.from(
+  { length: 6 },
+  (_, i) => RESUME_PDF_YEAR - (i + 1)
+)
 
 const nextConfig: NextConfig = {
   images: {
@@ -23,10 +29,16 @@ const nextConfig: NextConfig = {
       { source: '/cv', destination: RESUME_PDF_PATH, permanent: true },
       { source: '/resume.pdf', destination: RESUME_PDF_PATH, permanent: true },
       {
-        source: '/AndreChandraPutra_CV_2026.pdf',
+        source: '/andre-chandra-putra-resume.pdf',
         destination: RESUME_PDF_PATH,
         permanent: true,
       },
+      // previous years' filenames keep working after the year rolls over
+      ...pastResumeYears.map((year) => ({
+        source: `/AndreChandraPutra_CV_${year}.pdf`,
+        destination: RESUME_PDF_PATH,
+        permanent: true,
+      })),
     ]
   },
   async headers() {

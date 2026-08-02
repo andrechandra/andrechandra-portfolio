@@ -116,15 +116,15 @@ export type Profile = z.infer<typeof profileSchema>
 /**
  * The highest-leverage object on the site.
  *
- * For an Indonesia-based engineer applying to US and EU companies, the two
- * objections that kill a lead before a reply are timezone overlap and "can we
- * legally pay this person". Both are answered above the fold.
+ * A visitor deciding whether to reach out needs three answers fast: is he
+ * available, will the working arrangement fit, and how do I contact him. All
+ * three are answered above the fold.
  */
 export const availabilitySchema = z.object({
   status: z.enum(['open', 'selectively-open', 'not-looking']),
   headline: z.string().max(80),
   employmentTypes: z.array(z.enum(['full-time', 'contract'])).nonempty(),
-  workArrangement: z.literal('remote'),
+  workArrangement: z.array(z.enum(['remote', 'hybrid', 'on-site'])).nonempty(),
   timezone: z.object({
     iana: z.string(),
     label: z.string(),
@@ -134,8 +134,10 @@ export const availabilitySchema = z.object({
     .array(z.object({ region: z.string(), hours: z.string() }))
     .nonempty(),
   engagement: z.object({
-    viaEOR: z.boolean(),
     contractorReady: z.boolean(),
+    openToRelocation: z.boolean(),
+    /** The only channels hiring conversations actually happen on. */
+    channels: z.array(z.enum(['email', 'whatsapp'])).nonempty(),
     note: z.string().optional(),
   }),
   languages: z.array(z.string()).nonempty(),
@@ -220,7 +222,14 @@ export const socialSchema = z.object({
   id: z.string().min(1),
   label: z.string(),
   href: z.string(),
-  icon: z.enum(['email', 'github', 'linkedin', 'x', 'instagram']),
+  icon: z.enum([
+    'email',
+    'whatsapp',
+    'github',
+    'linkedin',
+    'instagram',
+    'website',
+  ]),
   /** Shown next to the icon on the resume/PDF, e.g. `github.com/andrechandra`. */
   handle: z.string().optional(),
   surfaces,

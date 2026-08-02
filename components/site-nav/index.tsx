@@ -24,8 +24,8 @@ export function SiteNav() {
 
         <div className="flex items-center gap-3">
           <NavLinks />
-          <Button variant="primary" size="small" asChild className="hidden sm:inline-flex">
-            <a href={RESUME_PDF_PATH}>
+          <Button variant="primary" size="small" asChild className="hidden sm:inline-flex" isExternal>
+            <a href={RESUME_PDF_PATH} target="_blank" rel="noopener noreferrer">
               <span className="font-geist_mono tracking-tighter">
                 resume.pdf
               </span>

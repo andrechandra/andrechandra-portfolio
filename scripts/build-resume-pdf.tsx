@@ -7,7 +7,10 @@ import { registerFonts } from '@/components/resume-pdf/fonts'
 import { ResumeDocument } from '@/components/resume-pdf/document'
 import { LayoutAts } from '@/components/resume-pdf/layout-ats'
 import { toResumeDoc } from '@/lib/resume/to-resume-doc'
-import { RESUME_PDF_FILENAME } from '@/lib/resume/constants'
+import {
+  RESUME_PDF_BASENAME,
+  RESUME_PDF_FILENAME,
+} from '@/lib/resume/constants'
 
 async function main() {
   registerFonts()
@@ -42,6 +45,15 @@ async function main() {
       2
     ) + '\n'
   )
+
+  // drop PDFs generated for previous years so only the current one ships
+  const stale = (await fs.readdir(outDir)).filter(
+    (name) =>
+      /^AndreChandraPutra_CV_\d{4}\.pdf$/.test(name) &&
+      name !== RESUME_PDF_FILENAME &&
+      name.startsWith(RESUME_PDF_BASENAME)
+  )
+  await Promise.all(stale.map((name) => fs.rm(path.join(outDir, name))))
 
   console.log(
     `✓ resume PDF: public/${RESUME_PDF_FILENAME} (${(size / 1024).toFixed(1)} kB, ${doc.roles.length} roles)`

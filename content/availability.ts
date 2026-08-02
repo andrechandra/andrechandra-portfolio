@@ -2,9 +2,9 @@ import type { Availability } from './schema'
 
 export const availability: Availability = {
   status: 'open',
-  headline: 'Open to remote roles',
+  headline: 'Open to work',
   employmentTypes: ['full-time', 'contract'],
-  workArrangement: 'remote',
+  workArrangement: ['remote', 'hybrid', 'on-site'],
   timezone: {
     iana: 'Asia/Jakarta',
     label: 'GMT+7',
@@ -16,13 +16,14 @@ export const availability: Availability = {
     { region: 'US East', hours: '3 hours, US morning' },
   ],
   engagement: {
-    viaEOR: true,
     contractorReady: true,
-    note: 'Hire through an employer of record (Deel, Remote, Oyster) or contract with me directly.',
+    openToRelocation: true,
+    channels: ['email', 'whatsapp'],
+    note: 'Hiring conversations go through email or WhatsApp only. Happy to sign directly as a full-time hire or as a contractor.',
   },
   languages: [
     'Indonesian (native)',
     'English (professional working proficiency)',
   ],
-  updatedAt: '2026-08-01',
+  updatedAt: '2026-08-03',
 }

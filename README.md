@@ -30,7 +30,7 @@ referenced by **path string**.
 | File | Holds |
 |---|---|
 | `content/profile.ts` | Name, title, email, location, positioning line, long bio |
-| `content/availability.ts` | Open/closed, employment types, timezone, overlap windows, EOR readiness |
+| `content/availability.ts` | Open/closed, employment types, work arrangements, timezone, overlap windows, hiring channels |
 | `content/experience.ts` | Every role, with bullets |
 | `content/education.ts`, `content/skills.ts`, `content/socials.ts` | Self-explanatory |
 | `content/proof.ts` | The credibility bar under the hero |

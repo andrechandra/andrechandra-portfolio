@@ -3,6 +3,7 @@ import {
   availability,
   education,
   experience,
+  orList,
   profile,
   site,
   skills,
@@ -24,7 +25,7 @@ export function buildPerson(): JsonLdNode {
     givenName: 'Andre',
     familyName: 'Putra',
     jobTitle: profile.title,
-    description: `${profile.positioning} ${availability.headline}, ${availability.employmentTypes.join(' or ')}, from ${profile.location.city} (${availability.timezone.label}).`,
+    description: `${profile.positioning} ${availability.headline}: ${orList(availability.employmentTypes)}, ${orList(availability.workArrangement)}, from ${profile.location.city} (${availability.timezone.label}).`,
     url: site.url,
     image: absoluteUrl(profile.photo),
     email: `mailto:${profile.email}`,
@@ -60,7 +61,6 @@ export function buildPerson(): JsonLdNode {
     sameAs: [
       'https://github.com/andrechandra',
       'https://linkedin.com/in/andrechandraputra',
-      'https://x.com/andrechandraap',
       'https://instagram.com/andrechandraap',
     ],
   }

@@ -6,6 +6,7 @@ import {
   engagementLabel,
   on,
   bulletFor,
+  orList,
   profile,
   skills,
   socials,
@@ -61,17 +62,32 @@ export type ResumeDoc = {
   updatedAt: string
 }
 
-export function availabilityLine(): string {
-  const types = availability.employmentTypes
-    .map((type) => (type === 'full-time' ? 'full-time' : 'contract'))
-    .join(' or ')
-  return `${availability.headline} (${types}) · ${availability.timezone.label} · ${availability.workArrangement}`
+/**
+ * Older ATS parsers mis-split on the middle dot, so print uses a pipe. The web
+ * keeps the dot, where it reads better.
+ */
+function separator(surface: Surface): string {
+  return surface === 'pdf' ? ' | ' : ' · '
 }
 
-function roleMeta(entry: (typeof experience)[number]): string {
+export function availabilityLine(surface: Surface = 'resume'): string {
+  const types = orList(availability.employmentTypes)
+  const sep = separator(surface)
+  const arrangement = orList(availability.workArrangement)
+  return [
+    `${availability.headline} (${types})`,
+    availability.timezone.label,
+    arrangement,
+  ].join(sep)
+}
+
+function roleMeta(
+  entry: (typeof experience)[number],
+  surface: Surface
+): string {
   const parts = [engagementLabel(entry.engagement), entry.location]
   if (entry.arrangement) parts.push(entry.arrangement)
-  return parts.join(' · ')
+  return parts.join(separator(surface))
 }
 
 export function toResumeDoc(surface: Surface = 'resume'): ResumeDoc {
@@ -80,7 +96,7 @@ export function toResumeDoc(surface: Surface = 'resume'): ResumeDoc {
     role: entry.role,
     organization: entry.organization,
     organizationUrl: entry.organizationUrl,
-    meta: roleMeta(entry),
+    meta: roleMeta(entry, surface),
     dates: formatRange(entry.startDate, entry.endDate),
     summary: surface === 'pdf' ? undefined : entry.summary,
     bullets: entry.bullets
@@ -94,7 +110,7 @@ export function toResumeDoc(surface: Surface = 'resume'): ResumeDoc {
     title: profile.title,
     location: `${profile.location.city}, ${profile.location.country}`,
     summary: profile.positioning,
-    availabilityLine: availabilityLine(),
+    availabilityLine: availabilityLine(surface),
     contacts: socials.filter(on(surface)).map((social) => ({
       id: social.id,
       label: social.label,
