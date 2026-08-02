@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   contactRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginTop: 7,
+    marginTop: 5,
     gap: 0,
   },
   contactItem: {
@@ -35,14 +35,14 @@ const styles = StyleSheet.create({
   availability: {
     fontSize: theme.size.meta,
     color: theme.color.text,
-    marginTop: 6,
+    marginTop: 4,
     fontWeight: 500,
   },
   summary: {
     fontSize: theme.size.body,
     color: theme.color.text,
     lineHeight: theme.lineHeight.body,
-    marginTop: 8,
+    marginTop: 6,
   },
 
   section: { marginTop: theme.space.section },
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  skillRow: { flexDirection: 'row', marginBottom: 4 },
+  skillRow: { flexDirection: 'row', marginBottom: 3.5 },
   skillLabel: {
     fontSize: theme.size.body,
     fontWeight: 600,

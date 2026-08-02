@@ -143,17 +143,17 @@ export const experience = [
     bullets: [
       {
         text: 'Developed a Central POS (Point of Sales) product within five months using JavaScript and React Native, leading to a 20% increase in daily transactions for 100+ retail clients.',
-        pdf: 'Developed a Central POS product in five months with JavaScript and React Native, lifting daily transactions 20% for 100+ retail clients.',
+        pdf: 'Built a React Native POS product in five months, lifting daily transactions 20% for 100+ retail clients.',
         tags: ['scale'],
       },
       {
         text: 'Led a team of three mobile developers, improving team productivity by 15% through efficient task management and enhancing application UI with the UI/UX Designer Team.',
-        pdf: 'Led a team of three mobile developers, improving productivity 15% through task management and UI work with the UI/UX team.',
+        pdf: 'Led three mobile developers, improving team productivity 15% through task management.',
         tags: ['leadership'],
       },
       {
         text: 'Implemented 20+ user-friendly application interfaces based on mock-ups from the UI/UX Designer Team, enhancing user engagement.',
-        pdf: 'Implemented 20+ application interfaces from UI/UX mock-ups, enhancing user engagement.',
+        pdf: 'Shipped 20+ application interfaces from UI/UX mock-ups.',
       },
     ],
     stack: ['React Native', 'JavaScript'],
