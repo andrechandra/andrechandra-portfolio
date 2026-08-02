@@ -18,7 +18,7 @@ html {
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-alliance), sans-serif; 
+  font-family: var(--font-geist), sans-serif; 
 }
 
 /* width */
@@ -551,3 +551,174 @@ body {
   background-color: transparent; /* No extra background for nested code */
 }
 
+
+/* ---------------------------------------------------------------------------
+   Print
+   Makes /resume print cleanly on white paper. The PDF is the primary artifact,
+   but a recruiter hitting Cmd+P should still get something presentable rather
+   than a dark-mode screenshot.
+   --------------------------------------------------------------------------- */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 14mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  /* Site chrome is noise on paper. */
+  body > header,
+  footer {
+    display: none !important;
+  }
+
+  /* Force any grid/gradient backgrounds off. */
+  .bg-grid,
+  .bg-grid-hero {
+    background: none !important;
+    background-color: #fff !important;
+  }
+
+  a {
+    color: #111 !important;
+    text-decoration: none !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid-page;
+  }
+
+  li,
+  section {
+    break-inside: avoid;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motion
+   The site previously had four infinite keyframe animations and per-character
+   entrance animations with no reduced-motion escape hatch at all.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reveal
+   Scroll-entrance animation with zero JS, used by components/ui/reveal.tsx.
+   Content is visible by default; the animation is purely additive inside
+   @supports, so a browser without scroll-driven animations (or a user who
+   prefers reduced motion) simply sees the finished state.
+   --------------------------------------------------------------------------- */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+}
+
+/* Simple fade-in used where an element appears in response to state
+   (terminal open/close). Reduced-motion is handled by the global rule above. */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
+}
+
+/* ---------------------------------------------------------------------------
+   Case-study prose
+   Styles the HTML produced by lib/markdown.ts. Scoped rather than global so it
+   cannot leak into component markup.
+   --------------------------------------------------------------------------- */
+.prose-case {
+  color: #9ca3af;
+  line-height: 1.7;
+}
+
+.prose-case > * + * {
+  margin-top: 1rem;
+}
+
+.prose-case p {
+  font-size: 0.9375rem;
+}
+
+.prose-case strong {
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.prose-case a {
+  color: #55f89f;
+  text-underline-offset: 4px;
+  text-decoration: underline;
+}
+
+.prose-case a:hover {
+  color: #7dfab5;
+}
+
+.prose-case ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.prose-case ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.prose-case li + li {
+  margin-top: 0.375rem;
+}
+
+.prose-case code {
+  font-family: var(--font-geist_mono), ui-monospace, monospace;
+  font-size: 0.85em;
+  color: #55f89f;
+}
+
+.prose-case h3 {
+  color: #e5e7eb;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-top: 1.75rem;
+}

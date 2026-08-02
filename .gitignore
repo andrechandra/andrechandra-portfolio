@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated at build time by scripts/build-resume-pdf.tsx.
+# Gitignored on purpose: regenerating on every build makes a stale PDF
+# structurally impossible.
+/public/andre-chandra-putra-resume.pdf
+/public/resume.meta.json

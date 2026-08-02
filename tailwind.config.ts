@@ -1,11 +1,12 @@
 import type { Config } from 'tailwindcss'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
 export default {
   darkMode: ['class'],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './constants/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
   	extend: {
@@ -102,15 +103,15 @@ export default {
 			'tilt': 'tilt 10s infinite linear',
   		},
   		fontFamily: {
-			alliance: ['var(--font-alliance)'],
+			sans: ['var(--font-geist)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+			mono: ['var(--font-geist_mono)', 'ui-monospace', 'monospace'],
 			geist: ['var(--font-geist)'],
 			geist_mono: ['var(--font-geist_mono)'],
-			roboto_mono: ['var(--font-roboto_mono)']
 		},
 		cursor: {
 			'external-pointer': 'var(--external-cursor)',
 		},
   	}
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [tailwindcssAnimate],
 } satisfies Config

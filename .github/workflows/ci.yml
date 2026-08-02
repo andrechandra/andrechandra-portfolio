@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Content invariants first: they are the cheapest failure and the most
+      # likely (a malformed URL, a reversed date range, an over-long bullet
+      # that would wreck PDF pagination).
+      - name: Validate content
+        run: pnpm content:validate
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Unit tests
+        run: pnpm test
+
+      # Also exercises the resume PDF generator and the OG image routes.
+      - name: Build
+        run: pnpm build
+
+      - name: Assert resume PDF was generated
+        run: |
+          test -f public/andre-chandra-putra-resume.pdf
+          size=$(wc -c < public/andre-chandra-putra-resume.pdf)
+          echo "resume pdf: ${size} bytes"
+          test "$size" -gt 8000
+
+      # The wrong domain in metadataBase silently corrupts every social share,
+      # which is the highest-traffic inbound channel. Fail loudly instead.
+      - name: Assert no stale domain references
+        run: |
+          if grep -rn "andrechandra.vercel.app" --include='*.ts' --include='*.tsx' \
+             app components lib content constants scripts; then
+            echo "::error::Found andrechandra.vercel.app; the canonical domain is andrechandra.dev"
+            exit 1
+          fi
+
+      - name: Assert public/ stays small
+        run: |
+          kb=$(du -sk public | cut -f1)
+          echo "public/ is ${kb} kB"
+          test "$kb" -lt 12000

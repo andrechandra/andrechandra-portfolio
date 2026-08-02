@@ -1,76 +1,127 @@
 import Link from 'next/link'
+import { on, profile, socials } from '@/content'
+import { socialIcons } from '@/components/icons'
+import { footerLinks, nav } from '@/content/site'
 import { LinkButton } from '@/components/ui/link-button'
-import { Separator } from './ui/separator'
+import { Separator } from '@/components/ui/separator'
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { SocialLink } from './social-links'
-import { socialLinks } from '@/constants/socials'
-import { footerLinks } from '@/constants/footer-links'
 
-export const Footer = () => {
+export function Footer() {
+  const year = new Date().getFullYear()
+
   return (
-    <footer className="py-6 text-center text-xs sm:text-sm text-muted-foreground space-y-4 bg-black">
-      <div className="relative flex items-center justify-center w-full">
-        <div className="absolute left-0 w-1/4 h-[1px] bg-gradient-to-r from-transparent to-[#2c2c2c]"></div>
+    <footer className="bg-black print:hidden">
+      <div className="relative flex w-full items-center justify-center">
+        <div className="absolute left-0 h-px w-1/4 bg-gradient-to-r from-transparent to-[#2c2c2c]" />
         <Separator className="w-1/2 bg-[#2c2c2c]" />
-        <div className="absolute right-0 w-1/4 h-[1px] bg-gradient-to-l from-transparent to-[#2c2c2c]"></div>
+        <div className="absolute right-0 h-px w-1/4 bg-gradient-to-l from-transparent to-[#2c2c2c]" />
       </div>
-      <TooltipProvider delayDuration={0}>
-        <div className="font-geist_mono tracking-tighter space-x-4">
-          {footerLinks.map((item, index) => (
-            <Tooltip key={index}>
-              <TooltipTrigger asChild>
-                <LinkButton
-                  variant="unstyled_link_right"
-                  asChild
-                  className={`p-0 h-auto ${item.isExternal ? 'cursor-[var(--external-cursor)]' : ''}`}
-                >
-                  {item.isExternal ? (
-                    <Link
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <Link href={item.href}>{item.label}</Link>
-                  )}
-                </LinkButton>
-              </TooltipTrigger>
-              <TooltipContent>{item.tooltip}</TooltipContent>
-            </Tooltip>
-          ))}
+
+      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="font-geist_mono text-sm tracking-tighter text-gray-400">
+            <span className="text-[#55f89f]">&gt;_</span>
+            {profile.name}
+          </p>
+          <p className="font-geist_mono mt-1 text-xs tracking-tighter text-gray-600">
+            © {year} · Built with Next.js · {profile.location.city},{' '}
+            {profile.location.country}
+          </p>
         </div>
-      </TooltipProvider>
-      <div className="font-geist_mono tracking-tighter">
-        <p className="text-sm text-gray-400 mb-2">Reach me out</p>
-        <div className="flex justify-center gap-4">
-          {socialLinks.map((link) => (
-            <SocialLink key={link.name} href={link.href}>
-              <link.icon size={24} />
-            </SocialLink>
-          ))}
+
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+          <nav aria-label="Footer">
+            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              {nav
+                .filter((item) => item.href !== '/')
+                .map((item) => (
+                  <li key={item.href}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <LinkButton
+                          variant="unstyled_link_right"
+                          size="small"
+                          asChild
+                          className="text-gray-500 hover:text-white"
+                        >
+                          <Link href={item.href}>
+                            <span className="font-geist_mono text-xs tracking-tighter">
+                              {item.label}
+                            </span>
+                          </Link>
+                        </LinkButton>
+                      </TooltipTrigger>
+                      <TooltipContent>{item.tooltip}</TooltipContent>
+                    </Tooltip>
+                  </li>
+                ))}
+
+              {footerLinks.map((item) => (
+                <li key={item.href}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <LinkButton
+                        variant="unstyled_link_right"
+                        size="small"
+                        asChild
+                        className="cursor-[var(--external-cursor)] text-gray-500 hover:text-white"
+                      >
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <span className="font-geist_mono text-xs tracking-tighter">
+                            {item.label}
+                          </span>
+                        </a>
+                      </LinkButton>
+                    </TooltipTrigger>
+                    <TooltipContent>{item.tooltip}</TooltipContent>
+                  </Tooltip>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <ul className="flex items-center gap-4">
+            {socials.filter(on('home')).map((social) => {
+              const Icon = socialIcons[social.icon]
+              const external = social.id !== 'email'
+              return (
+                <li key={social.id}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <LinkButton
+                        variant="unstyled_link"
+                        size="icon"
+                        asChild
+                        isExternal
+                        className="text-gray-600 hover:text-white"
+                      >
+                        <a
+                          href={social.href}
+                          target={external ? '_blank' : undefined}
+                          rel={external ? 'noopener noreferrer' : undefined}
+                        >
+                          <Icon className="size-4" />
+                          <span className="sr-only">{social.label}</span>
+                        </a>
+                      </LinkButton>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      {social.handle ?? social.label}
+                    </TooltipContent>
+                  </Tooltip>
+                </li>
+              )
+            })}
+          </ul>
         </div>
-      </div>
-      <div className="font-geist_mono tracking-tighter">
-        <b>
-          © {new Date().getFullYear()}{' '}
-          <LinkButton
-            variant="underline_link_right"
-            asChild
-            className="p-0 h-auto cursor-[var(--external-cursor)]"
-          >
-            <Link href="https://github.com/andrechandra" target="_blank">
-              Andre Chandra
-            </Link>
-          </LinkButton>
-          . All rights reserved. <br />
-        </b>
       </div>
     </footer>
   )

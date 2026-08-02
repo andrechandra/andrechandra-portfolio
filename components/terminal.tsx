@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion'
+'use client'
+
 import { useEffect, useState, useRef } from 'react'
 import { Terminal } from 'lucide-react'
 import React from 'react'
+import { availability, profile } from '@/content'
 
 type CommandOutput = React.ReactNode | string
 
@@ -34,10 +36,10 @@ export default function TerminalSection() {
       cmd: 'whoami --info',
       output: (
         <>
-          <span className="text-[#55f89f] font-bold">Andre Chandra</span>
+          <span className="text-[#55f89f] font-bold">{profile.shortName}</span>
           <br />
           <span className="text-gray-300">
-            Full-Stack Developer | Jakarta, Indonesia
+            {profile.title} | {profile.location.city}, {profile.location.country}
           </span>
         </>
       ),
@@ -46,7 +48,7 @@ export default function TerminalSection() {
       cmd: 'contact --email',
       output: (
         <>
-          <span className="text-blue-400">andrechandra.work@gmail.com</span>
+          <span className="text-blue-400">{profile.email}</span>
         </>
       ),
     },
@@ -55,11 +57,11 @@ export default function TerminalSection() {
       output: (
         <>
           <span className="text-green-400 font-bold">
-            Available for freelance projects
+            {availability.headline} ({availability.employmentTypes.join(' or ')})
           </span>
           <br />
           <span className="text-gray-300">
-            Open to discussing new opportunities
+            {availability.timezone.label} · {availability.timezone.overlapNote}
           </span>
         </>
       ),
@@ -69,10 +71,10 @@ export default function TerminalSection() {
       output: (
         <>
           <span className="text-blue-400 font-bold">
-            "The best error message is the one that never shows up."
+            &quot;The best error message is the one that never shows up.&quot;
           </span>
           <br />
-          <span className="text-gray-300">— Thomas Fuchs</span>
+          <span className="text-gray-300">- Thomas Fuchs</span>
         </>
       ),
     },
@@ -149,7 +151,7 @@ export default function TerminalSection() {
       } else {
         output = (
           <span className="text-red-400">
-            Command not found: {cmd}. Type 'help' for available commands.
+            Command not found: {cmd}. Type &apos;help&apos; for available commands.
           </span>
         )
       }
@@ -209,20 +211,16 @@ export default function TerminalSection() {
     scrollToBottom()
   }, [terminalHistory])
 
+  // Focus follows an explicit user action only. Previously a window-level
+  // `keypress` listener pulled focus into the terminal from anywhere on the
+  // page, which scrolled the reader away from whatever they were reading.
+  const didMount = useRef(false)
   useEffect(() => {
-    const handleGlobalKeyPress = () => {
-      if (
-        document.activeElement !== terminalInputRef.current &&
-        terminalState !== 'closed'
-      ) {
-        terminalInputRef.current?.focus()
-      }
+    if (!didMount.current) {
+      didMount.current = true
+      return
     }
-
-    window.addEventListener('keypress', handleGlobalKeyPress)
-    return () => {
-      window.removeEventListener('keypress', handleGlobalKeyPress)
-    }
+    if (terminalState === 'maximized') terminalInputRef.current?.focus()
   }, [terminalState])
 
   useEffect(() => {
@@ -292,16 +290,14 @@ export default function TerminalSection() {
   return (
     <div className="w-full flex justify-center lg:justify-center items-center">
       {terminalState === 'closed' ? (
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="p-4 shadow-lg bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10 font-geist"
+        <button
+          type="button"
+          className="animate-fade-in p-4 shadow-lg bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10 font-geist"
           onClick={handleReopenTerminal}
         >
           <Terminal className="w-6 h-6 mb-2 mx-auto" />
-          <span className="text-sm font-roboto_mono">Open Terminal</span>
-        </motion.button>
+          <span className="text-sm font-geist_mono">Open Terminal</span>
+        </button>
       ) : (
         <>
           {terminalState === 'maximized' && (
@@ -322,32 +318,36 @@ export default function TerminalSection() {
                 }
               }}
             >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="w-4/5 max-w-4xl"
-              >
+              <div className="animate-fade-in w-4/5 max-w-4xl">
                 <div className="terminal-window flex flex-col">
                   <div className="terminal-header cursor-move flex-shrink-0">
                     <div className="terminal-buttons">
                       <button
+                        type="button"
                         className="terminal-button close"
                         onClick={handleCloseTerminal}
-                        title="Close"
-                      ></button>
+                        title="Close terminal"
+                      >
+                        <span className="sr-only">Close terminal</span>
+                      </button>
                       <button
+                        type="button"
                         className="terminal-button minimize"
                         onClick={handleMinimizeTerminal}
-                        title="Minimize"
-                      ></button>
+                        title="Minimize terminal"
+                      >
+                        <span className="sr-only">Minimize terminal</span>
+                      </button>
                       <button
+                        type="button"
                         className="terminal-button maximize"
                         onClick={handleMaximizeTerminal}
-                        title="Exit Full Screen"
-                      ></button>
+                        title="Toggle full screen"
+                      >
+                        <span className="sr-only">Toggle full screen</span>
+                      </button>
                     </div>
-                    <div className="terminal-title font-roboto_mono truncate">
+                    <div className="terminal-title font-geist_mono truncate">
                       andrechandra@dev: ~/andrechandra-portfolio (Full Screen)
                     </div>
                   </div>
@@ -364,10 +364,10 @@ export default function TerminalSection() {
                     {terminalHistory.length === 0 && (
                       <div className="terminal-welcome mb-2">
                         <p className="text-[#55f89f]">
-                          Welcome to Andre's Terminal!
+                          Welcome to Andre&apos;s Terminal!
                         </p>
                         <p className="text-gray-400">
-                          Type 'help' to see available commands.
+                          Type &apos;help&apos; to see available commands.
                         </p>
                       </div>
                     )}
@@ -375,24 +375,24 @@ export default function TerminalSection() {
                     {terminalHistory.map((entry, index) => (
                       <div key={index} className="mb-4">
                         <div className="terminal-line">
-                          <span className="terminal-prompt font-roboto_mono">
+                          <span className="terminal-prompt font-geist_mono">
                             $
                           </span>{' '}
-                          <span className="terminal-command font-roboto_mono">
+                          <span className="terminal-command font-geist_mono">
                             {entry.command}
                           </span>
                         </div>
-                        <div className="terminal-output font-roboto_mono mt-1">
+                        <div className="terminal-output font-geist_mono mt-1">
                           {entry.output}
                         </div>
                       </div>
                     ))}
 
                     <div className="terminal-line">
-                      <span className="terminal-prompt font-roboto_mono">
+                      <span className="terminal-prompt font-geist_mono">
                         $
                       </span>{' '}
-                      <span className="terminal-command font-roboto_mono">
+                      <span className="terminal-command font-geist_mono">
                         {userInput}
                       </span>
                       <span className="terminal-caret"></span>
@@ -409,7 +409,6 @@ export default function TerminalSection() {
                       autoCapitalize="off"
                       autoComplete="off"
                       spellCheck="false"
-                      autoFocus
                       aria-label="Terminal command input"
                       style={{
                         position: 'absolute',
@@ -419,15 +418,11 @@ export default function TerminalSection() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           ) : (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true }}
-              className={`relative terminal-container w-full ${
+            <div
+              className={`animate-fade-in relative terminal-container w-full ${
                 terminalState === 'minimized' ? 'terminal-minimized' : ''
               }`}
               onClick={focusTerminal}
@@ -445,22 +440,31 @@ export default function TerminalSection() {
                 <div className="terminal-header cursor-move">
                   <div className="terminal-buttons">
                     <button
+                      type="button"
                       className="terminal-button close"
                       onClick={handleCloseTerminal}
-                      title="Close"
-                    ></button>
+                      title="Close terminal"
+                    >
+                      <span className="sr-only">Close terminal</span>
+                    </button>
                     <button
+                      type="button"
                       className="terminal-button minimize"
                       onClick={handleMinimizeTerminal}
-                      title="Minimize"
-                    ></button>
+                      title="Minimize terminal"
+                    >
+                      <span className="sr-only">Minimize terminal</span>
+                    </button>
                     <button
+                      type="button"
                       className="terminal-button maximize"
                       onClick={handleMaximizeTerminal}
-                      title="Full Screen"
-                    ></button>
+                      title="Toggle full screen"
+                    >
+                      <span className="sr-only">Toggle full screen</span>
+                    </button>
                   </div>
-                  <div className="terminal-title font-roboto_mono truncate">
+                  <div className="terminal-title font-geist_mono truncate">
                     andrechandra@dev: ~/andrechandra-portfolio
                   </div>
                 </div>
@@ -478,10 +482,10 @@ export default function TerminalSection() {
                   {terminalHistory.length === 0 && (
                     <div className="terminal-welcome mb-2">
                       <p className="text-[#55f89f]">
-                        Welcome to Andre's Terminal!
+                        Welcome to Andre&apos;s Terminal!
                       </p>
                       <p className="text-gray-400">
-                        Type 'help' to see available commands.
+                        Type &apos;help&apos; to see available commands.
                       </p>
                     </div>
                   )}
@@ -489,22 +493,22 @@ export default function TerminalSection() {
                   {terminalHistory.map((entry, index) => (
                     <div key={index} className="mb-4">
                       <div className="terminal-line">
-                        <span className="terminal-prompt font-roboto_mono">
+                        <span className="terminal-prompt font-geist_mono">
                           $
                         </span>{' '}
-                        <span className="terminal-command font-roboto_mono">
+                        <span className="terminal-command font-geist_mono">
                           {entry.command}
                         </span>
                       </div>
-                      <div className="terminal-output font-roboto_mono mt-1">
+                      <div className="terminal-output font-geist_mono mt-1">
                         {entry.output}
                       </div>
                     </div>
                   ))}
 
                   <div className="terminal-line">
-                    <span className="terminal-prompt font-roboto_mono">$</span>{' '}
-                    <span className="terminal-command font-roboto_mono">
+                    <span className="terminal-prompt font-geist_mono">$</span>{' '}
+                    <span className="terminal-command font-geist_mono">
                       {userInput}
                     </span>
                     <span className="terminal-caret"></span>
@@ -521,7 +525,6 @@ export default function TerminalSection() {
                     autoCapitalize="off"
                     autoComplete="off"
                     spellCheck="false"
-                    autoFocus
                     aria-label="Terminal command input"
                     style={{
                       position: 'absolute',
@@ -532,7 +535,7 @@ export default function TerminalSection() {
                   />
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
         </>
       )}

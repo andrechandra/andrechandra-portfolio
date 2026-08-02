@@ -22,9 +22,9 @@ const buttonVariants = cva(
 
         // Custom Variants
         primary:
-          'bg-black text-[#55f89f] border border-[#215237] rounded-none transition-all duration-300 hover:border-[#55f89f] z-10 font-geist',
+          'bg-black text-[#55f89f] border border-[#215237] rounded-md transition-all duration-300 hover:border-[#55f89f] z-10 font-geist',
         secondary:
-          'bg-[#55f89f] text-black rounded-none relative overflow-hidden z-10 before:absolute before:inset-0 before:-z-10 before:bg-[#34c477] before:transition-transform before:ease-in-out font-geist',
+          'bg-[#55f89f] text-black rounded-md relative overflow-hidden z-10 before:absolute before:inset-0 before:-z-10 before:bg-[#34c477] before:transition-transform before:ease-in-out font-geist',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -50,6 +50,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  isExternal?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -60,6 +61,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       state,
       asChild = false,
+      isExternal = false,
       onMouseEnter,
       onMouseLeave,
       ...props
@@ -103,11 +105,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(
           buttonVariants({ variant, size, state, className }),
-          secondarySlideClass
+          secondarySlideClass,
+          isExternal && 'cursor-[var(--external-cursor)]'
         )}
         ref={ref}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        {...(isExternal && asChild
+          ? { target: '_blank', rel: 'noopener noreferrer' }
+          : {})}
         {...props}
       />
     )
