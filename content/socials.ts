@@ -9,13 +9,15 @@ export const socials = [
     icon: 'email',
     handle: profile.email,
   },
-  {
-    id: 'whatsapp',
-    label: 'WhatsApp',
-    href: 'https://wa.me/6287819337088',
-    icon: 'whatsapp',
-    handle: '+62 878-1933-7088',
-  },
+  // Phone number withheld for privacy. Re-enable to expose WhatsApp contact
+  // on the site, the resume page and the PDF.
+  // {
+  //   id: 'whatsapp',
+  //   label: 'WhatsApp',
+  //   href: 'https://wa.me/62XXXXXXXXXXX',
+  //   icon: 'whatsapp',
+  //   handle: '+62 XXX-XXXX-XXXX',
+  // },
   {
     id: 'website',
     label: 'Website',
