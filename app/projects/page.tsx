@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { projects } from '@/constants/projects'
 import { profile } from '@/content'
 import { Badge } from '@/components/ui/badge'
+import { Reveal } from '@/components/ui/reveal'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -22,18 +23,20 @@ export default function ProjectsPage() {
   return (
     <main className="bg-grid">
       <div className="mx-auto max-w-5xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
-        <p className="font-geist_mono text-xs tracking-widest text-[#55f89f]">
-          &gt;_work
-        </p>
-        <h1 className="mt-4 text-3xl font-light tracking-tight text-gray-100 sm:text-4xl">
-          Selected work
-        </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-400">
-          Products I have designed, built and shipped. Each case study covers
-          the problem, the decisions, and what actually happened.
-        </p>
+        <Reveal immediate>
+          <p className="font-geist_mono text-xs tracking-widest text-[#55f89f]">
+            &gt;_work
+          </p>
+          <h1 className="mt-4 text-3xl font-light tracking-tight text-gray-100 sm:text-4xl">
+            Selected work
+          </h1>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-400">
+            Products I have designed, built and shipped. Each case study covers
+            the problem, the decisions, and what actually happened.
+          </p>
+        </Reveal>
 
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+        <ul className="reveal-stagger mt-12 grid gap-6 sm:grid-cols-2">
           {projects.map((project) => (
             <li
               key={project.slug}

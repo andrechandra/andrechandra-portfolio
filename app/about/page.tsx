@@ -7,6 +7,7 @@ import { socialIcons } from '@/components/icons'
 import { Button } from '@/components/ui/button'
 import { LinkButton } from '@/components/ui/link-button'
 import { Badge } from '@/components/ui/badge'
+import { Reveal } from '@/components/ui/reveal'
 import {
   Tooltip,
   TooltipContent,
@@ -40,17 +41,24 @@ export default function AboutPage() {
         data={graph(buildPerson(), buildWebSite(), buildProfilePage('/about'))}
       />
       <div className="mx-auto max-w-3xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
-        <p className="font-geist_mono text-xs tracking-widest text-[#55f89f]">
-          &gt;_about
-        </p>
-        <h1 className="mt-4 text-3xl font-light tracking-tight text-gray-100 sm:text-4xl">
-          {profile.name}
-        </h1>
-        <p className="font-geist_mono mt-2 text-base tracking-tighter text-gray-400">
-          {profile.title} · {profile.location.city}, {profile.location.country}
-        </p>
+        <Reveal immediate>
+          <p className="font-geist_mono text-xs tracking-widest text-[#55f89f]">
+            &gt;_about
+          </p>
+          <h1 className="mt-4 text-3xl font-light tracking-tight text-gray-100 sm:text-4xl">
+            {profile.name}
+          </h1>
+          <p className="font-geist_mono mt-2 text-base tracking-tighter text-gray-400">
+            {profile.title} · {profile.location.city},{' '}
+            {profile.location.country}
+          </p>
+        </Reveal>
 
-        <div className="mt-10 sm:float-right sm:mb-6 sm:ml-8 sm:w-56">
+        <Reveal
+          immediate
+          delay={120}
+          className="mt-10 sm:float-right sm:mb-6 sm:ml-8 sm:w-56"
+        >
           <Image
             src={profile.photo}
             alt={`Portrait of ${profile.name}`}
@@ -59,19 +67,19 @@ export default function AboutPage() {
             sizes="(min-width: 640px) 14rem, 100vw"
             className="w-full rounded-xl border border-[#1f1f1f] object-cover"
           />
-        </div>
+        </Reveal>
 
-        <div className="mt-8 space-y-5">
+        <Reveal immediate delay={200} className="mt-8 space-y-5">
           {profile.bio.map((paragraph, index) => (
             <p key={index} className="text-base leading-relaxed text-gray-400">
               {paragraph}
             </p>
           ))}
-        </div>
+        </Reveal>
 
         <div className="clear-both" />
 
-        <section aria-labelledby="about-stack" className="mt-14">
+        <Reveal as="section" aria-labelledby="about-stack" className="mt-14">
           <h2
             id="about-stack"
             className="font-geist_mono border-b border-[#2c2c2c] pb-2 text-xs tracking-widest text-[#55f89f] uppercase"
@@ -101,9 +109,10 @@ export default function AboutPage() {
               </div>
             ))}
           </dl>
-        </section>
+        </Reveal>
 
-        <section
+        <Reveal
+          as="section"
           aria-labelledby="about-contact"
           className="mt-14 rounded-xl border border-[#2c2c2c] bg-[#0c0c0c] p-6"
         >
@@ -166,7 +175,7 @@ export default function AboutPage() {
               })}
             </ul>
           </div>
-        </section>
+        </Reveal>
       </div>
     </main>
   )

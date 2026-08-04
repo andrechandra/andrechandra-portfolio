@@ -4,6 +4,7 @@ import { profile, socials, on } from '@/content'
 import { socialIcons } from '@/components/icons'
 import { Button } from '@/components/ui/button'
 import { LinkButton } from '@/components/ui/link-button'
+import { Reveal } from '@/components/ui/reveal'
 import {
   Tooltip,
   TooltipContent,
@@ -18,26 +19,34 @@ export function Hero() {
     <section className="bg-grid-hero" aria-labelledby="hero-heading">
       <div className="mx-auto grid max-w-5xl gap-10 px-4 pt-16 pb-14 sm:px-6 sm:pt-24 lg:grid-cols-[1.35fr_1fr] lg:items-start lg:gap-14 lg:pt-28 lg:pb-20">
         <div>
-          <p className="font-geist_mono text-xs tracking-widest text-[#55f89f] sm:text-sm">
-            &gt;_hi, my name is
-          </p>
+          <Reveal immediate>
+            <p className="font-geist_mono text-xs tracking-widest text-[#55f89f] sm:text-sm">
+              &gt;_hi, my name is
+            </p>
 
-          <h1
-            id="hero-heading"
-            className="mt-4 text-4xl font-light tracking-tight text-gray-100 sm:text-5xl"
+            <h1
+              id="hero-heading"
+              className="mt-4 text-4xl font-light tracking-tight text-gray-100 sm:text-5xl"
+            >
+              {profile.name}
+            </h1>
+
+            <p className="font-geist_mono mt-3 text-lg tracking-tighter text-gray-300 sm:text-xl">
+              {profile.title}
+            </p>
+          </Reveal>
+
+          <Reveal immediate delay={120}>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-400">
+              {profile.positioning}
+            </p>
+          </Reveal>
+
+          <Reveal
+            immediate
+            delay={240}
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
-            {profile.name}
-          </h1>
-
-          <p className="font-geist_mono mt-3 text-lg tracking-tighter text-gray-300 sm:text-xl">
-            {profile.title}
-          </p>
-
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-400">
-            {profile.positioning}
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button variant="secondary" asChild isExternal>
               <a href={`mailto:${profile.email}`}>
                 <span className="font-geist_mono tracking-tighter">
@@ -52,9 +61,14 @@ export function Hero() {
                 <span className="font-geist_mono tracking-tighter">Resume</span>
               </Link>
             </Button>
-          </div>
+          </Reveal>
 
-          <ul className="mt-7 flex items-center gap-5">
+          <Reveal
+            immediate
+            delay={320}
+            as="ul"
+            className="mt-7 flex items-center gap-5"
+          >
             {links.map((social) => {
               const Icon = socialIcons[social.icon]
               return (
@@ -85,12 +99,12 @@ export function Hero() {
                 </li>
               )
             })}
-          </ul>
+          </Reveal>
         </div>
 
-        <div className="lg:pt-12">
+        <Reveal immediate delay={400} className="lg:pt-12">
           <AvailabilityCard />
-        </div>
+        </Reveal>
       </div>
     </section>
   )

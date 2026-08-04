@@ -13,7 +13,7 @@ export function SelectedWork() {
       title="Things I have shipped"
       action={{ href: '/projects', label: 'All work' }}
     >
-      <ul className="grid gap-6 sm:grid-cols-2">
+      <ul className="reveal-stagger grid gap-6 sm:grid-cols-2">
         {projects.map((project) => (
           <li
             key={project.slug}

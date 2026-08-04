@@ -14,7 +14,7 @@ export function NavLinks() {
   const pathname = usePathname()
 
   return (
-    <ul className="hidden items-center gap-4 md:flex">
+    <ul className="reveal-load-stagger hidden items-center gap-4 md:flex">
       {nav.map((item) => {
         const active =
           item.href === '/' ? pathname === '/' : pathname.startsWith(item.href)

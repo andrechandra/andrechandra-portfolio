@@ -7,6 +7,7 @@ import { RESUME_PDF_PATH } from '@/lib/resume/constants'
 import { Button } from '@/components/ui/button'
 import { LinkButton } from '@/components/ui/link-button'
 import { Badge } from '@/components/ui/badge'
+import { Reveal } from '@/components/ui/reveal'
 import { JsonLd } from '@/components/seo/json-ld'
 import {
   buildBreadcrumbs,
@@ -56,7 +57,7 @@ export default function ResumePage() {
       />
       <div className="mx-auto max-w-3xl px-4 pt-28 pb-20 sm:px-6 print:max-w-none print:px-0 print:pt-0 print:pb-0">
         {/* Header */}
-        <header className="print:mb-4">
+        <Reveal as="header" immediate className="print:mb-4">
           <h1 className="text-3xl font-light text-gray-100 sm:text-4xl print:text-2xl print:text-black">
             {doc.name}
           </h1>
@@ -107,7 +108,11 @@ export default function ResumePage() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3 print:hidden">
             <Button variant="primary" asChild isExternal>
-              <a href={RESUME_PDF_PATH} target="_blank" rel="noopener noreferrer">
+              <a
+                href={RESUME_PDF_PATH}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Download aria-hidden="true" />
                 <span className="font-geist_mono tracking-tighter">
                   Download PDF
@@ -118,12 +123,16 @@ export default function ResumePage() {
               Updated {formatMonth(doc.updatedAt.slice(0, 7))}
             </span>
           </div>
-        </header>
+        </Reveal>
 
         {/* Experience */}
-        <section className="mt-12 print:mt-6" aria-labelledby="experience">
+        <Reveal
+          as="section"
+          className="mt-12 print:mt-6"
+          aria-labelledby="experience"
+        >
           <SectionHeading id="experience">Experience</SectionHeading>
-          <ol className="mt-6 space-y-8 print:space-y-4">
+          <ol className="reveal-stagger mt-6 space-y-8 print:space-y-4">
             {doc.roles.map((role) => (
               <li key={role.id} className="print:break-inside-avoid">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -192,10 +201,14 @@ export default function ResumePage() {
               </li>
             ))}
           </ol>
-        </section>
+        </Reveal>
 
         {/* Skills */}
-        <section className="mt-12 print:mt-6" aria-labelledby="skills">
+        <Reveal
+          as="section"
+          className="mt-12 print:mt-6"
+          aria-labelledby="skills"
+        >
           <SectionHeading id="skills">Skills</SectionHeading>
           <dl className="mt-6 space-y-3 print:space-y-1.5">
             {doc.skills.map((group) => (
@@ -217,12 +230,16 @@ export default function ResumePage() {
               </dd>
             </div>
           </dl>
-        </section>
+        </Reveal>
 
         {/* Education */}
-        <section className="mt-12 print:mt-6" aria-labelledby="education">
+        <Reveal
+          as="section"
+          className="mt-12 print:mt-6"
+          aria-labelledby="education"
+        >
           <SectionHeading id="education">Education</SectionHeading>
-          <ol className="mt-6 space-y-4">
+          <ol className="reveal-stagger mt-6 space-y-4">
             {doc.education.map((entry) => (
               <li key={entry.id} className="print:break-inside-avoid">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -262,17 +279,26 @@ export default function ResumePage() {
               </li>
             ))}
           </ol>
-        </section>
+        </Reveal>
 
         <p className="font-geist_mono mt-12 text-xs tracking-tighter text-gray-600 print:hidden">
           Prefer a file?{' '}
-          <LinkButton variant="underline_link_right" asChild className="text-gray-400" isExternal>
+          <LinkButton
+            variant="underline_link_right"
+            asChild
+            className="text-gray-400"
+            isExternal
+          >
             <a href={RESUME_PDF_PATH} target="_blank" rel="noopener noreferrer">
               Download the PDF
             </a>
           </LinkButton>
           , or{' '}
-          <LinkButton variant="underline_link_right" asChild className="text-gray-400">
+          <LinkButton
+            variant="underline_link_right"
+            asChild
+            className="text-gray-400"
+          >
             <Link href="/projects">read the case studies</Link>
           </LinkButton>
           <ExternalLink className="ml-1 inline size-3" aria-hidden="true" />
