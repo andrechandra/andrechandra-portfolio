@@ -59,6 +59,7 @@ export const projects: Project[] = [
     repo: '',
     title: 'BrokerID',
     category: 'freelance',
+    featured: true,
     description: `BrokerID is an application designed to serve as a bridge and the primary platform for property agents in Indonesia, helping them fulfill all their needs in the real estate brokerage industry.`,
     thumbnail: brokerIdThumbnailNew,
     webImages: [brokerId1, brokerId2, brokerId3, brokerId4, brokerId5],

@@ -20,6 +20,7 @@ export type ProjectSection = {
 export type Project = {
   title: string
   category: string
+  featured?: boolean
   description: string
   thumbnail: StaticImageData
   images?: StaticImageData[] | string[]
