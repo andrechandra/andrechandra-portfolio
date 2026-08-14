@@ -123,7 +123,9 @@ export function MobileMenu() {
                         aria-current={active ? 'page' : undefined}
                       >
                         <span className="font-geist_mono text-2xl tracking-tighter">
-                          <span className="text-gray-700">&gt;_</span>
+                          <span aria-hidden="true" className="text-gray-700">
+                            &gt;_
+                          </span>
                           {item.label}
                         </span>
                       </Link>

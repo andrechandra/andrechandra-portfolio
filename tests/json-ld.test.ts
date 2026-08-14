@@ -36,6 +36,15 @@ describe('json-ld', () => {
     )
   })
 
+  it('keeps the WebSite name short enough for Google to use as the site name', () => {
+    const website = buildWebSite()
+    expect(website.name).toBe('Andre Chandra')
+    expect(String(website.name)).not.toContain('-')
+    expect(website.alternateName).toEqual(
+      expect.arrayContaining(['Andre Chandra Putra', 'andrechandra.dev'])
+    )
+  })
+
   it('types a store-published project as SoftwareApplication with install links', () => {
     const node = buildCaseStudy({
       slug: 'brokerid',

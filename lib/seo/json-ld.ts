@@ -71,7 +71,8 @@ export function buildWebSite(): JsonLdNode {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
     url: site.url,
-    name: `${profile.name} - ${profile.title}`,
+    name: profile.shortName,
+    alternateName: [profile.name, 'andrechandra.dev'],
     inLanguage: site.lang,
     publisher: { '@id': PERSON_ID },
   }

@@ -34,7 +34,9 @@ export function NavLinks() {
                     aria-current={active ? 'page' : undefined}
                   >
                     <span className="font-geist_mono tracking-tighter">
-                      <span className="text-gray-700">&gt;_</span>
+                      <span aria-hidden="true" className="text-gray-700">
+                        &gt;_
+                      </span>
                       {item.label}
                     </span>
                   </Link>

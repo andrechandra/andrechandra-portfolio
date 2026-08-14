@@ -2,8 +2,7 @@
 
 Portfolio and resume for Andre Chandra Putra, fullstack software engineer.
 
-Live at **[andrechandra.dev](https://andrechandra.dev)**. The previous version is
-archived at [v1.andrechandra.dev](https://v1.andrechandra.dev).
+Live at **[andrechandra.dev](https://andrechandra.dev)**.
 
 Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS · deployed on Vercel.
 
