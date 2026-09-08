@@ -43,5 +43,5 @@ next-env.d.ts
 # Generated at build time by scripts/build-resume-pdf.tsx.
 # Gitignored on purpose: regenerating on every build makes a stale PDF
 # structurally impossible.
-/public/andre-chandra-putra-resume.pdf
+/public/AndreChandraPutra_CV_*.pdf
 /public/resume.meta.json

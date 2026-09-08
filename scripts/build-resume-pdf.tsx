@@ -36,6 +36,7 @@ async function main() {
     path.join(outDir, 'resume.meta.json'),
     JSON.stringify(
       {
+        file: RESUME_PDF_FILENAME,
         generatedAt: new Date().toISOString(),
         updatedAt: doc.updatedAt,
         roles: doc.roles.length,

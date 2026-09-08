@@ -39,11 +39,14 @@ jobs:
       - name: Build
         run: pnpm build
 
+      # The filename carries the current year, so read it back from the
+      # manifest the generator writes instead of hardcoding it here.
       - name: Assert resume PDF was generated
         run: |
-          test -f public/andre-chandra-putra-resume.pdf
-          size=$(wc -c < public/andre-chandra-putra-resume.pdf)
-          echo "resume pdf: ${size} bytes"
+          pdf="public/$(jq -r .file public/resume.meta.json)"
+          test -f "$pdf"
+          size=$(wc -c < "$pdf")
+          echo "resume pdf: $pdf (${size} bytes)"
           test "$size" -gt 8000
 
       # The wrong domain in metadataBase silently corrupts every social share,
