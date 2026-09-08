@@ -12,6 +12,10 @@ const pastResumeYears = Array.from(
 
 const nextConfig: NextConfig = {
   images: {
+    // Vercel bills one image transformation per unique source/width/quality,
+    // shared across every project on the account. Serving the originals keeps
+    // this site off that quota entirely.
+    unoptimized: true,
     qualities: [75, 85],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
