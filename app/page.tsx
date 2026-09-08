@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Hero } from '@/components/home/hero'
 import { ProofStrip } from '@/components/home/proof-strip'
 import { SelectedWork } from '@/components/home/selected-work'
@@ -12,6 +13,21 @@ import {
   buildWebSite,
   graph,
 } from '@/lib/seo/json-ld'
+
+// The only images here are project thumbnails, so the home result stays text only.
+export const metadata: Metadata = {
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'none',
+      'max-video-preview': -1,
+      'max-snippet': -1,
+    },
+  },
+}
 
 export default function Home() {
   return (
