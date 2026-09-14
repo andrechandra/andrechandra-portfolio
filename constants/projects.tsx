@@ -60,6 +60,33 @@ import liatRumah5 from '@/public/projects/liat-rumah/liatrumah-5.webp'
 import liatRumah6 from '@/public/projects/liat-rumah/liatrumah-6.webp'
 import liatRumahThumbnail from '@/public/projects/liat-rumah/liatrumah-thumbnail.webp'
 
+// Neraca
+import neraca1 from '@/public/projects/neraca/neraca-1.webp'
+import neraca2 from '@/public/projects/neraca/neraca-2.webp'
+import neraca3 from '@/public/projects/neraca/neraca-3.webp'
+import neraca4 from '@/public/projects/neraca/neraca-4.webp'
+import neraca5 from '@/public/projects/neraca/neraca-5.webp'
+import neraca6 from '@/public/projects/neraca/neraca-6.webp'
+import neraca7 from '@/public/projects/neraca/neraca-7.webp'
+import neraca8 from '@/public/projects/neraca/neraca-8.webp'
+import neraca9 from '@/public/projects/neraca/neraca-9.webp'
+import neraca10 from '@/public/projects/neraca/neraca-10.webp'
+import neraca11 from '@/public/projects/neraca/neraca-11.webp'
+import neraca12 from '@/public/projects/neraca/neraca-12.webp'
+import neracaThumbnail from '@/public/projects/neraca/neraca-thumbnail.webp'
+
+// Persekutuan Remaja
+import pr1 from '@/public/projects/persekutuan-remaja/pr-1.webp'
+import pr2 from '@/public/projects/persekutuan-remaja/pr-2.webp'
+import pr3 from '@/public/projects/persekutuan-remaja/pr-3.webp'
+import pr4 from '@/public/projects/persekutuan-remaja/pr-4.webp'
+import pr5 from '@/public/projects/persekutuan-remaja/pr-5.webp'
+import pr6 from '@/public/projects/persekutuan-remaja/pr-6.webp'
+import pr7 from '@/public/projects/persekutuan-remaja/pr-7.webp'
+import pr8 from '@/public/projects/persekutuan-remaja/pr-8.webp'
+import pr9 from '@/public/projects/persekutuan-remaja/pr-9.webp'
+import prThumbnail from '@/public/projects/persekutuan-remaja/pr-thumbnail.webp'
+
 import { Project } from '@/types/project'
 
 export const projects: Project[] = [
@@ -364,6 +391,263 @@ It's a tool to share updates, encourage participation, and reflect the welcoming
         content: `A look at the pages and sections that make up the site.`,
         images: [bcs1, bcs2, bcs3, bcs4, bcs5, bcs6, bcs7, bcs8],
         imageLayout: 'web',
+      },
+    ],
+  },
+  {
+    href: '',
+    repo: '',
+    title: 'Neraca',
+    category: 'personal',
+    description: `Neraca is the expense tracker I built for myself after giving up on the ones I could download. It runs entirely on the phone, with no account and no server, and underneath the ordinary-looking screens it is a real double-entry ledger.`,
+    thumbnail: neracaThumbnail,
+    mobileImages: [
+      neraca1,
+      neraca2,
+      neraca3,
+      neraca4,
+      neraca5,
+      neraca6,
+      neraca7,
+      neraca8,
+      neraca9,
+      neraca10,
+      neraca11,
+      neraca12,
+    ],
+    stack: [
+      'Expo',
+      'React Native',
+      'TypeScript',
+      'SQLite',
+      'Drizzle ORM',
+      'Zustand',
+    ],
+    slug: 'neraca',
+    sections: [
+      {
+        id: 'the-problem',
+        title: 'Every Tracker Lies About the Same Three Things',
+        content: `I tried a lot of expense trackers before writing my own, and they all got the same things wrong.
+
+Move money from my bank to my savings account and the app counts it as spending. Pay off a credit card and the app counts it twice, once when I bought the thing and again when I paid the bill. Put money into an investment and the app tells me my month was terrible.
+
+None of that is spending. It is my money, in a different pocket.
+
+The reason they get it wrong is structural. They store a \`balance\` column on each account and then patch it on every write, and they store a transaction as a single row with one amount and one sign. Once that is your model, a transfer has nowhere to live, so it gets bolted on as a special case, and every report has to remember to exclude it. Sooner or later one of them forgets, and the balance drifts away from the transactions that are supposed to explain it.`,
+      },
+      {
+        id: 'a-ledger-not-a-list',
+        title: 'A Ledger, Not a List',
+        content: `So Neraca does not store a balance anywhere. There is no \`current_balance\` column on the accounts table, and a test asserts that it never comes back.
+
+Every transaction is a header plus a set of signed postings that must sum to zero. A Rp210.000 lunch is not one row, it is two: money leaving the account, and the same amount arriving at a category. The balance of an account is always the sum of its postings, computed on the spot. It cannot drift, because there is nothing to drift from.
+
+What that buys is that the product rules stop being rules at all and become structure:
+
+- a **transfer** posts to two accounts and no category, so it is invisible to spending analytics *by construction*, not because a query remembered to exclude it
+- a **credit card payment** is a transfer between an asset and a liability, so the expense is counted once, when you bought the thing
+- **funding a savings goal** moves money sideways, so it never reads as money gone
+- **someone paying you back** reduces what they owe rather than counting as income, because it was your money all along
+
+That last one is a sentence in the app, not just in the schema. Every one of these was a bug in some other tracker I used, and here they are all the same fix.`,
+      },
+      {
+        id: 'money-is-never-a-float',
+        title: 'Money Is Never a Float',
+        content: `Every amount in the database is an integer in minor units, and the money layer asserts integrality on every single operation. Nothing in the app is ever allowed to hold Rp210.000,00000001.
+
+Splitting a bill is where this gets sharp. Divide Rp360.000 three ways and the naive answer is fine, but divide Rp100.000 three ways and rounding each share independently loses a rupiah. Neraca uses largest-remainder allocation, so the shares always add back up to exactly the total, and the person who absorbs the odd unit is chosen deterministically rather than by accident.
+
+Currency exponent is a first-class field rather than a formatting detail, so the same stored \`35000\` renders as Rp35.000 or $350.00 depending on the account it sits in.
+
+The lint config carries a rule I am unreasonably fond of: \`parseFloat\` is banned outright. In Indonesian locale formatting, \`"1.234.567"\` is one and a bit million rupiah, and \`parseFloat\` silently returns \`1.234\`. That is a bug that loses you six figures without throwing anything, so the rule points at the project's own parser instead. \`console.log\` is banned in the same file, because financial data should never end up in a log.`,
+      },
+      {
+        id: 'invariants',
+        title: 'Three Places to Catch a Broken Number',
+        content: `A ledger is only worth having if it is actually always balanced, so the invariants are enforced at three different depths.
+
+**In SQLite**, as CHECK constraints, for everything that can be expressed in one row. Amounts cannot be zero. A business date has to match a date-shaped pattern. The month cached on a transaction has to equal the first seven characters of its own date. One constraint makes a half-populated posting impossible: a posting points at an account, or a category, or a contact, and never at two of them.
+
+**In the pure builder**, for the two rules SQLite cannot see, because they span rows: postings must sum to zero, and category postings must carry the right sign for the kind of transaction.
+
+**At runtime**, as a scanner the user can run. It walks the whole database looking for transactions that do not balance, orphaned postings, header caches that disagree with their postings, and splits that do not add up to their parent. It is in Settings as **Check my data**, and on the sample dataset it comes back with "Everything balances."
+
+Writes go through a serialised queue inside a transaction, so a double-tapped save cannot interleave, and editing a transaction deletes and rebuilds its postings rather than patching them in place. Foreign keys are explicitly switched on and then verified at startup, because expo-sqlite quietly leaves them off, which would turn every \`ON DELETE RESTRICT\` into a suggestion.`,
+      },
+      {
+        id: 'screenshots',
+        title: 'Screenshots',
+        content: `The dashboard, the activity list, analytics, goals, net worth, credit cards, investments, a person's outstanding items, the repayment sheet, the entry modal, the split editor, and the integrity check coming back clean.`,
+        images: [
+          neraca1,
+          neraca2,
+          neraca3,
+          neraca4,
+          neraca5,
+          neraca6,
+          neraca7,
+          neraca8,
+          neraca9,
+          neraca10,
+          neraca11,
+          neraca12,
+        ],
+        imageLayout: 'mobile',
+      },
+      {
+        id: 'what-it-does',
+        title: 'What It Actually Does',
+        content: `The ledger is the foundation, but the app is meant to be used every day, so it covers the shape of how I actually spend.
+
+Accounts across cash, bank, e-wallet, savings, investment and credit card, each with its own currency. Shared expenses, where only my own share becomes spending and the rest becomes money owed to me, netted per person so one friend is one relationship rather than a list of receipts. Savings goals with pacing, which tells me what I would have to put aside each month to actually make the date. Credit cards with real statement cycles, including the part where a statement day of the 31st has to clamp in February. Instalments, because buying on cicilan is one purchase and twelve payments, not twelve purchases.
+
+The dashboard tiles are configurable from a catalogue, and the one I use most is **safe to spend per day**: the balance spread across the days left in the month. It rounds down and counts today as a remaining day, so the divisor can never be zero and the number can never flatter me.`,
+      },
+      {
+        id: 'testing',
+        title: 'Testing, and a Test Runner That Enforces Architecture',
+        content: `There are 410 test cases, and the way they are split does a second job.
+
+They run as two Jest projects. The \`logic\` project covers the calculation layer and runs in **plain Node with no Expo preset**. That makes it fast, but more usefully it makes it a dependency rule with teeth: if anything in the money, date or ledger layer ever grows an \`expo-*\` import, those tests stop resolving. The architecture boundary is enforced by the test runner rather than by a lint plugin everyone learns to ignore.
+
+\`TZ\` is pinned to Asia/Jakarta so that month-boundary bugs surface in CI instead of on somebody's phone at 11pm on the 31st. Business dates are plain \`YYYY-MM-DD\` strings with an optional separate time, never \`Date\` objects, because a timestamp is the wrong type for "which day did I buy this on."
+
+The schema test is the one I would point at first. It runs the real generated migration against real SQLite and then tries to insert rows that should be impossible, proving the CHECK constraints and foreign keys actually bite rather than just existing in a file.`,
+      },
+      {
+        id: 'tech-stack',
+        title: 'Tech Stack',
+        content: `- **Expo SDK 54 + React Native** - one codebase, running through Expo Go day to day
+- **expo-sqlite + Drizzle ORM** - the whole database is a file on the phone, with generated migrations
+- **Zustand** - the store holds raw postings and nothing else; every figure on screen is derived by a pure function at render, so there is no cache to go stale
+- **A hand-written chart** on react-native-svg rather than a charting library, so the bars can be tappable and carry proper accessibility labels`,
+      },
+      {
+        id: 'looking-ahead',
+        title: 'Looking Ahead',
+        content: `Neraca is the app I open several times a day, which is the only review of it I really trust.
+
+Plenty of the schema is ahead of the interface. Recurring transactions, reminders and an email import pipeline are all modelled and tested but have no screens yet, and the backup is export-only until I build the restore path. Those are the next stretch.
+
+The part I would not change is the foundation. Starting with a ledger instead of a list of rows felt like overkill for a personal expense tracker for about a week, and has paid for itself every time since.`,
+      },
+    ],
+  },
+  {
+    href: '',
+    repo: '',
+    title: 'Persekutuan Remaja',
+    category: 'personal',
+    description: `A website for running the youth fellowship at my church: the week's theme and roster, a song presenter whose lyrics follow the recording, and a game engine with a scoreboard. It runs on one laptop plugged into a projector, with no cloud behind it.`,
+    thumbnail: prThumbnail,
+    webImages: [pr1, pr2, pr3, pr4, pr5, pr6, pr7, pr8, pr9],
+    stack: ['Next.js', 'React 19', 'TypeScript', 'SQLite', 'better-sqlite3'],
+    slug: 'persekutuan-remaja',
+    sections: [
+      {
+        id: 'one-laptop-one-projector',
+        title: 'One Laptop, One Projector',
+        content: `Every Sunday the youth fellowship needs the same handful of things: who is serving this week, what the theme is, the songs, a game, and a list of who turned up.
+
+For a long time that lived across a WhatsApp group, someone's Google Sheet, and a folder of PowerPoint files that had to be rebuilt every week. The failure mode was always the same. The laptop at the front is the only one that matters, the wifi in that room is not reliable, and there is exactly one person operating it while a room full of teenagers waits.
+
+So I built for that room specifically. No cloud, no accounts, no deployment. It is a Next.js app reading a SQLite file on the same machine through better-sqlite3, which is synchronous, so server components just read the database and render. There is no data-fetching layer, no API routes, no loading states, and nothing that can spin because a network call is hanging.
+
+The Next.js dev indicator is switched off in the config for the same reason. That screen is projected in front of the congregation, and a framework logo has no business being on it.`,
+      },
+      {
+        id: 'the-screen-the-room-sees',
+        title: 'The Screen the Room Sees',
+        content: `The home page has no controls on it. Not fewer controls, none.
+
+It shows the date, the week's theme with one word pulled out in an accent, the Bible reading, who is serving, and the songs and games chosen for that Sunday. Anything you can toggle, edit or save lives on a separate operator page. The rule is that nothing on the projected screen should be clickable by accident.
+
+The week rolls forward on Monday, not on Sunday night. \`upcomingSunday()\` returns today if today is Sunday and otherwise the next one, so the app is always showing the service being prepared rather than the one that just finished.
+
+There is a birthday block, and it is my favourite small detail. Birthdays in the seven days *before* the Sunday count, because Sunday is the first time the group is together after a midweek birthday. The block sits behind a teaser that just says "Apa Hayoo..?" and it renders even when nobody has a birthday, because a block that only appears when there is something to celebrate would give the surprise away by existing.`,
+      },
+      {
+        id: 'lyrics-that-follow-the-music',
+        title: 'Lyrics That Follow the Music',
+        content: `Songs are written as plain text where one blank line starts a new slide, with a live preview beside the editor. That is the whole authoring model and it has never needed to be more.
+
+A song can also carry a recording and a start time for every line of lyrics. When it plays, the slides follow the audio on their own.
+
+Getting that to feel right on a projector took two decisions. The presenter reads \`audio.currentTime\` inside a \`requestAnimationFrame\` loop rather than listening for \`timeupdate\`, because \`timeupdate\` fires about four times a second and at that rate the slide visibly lands after the line has already been sung. And the moment anyone touches an arrow key, following switches off. A live band drifts from the recording, and slides snapping backwards mid-song is far worse than slides sitting still while a human takes over.
+
+Where there is a long gap between lines, the deck derives a break slide that shows the first line of what is coming next, at half size and in a muted colour. The room can read ahead without starting to sing early. It is never stored, just recomputed from the timings.`,
+      },
+      {
+        id: 'teaching-the-app-to-listen',
+        title: 'Teaching the App to Listen',
+        content: `Marking the start of every line by hand is tedious, so the app can do it by listening to the recording.
+
+Whisper and ffmpeg run locally on the same laptop to transcribe the audio into timestamped words. Then the interesting part: the transcript is *not* used as lyrics. Whisper mishears worship lyrics constantly, and the typed lyrics are the ones the room is going to read.
+
+Instead I run **Needleman-Wunsch sequence alignment** over fuzzy word similarity to map the typed lyrics onto Whisper's timestamps. It is the same dynamic-programming alignment used for comparing gene sequences, and the problem has the same shape: two sequences that mostly correspond, with insertions, deletions and substitutions in between. A misheard word is skipped without shifting everything after it out of position, and any line that finds no match at all is interpolated between its timed neighbours. The normaliser collapses repeated vowels, because worship lyrics are full of contracted spellings that Whisper writes out in full.
+
+On the first real song it matched all 32 lines.
+
+The whole thing degrades gracefully. If ffmpeg, the Whisper binary or the model file is missing, the feature stops and says which one is absent, and every other part of the app carries on working.`,
+      },
+      {
+        id: 'type-that-always-fits',
+        title: 'Type That Always Fits',
+        content: `Lyrics vary wildly in length, and text spilling off the bottom of a projector is the one failure the room notices immediately.
+
+The presenter runs a scale loop that shrinks the type until the lyric area stops overflowing. The subtle part is that the stage is \`height: 100dvh\` rather than \`min-height\`, and it has to be.
+
+With \`min-height\`, the stage simply grows to fit its content instead of overflowing. \`scrollHeight\` then never exceeds \`clientHeight\`, the loop concludes everything fits, and it never fires. Meanwhile the page has \`overflow: hidden\` while presenting, so the lines that ran off the bottom cannot even be scrolled to. One wrong CSS property and the text is silently gone.`,
+      },
+      {
+        id: 'games',
+        title: 'Games',
+        content: `Games are slide decks with a scoreboard attached. A slide marked as a round turns the group cards live, and from then on the number keys 1 to 9 add a point to that group, with shift to take one away.
+
+The presenter asks how many groups there are before it starts, pickable with the mouse or by pressing the digit. Scores live in memory and reset on refresh, deliberately: a score that survives a reload is a score that has to be cleaned up before the next week.
+
+For games that go round the room one group at a time, the round menu labels each entry with whose turn it is, "Ronde 3 - Kelompok 2", computed from a rotation that skips tiebreak rounds so they do not throw the order off. There is a hidden tiebreak slide that is only reachable if the final standings come out level.
+
+Songs and games behave differently on purpose. At the end of a song, "next" returns to that song's first slide, because a song is nearly always repeated and moving to a different song should be a deliberate act. Games do not wrap, because rounds are sequential and the deck ends on the standings.`,
+      },
+      {
+        id: 'jadwal-pelayanan',
+        title: 'Jadwal Pelayanan',
+        content: `The roster is a grid of Sundays down the side and five service roles across the top, filled in with a searchable picker in every cell. It autosaves. There is no Simpan button anywhere on that table, because planning a roster is dozens of small changes and a save button just becomes a thing to forget.
+
+The picker is a custom component rather than a native select, for one reason: typing three characters of a name always beats scrolling a list of teenagers while the service is about to start.
+
+The rule that shaped this part is that **members are deactivated, never deleted**. Someone who leaves the youth group drops out of the pickers but stays in every past roster and attendance record they were part of. And if an inactive member is already assigned to a slot, the picker adds them back to its own options, so a filled slot never renders as empty just because the person is no longer active. A record somebody made should not silently disappear.
+
+Attendance is one tap per name, with the row existing in the database being the entire representation of "present". No status column, nothing to keep in sync.`,
+      },
+      {
+        id: 'screenshots',
+        title: 'Screenshots',
+        content: `**Every member name, phone number and birthday in these screenshots is blurred, and the data behind the blur is invented.** These were captured against a fresh database seeded only with songs and games, with fictional members entered by hand. No real member information was ever on screen.
+
+The projected home screen, the roster grid, the attendance board, the member list, the song library, the song editor with its live slide preview, a lyric slide as the room sees it, the group-count setup, and a scored round with the scoreboard.`,
+        images: [pr1, pr2, pr3, pr4, pr5, pr6, pr7, pr8, pr9],
+        imageLayout: 'web',
+      },
+      {
+        id: 'tech-stack',
+        title: 'Tech Stack',
+        content: `- **Next.js 15 App Router** - server components reading SQLite directly, with server actions as the only way anything is written
+- **better-sqlite3** - synchronous, so a page render is just a function call, and one file is the entire backup
+- **One hand-written stylesheet** - no Tailwind, no component library, no icon package; the icons are inline SVG
+- **URL as state** - search, filters and which week you are looking at all live in the query string, so the back button works and a link is shareable
+
+Worth being straight about: there is no test framework and no CI in this project. What it has instead is a long architecture-decision document that records why each of these choices was made, which is what made writing this case study possible a month later.`,
+      },
+      {
+        id: 'built-in-production',
+        title: 'Built in Production, One Sunday at a Time',
+        content: `The commit history is a list of Sundays. Several messages are literally named for the service they were preparing.
+
+That is the part I would repeat. Nothing in this app was designed in the abstract and then tried out. Every feature exists because something went wrong in a room the week before, and the fix had to work by the following Sunday, in front of an audience, on a laptop with no internet.`,
       },
     ],
   },
