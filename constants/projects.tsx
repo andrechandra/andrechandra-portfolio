@@ -49,6 +49,20 @@ import brokerIdv223 from '@/public/projects/brokerid/brokerid-v2-23.webp'
 import brokerIdv224 from '@/public/projects/brokerid/brokerid-v2-24.webp'
 import brokerIdv225 from '@/public/projects/brokerid/brokerid-v2-25.webp'
 
+import brokerIdv31 from '@/public/projects/brokerid/brokerid-v3-1.webp'
+import brokerIdv32 from '@/public/projects/brokerid/brokerid-v3-2.webp'
+import brokerIdv33 from '@/public/projects/brokerid/brokerid-v3-3.webp'
+import brokerIdv34 from '@/public/projects/brokerid/brokerid-v3-4.webp'
+import brokerIdv35 from '@/public/projects/brokerid/brokerid-v3-5.webp'
+import brokerIdv36 from '@/public/projects/brokerid/brokerid-v3-6.webp'
+import brokerIdv37 from '@/public/projects/brokerid/brokerid-v3-7.webp'
+import brokerIdv38 from '@/public/projects/brokerid/brokerid-v3-8.webp'
+import brokerIdv39 from '@/public/projects/brokerid/brokerid-v3-9.webp'
+import brokerIdv310 from '@/public/projects/brokerid/brokerid-v3-10.webp'
+import brokerIdv311 from '@/public/projects/brokerid/brokerid-v3-11.webp'
+import brokerIdv312 from '@/public/projects/brokerid/brokerid-v3-12.webp'
+import brokerIdv313 from '@/public/projects/brokerid/brokerid-v3-13.webp'
+
 import brokerIdThumbnailNew from '@/public/projects/brokerid/brokerid-thumbnail-new.webp'
 
 // Liat Rumah
@@ -112,7 +126,21 @@ export const projects: Project[] = [
     featured: true,
     description: `BrokerID is an application designed to serve as a bridge and the primary platform for property agents in Indonesia, helping them fulfill all their needs in the real estate brokerage industry.`,
     thumbnail: brokerIdThumbnailNew,
-    webImages: [brokerId1, brokerId2, brokerId3, brokerId4, brokerId5],
+    webImages: [
+      brokerIdv31,
+      brokerIdv32,
+      brokerIdv33,
+      brokerIdv34,
+      brokerIdv35,
+      brokerIdv36,
+      brokerIdv37,
+      brokerIdv38,
+      brokerIdv39,
+      brokerIdv310,
+      brokerIdv311,
+      brokerIdv312,
+      brokerIdv313,
+    ],
     mobileImages: [
       brokerId6,
       brokerId7,
@@ -246,6 +274,33 @@ Here's hoping Version 2 sticks the landing.`,
           brokerIdv216,
         ],
         imageLayout: 'mobile',
+      },
+      {
+        id: 'version-3-web',
+        title: 'Version 3 - Web',
+        content: `By Version 2 the app and the website had drifted into two different products. The app was light, clean, and built around Figtree. The website was still a dark landing page with a stock photo hero, written for the co-broking tool we had already moved past.
+
+So I rebuilt the public site as **the website of the app**. It now uses the same light theme, the same Figtree type, and colour tokens copied straight from the app's own theme, so an agent who lands on brokerid.app sees the product they are about to download. Every phone on the page is a real capture of the current app, never a mock-up.
+
+The home page now walks through what an agent actually does in BrokerID: listings, clients and follow ups, bank mortgage products, primary developer projects, and a shareable agent profile, followed by how listings reach buyers on [Liat Rumah](/projects/liat-rumah). There is also a new **co-broke guide** explaining what co-broking is and how agents do it, a rebuilt **agent search** page, and refreshed agent profile and listing pages.
+
+Behind it, every indexable page builds its metadata from one helper, so the canonical URL, the social preview, and the page title always describe the same page. Motion is plain CSS entrances and scroll reveals, with no animation library shipped to public pages.`,
+        images: [
+          brokerIdv31,
+          brokerIdv32,
+          brokerIdv33,
+          brokerIdv34,
+          brokerIdv35,
+          brokerIdv36,
+          brokerIdv37,
+          brokerIdv38,
+          brokerIdv39,
+          brokerIdv310,
+          brokerIdv311,
+          brokerIdv312,
+          brokerIdv313,
+        ],
+        imageLayout: 'web',
       },
       {
         id: 'tech-stack',
