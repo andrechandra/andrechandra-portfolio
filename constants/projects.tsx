@@ -282,7 +282,9 @@ Here's hoping Version 2 sticks the landing.`,
 
 So I rebuilt the public site as **the website of the app**. It now uses the same light theme, the same Figtree type, and colour tokens copied straight from the app's own theme, so an agent who lands on brokerid.app sees the product they are about to download. Every phone on the page is a real capture of the current app, never a mock-up.
 
-The home page now walks through what an agent actually does in BrokerID: listings, clients and follow ups, bank mortgage products, primary developer projects, and a shareable agent profile, followed by how listings reach buyers on [Liat Rumah](/projects/liat-rumah). There is also a new **co-broke guide** explaining what co-broking is and how agents do it, a rebuilt **agent search** page, and refreshed agent profile and listing pages.
+The home page opens on the problem agents actually live with, listings buried in WhatsApp groups, and sets a group chat beside the same listing inside the app. It then walks through what an agent does in BrokerID: listings, clients and follow ups, bank mortgage products, primary developer projects, and a shareable agent profile, followed by how listings reach buyers on [Liat Rumah](/projects/liat-rumah). Features are laid out like the app's own info cards, not a checklist.
+
+There is also a new **co-broke guide** with a table of contents that follows the reader, and the **agent search**, **agent profile** and **listing** pages were rebuilt on the app's own screens: the directory reads like the app's lists and now includes every registered agent, the profile mirrors the app's profile tab, and a listing looks like a post in the feed, with the same grey price box. Agent and client names are blurred in these screenshots.
 
 Behind it, every indexable page builds its metadata from one helper, so the canonical URL, the social preview, and the page title always describe the same page. Motion is plain CSS entrances and scroll reveals, with no animation library shipped to public pages.`,
         images: [
