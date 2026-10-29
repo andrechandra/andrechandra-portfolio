@@ -8,7 +8,7 @@ export type ProofPoint = {
 export const proof: ProofPoint[] = [
   {
     id: 'agents',
-    value: '500+',
+    value: '600+',
     label: 'agents on BrokerID',
     href: 'https://brokerid.app',
   },

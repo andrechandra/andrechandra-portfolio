@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Work | ${profile.name}`,
     description:
-      'Case studies from production software, including a property platform serving 500+ agents on iOS, Android and web.',
+      'Case studies from production software, including a property platform serving 600+ agents on iOS, Android and web.',
     type: 'website',
   },
 }

@@ -60,7 +60,9 @@ export default async function ProjectPage({ params }: Props) {
 
   const links = [
     project.href ? { label: 'Live site', href: project.href } : null,
-    project.appStoreUrl ? { label: 'App Store', href: project.appStoreUrl } : null,
+    project.appStoreUrl
+      ? { label: 'App Store', href: project.appStoreUrl }
+      : null,
     project.playStoreUrl
       ? { label: 'Google Play', href: project.playStoreUrl }
       : null,
@@ -91,82 +93,88 @@ export default async function ProjectPage({ params }: Props) {
         )}
       />
       <article className="mx-auto max-w-3xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
-        <LinkButton
-          asChild
-          variant="unstyled_link_left"
-          size="small"
-          className="font-geist_mono text-xs tracking-tighter"
-        >
-          <Link href="/projects" className="group flex items-center">
-            <ArrowLeft
-              className="size-3.5 transition-transform duration-300 group-hover:-translate-x-1"
-              aria-hidden="true"
+        <div className="reveal-load-stagger">
+          <LinkButton
+            asChild
+            variant="unstyled_link_left"
+            size="small"
+            className="font-geist_mono text-xs tracking-tighter"
+          >
+            <Link href="/projects" className="group flex items-center">
+              <ArrowLeft
+                className="size-3.5 transition-transform duration-300 group-hover:-translate-x-1"
+                aria-hidden="true"
+              />
+              All work
+            </Link>
+          </LinkButton>
+
+          <h1 className="mt-6 text-3xl font-light tracking-tight text-gray-100 sm:text-4xl">
+            {project.title}
+          </h1>
+
+          <p className="mt-4 text-base leading-relaxed text-gray-400">
+            {project.description}
+          </p>
+
+          {project.stack?.length ? (
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {project.stack.map((tech) => (
+                <li key={tech}>
+                  <Badge
+                    variant="outline"
+                    className="border-[#1f1f1f] bg-[#0c0c0c] font-normal text-gray-400"
+                  >
+                    {tech}
+                  </Badge>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          {links.length ? (
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+              {links.map((link) => (
+                <li key={link.label}>
+                  <LinkButton
+                    variant="unstyled_link_right"
+                    asChild
+                    className="cursor-[var(--external-cursor)] text-[#55f89f]"
+                  >
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="font-geist_mono tracking-tighter">
+                        {link.label}
+                      </span>
+                      <ExternalLink aria-hidden="true" />
+                    </a>
+                  </LinkButton>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-xl border border-[#1f1f1f] bg-[#0d0d0d]">
+            <Image
+              src={project.thumbnail}
+              alt={`${project.title} cover`}
+              fill
+              priority
+              sizes="(min-width: 768px) 48rem, 92vw"
+              placeholder="blur"
+              className="object-cover"
             />
-            All work
-          </Link>
-        </LinkButton>
-
-        <h1 className="mt-6 text-3xl font-light tracking-tight text-gray-100 sm:text-4xl">
-          {project.title}
-        </h1>
-
-        <p className="mt-4 text-base leading-relaxed text-gray-400">
-          {project.description}
-        </p>
-
-        {project.stack?.length ? (
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <li key={tech}>
-                <Badge
-                  variant="outline"
-                  className="border-[#1f1f1f] bg-[#0c0c0c] font-normal text-gray-400"
-                >
-                  {tech}
-                </Badge>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-
-        {links.length ? (
-          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-            {links.map((link) => (
-              <li key={link.label}>
-                <LinkButton
-                  variant="unstyled_link_right"
-                  asChild
-                  className="cursor-[var(--external-cursor)] text-[#55f89f]"
-                >
-                  <a href={link.href} target="_blank" rel="noopener noreferrer">
-                    <span className="font-geist_mono tracking-tighter">
-                      {link.label}
-                    </span>
-                    <ExternalLink aria-hidden="true" />
-                  </a>
-                </LinkButton>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-
-        <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-xl border border-[#1f1f1f] bg-[#0d0d0d]">
-          <Image
-            src={project.thumbnail}
-            alt={`${project.title} cover`}
-            fill
-            priority
-            sizes="(min-width: 768px) 48rem, 92vw"
-            placeholder="blur"
-            className="object-cover"
-          />
+          </div>
         </div>
 
         {project.sections?.map((section) => (
           <section
             key={section.id}
             id={section.id}
-            className="mt-14 scroll-mt-20"
+            className="reveal mt-14 scroll-mt-20"
             aria-labelledby={`${section.id}-heading`}
           >
             <h2

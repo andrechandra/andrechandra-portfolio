@@ -45,8 +45,8 @@ export const experience = [
       'Co-founded venture. A property co-brokerage platform for Indonesian real estate agents, built and scaled solo.',
     bullets: [
       {
-        text: 'Built and scaled a property platform to 500+ agents in Indonesia, solo-owning the full stack, infrastructure and every architectural decision.',
-        pdf: 'Built and scaled a property platform to 500+ agents, solo-owning the full stack and infrastructure.',
+        text: 'Built and scaled a property platform to 600+ agents in Indonesia, solo-owning the full stack, infrastructure and every architectural decision.',
+        pdf: 'Built and scaled a property platform to 600+ agents, solo-owning the full stack and infrastructure.',
         tags: ['scale', 'ownership'],
       },
       {

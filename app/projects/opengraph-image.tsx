@@ -12,7 +12,7 @@ export default function Image() {
       <OgCard
         eyebrow="selected work"
         title="Things I have shipped"
-        subtitle="Production software, including a property platform serving 500+ agents on iOS, Android and web."
+        subtitle="Production software, including a property platform serving 600+ agents on iOS, Android and web."
       />
     ),
     { ...size, fonts: ogFonts() }
